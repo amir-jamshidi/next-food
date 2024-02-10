@@ -3,6 +3,7 @@ import { BedtimeRounded } from "@mui/icons-material";
 import Image from "next/image";
 import logoImg from "@/public/images/logo.png";
 import React from "react";
+import SubHeader from "@/components/templates/header/SubHeader/SubHeader";
 
 const Header = () => {
   return (
@@ -32,9 +33,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="container">
-        <div className="bg-gray-300 h-10 rounded-bl-2xl rounded-br-2xl max-w-4xl mx-auto"></div>
-      </div>
+      <SubHeader />
     </header>
   );
 };
