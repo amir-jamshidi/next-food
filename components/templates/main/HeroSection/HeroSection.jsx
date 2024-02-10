@@ -19,6 +19,7 @@ const HeroSection = () => {
           شما میفرستن
         </p>
         <object data="" type=""></object>
+        <a href=""></a>
       </div>
     </div>
   );
