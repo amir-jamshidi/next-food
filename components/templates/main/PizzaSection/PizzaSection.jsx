@@ -11,6 +11,7 @@ const PizzaSection = () => {
         <span className="flex-1 inline-block h-px bg-gray-200"></span>
       </div>
       <div></div>
+      <div></div>
     </div>
   );
 };
