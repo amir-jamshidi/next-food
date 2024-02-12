@@ -4,8 +4,12 @@ import Image from "next/image";
 import logoImg from "@/public/images/logo.png";
 import React from "react";
 import SubHeader from "@/components/templates/header/SubHeader/SubHeader";
+import { isAdmin } from "@/middlewares/isAdmin";
+import Link from "next/link";
 
-const Header = () => {
+const Header = async () => {
+  const isAdminUser = await isAdmin();
+
   return (
     <header className="">
       <div className="bg-gray-200">
@@ -27,6 +31,14 @@ const Header = () => {
                 <span className="bg-gray-300 rounded-full h-9 w-9 flex justify-center items-center">
                   <BedtimeRounded className="text-gray-700" />
                 </span>
+                {isAdminUser && (
+                  <Link
+                    href={"/p-admin"}
+                    className="bg-green-500 px-4 py-2 rounded-full text-gray-100 text-sm"
+                  >
+                    پنل مدیریت
+                  </Link>
+                )}
                 <LoginLink />
               </div>
             </div>

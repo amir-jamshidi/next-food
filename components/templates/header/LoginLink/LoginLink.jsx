@@ -1,10 +1,7 @@
 import { cookies } from "next/headers";
 import Link from "next/link";
-import c from "@/models/category";
-import connectToMongo from "@/configs/db";
 
 const LoginLink = async () => {
-
   let state = "";
   if (cookies().get("token")) {
     state = "logout";

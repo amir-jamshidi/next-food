@@ -4,11 +4,11 @@ import mongoose from "mongoose"
 const userSchema = new mongoose.Schema({
     fullname: {
         type: String,
-        required: false
+        default: `User${Date.now()}`
     },
     email: {
         type: String,
-        required: false
+        default: ''
     },
     phone: {
         type: String,
@@ -18,6 +18,10 @@ const userSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
+    role: {
+        type: String,
+        default: 'USER'
+    }
 }, { timestamps: true });
 
 const model = mongoose.models.User || mongoose.model('User', userSchema);
