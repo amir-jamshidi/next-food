@@ -1,12 +1,12 @@
 import TitleSection from "@/components/modules/TitleSection/TitleSection";
 import React from "react";
 
-const PizzaSection = () => {
+const DessertSection = () => {
   return (
     <div>
-      <TitleSection title="پیتزا" />
+      <TitleSection title={"دسـر ها"} />
     </div>
   );
 };
 
-export default PizzaSection;
+export default DessertSection;
