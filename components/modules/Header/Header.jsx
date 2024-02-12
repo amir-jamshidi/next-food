@@ -8,6 +8,7 @@ import { isAdmin } from "@/middlewares/isAdmin";
 import Link from "next/link";
 
 const Header = async () => {
+  //Check Is Admin
   const isAdminUser = await isAdmin();
 
   return (
