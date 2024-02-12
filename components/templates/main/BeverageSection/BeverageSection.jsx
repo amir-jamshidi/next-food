@@ -1,12 +1,12 @@
 import TitleSection from "@/components/modules/TitleSection/TitleSection";
 import React from "react";
 
-const DessertSection = () => {
+const BeverageSection = () => {
   return (
     <div>
-      <TitleSection title={"دسـر"} />
+      <TitleSection title={"نوشیدنی"} />
     </div>
   );
 };
 
-export default DessertSection;
+export default BeverageSection;
