@@ -18,10 +18,10 @@ export const getMeals = async (category) => {
     try {
         connectToMongo();
         const { _id: categoryID } = await categoryModel.findOne({ href: `/${category}` })
-        const meals = await mealModel.find({ categoryID }).lean().select('name description href _id');
-        meals.forEach(meal => {
-            meal._id = String(meal._id);
-        })
+        const meals = await mealModel.find({ categoryID }).lean()//.select('name description href _id');
+        // meals.forEach(meal => {
+        //     meal._id = String(meal._id);
+        // })
         if (meals) {
             return meals;
         }

@@ -12,6 +12,16 @@
     src: url('../assets/fonts/mo-bold.woff');
 }
 
+@font-face {
+    font-family: 'dana';
+    src: url('../assets/fonts/dana-medium.ttf');
+}
+
+@font-face {
+    font-family: 'dana-bold';
+    src: url('../assets/fonts/dana-demi-bold.ttf');
+}
+
 * {
     font-family: 'morabba';
 }

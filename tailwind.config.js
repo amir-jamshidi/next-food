@@ -26,7 +26,9 @@ module.exports = {
       },
       fontFamily: {
         'morraba': 'morraba',
-        'morabba-bold': 'morabba-bold'
+        'morabba-bold': 'morabba-bold',
+        "dana": "dana",
+        "dana-bold": "dana-bold"
       }
     },
   },
