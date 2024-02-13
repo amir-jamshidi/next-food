@@ -93,6 +93,7 @@ export const loginUserHandler = async (_prevState, formData) => {
         name: 'token',
         value: token,
         httpOnly: true,
+        expires: Date.now() + (24 * 60 * 60 * 1000) * 10,
         path: '/'
     })
     return {

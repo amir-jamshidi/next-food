@@ -8,7 +8,7 @@ const HeroSection = () => {
       <div className="flex items-center justify-center relative">
         <Image src={heroImg} fill style={{ objectFit: "contain" }} />
       </div>
-      <div className="my-16 text-center flex flex-col gap-y-2">
+      <div className="my-28 text-center flex flex-col gap-y-2">
         <h1 className="text-4xl text-gray-800 mb-8">
           نکستـــ <span className="text-red-500 font-morabba-bold">فـــود</span>
         </h1>

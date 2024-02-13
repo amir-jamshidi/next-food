@@ -12,7 +12,7 @@ const SubHeader = async () => {
           {menus.map((menu) => (
             <li key={menu._id}>
               <Link href={menu.href}>
-                <p className="text-gray-800">{menu.title}</p>
+                <p className="text-gray-800 menu-item transition-colors">{menu.title}</p>
               </Link>
             </li>
           ))}

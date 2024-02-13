@@ -32,6 +32,7 @@ const Header = async () => {
                 <span className="bg-gray-300 rounded-full h-9 w-9 flex justify-center items-center">
                   <BedtimeRounded className="text-gray-700" />
                 </span>
+                <LoginLink />
                 {isAdminUser && (
                   <Link
                     href={"/p-admin"}
@@ -40,7 +41,6 @@ const Header = async () => {
                     پنل مدیریت
                   </Link>
                 )}
-                <LoginLink />
               </div>
             </div>
           </div>
