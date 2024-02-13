@@ -1,5 +1,5 @@
 import connectToMongo from "@/configs/db";
-import pizzaModel from '@/models/pizza'
+import pizzaModel from '@/models/meal'
 import { isAdmin } from "@/middlewares/isAdmin"
 import { NextResponse } from "next/server";
 

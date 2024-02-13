@@ -49,6 +49,6 @@ const schema = new mongoose.Schema({
 }, { timestamps: true });
 
 
-const model = mongoose.models.Pizza || mongoose.model('Pizza', schema);
+const model = mongoose.models.Meal || mongoose.model('Meal', schema);
 
 export default model
