@@ -10,6 +10,7 @@ import {
   RemoveRounded,
   ShoppingCartRounded,
 } from "@mui/icons-material";
+import Link from "next/link";
 
 const MealItem = ({ meal }) => {
   return (
@@ -23,21 +24,17 @@ const MealItem = ({ meal }) => {
           {meal.description}
         </p>
       </div>
-      <div className="flex items-center mt-4 ">
+      <div className="flex items-center mt-5 ">
         <span className="bg-gray-100 h-8 w-8 flex rounded-full -mr-4"></span>
         <span className="flex-1 h-px border-dashed inline-block border"></span>
-        <div className="flex justify-center items-center mx-2">
-          <span className="w-7 h-7 rounded-full bg-green-500 flex justify-center items-center">
-            <AddRounded className="text-gray-100" />
-          </span>
-          <p className="font-dana min-w-10 text-center text-gray-700">0</p>
-          <span className="w-7 h-7 rounded-full bg-red-500 flex justify-center items-center">
-            <RemoveRounded className="text-gray-100" />
-          </span>
-        </div>
+        <Link
+          href={`/meals/${meal.href}`}
+          className="w-28 border text-center hover:bg-red-500 hover:text-gray-100 transition-all hover:border-red-500 border-red-300 rounded-full py-1 text-gray-700"
+        >
+          سفارش
+        </Link>
         <span className="flex-1 h-px border-dashed inline-block border"></span>
         <span className="bg-gray-100 h-8 w-8 flex rounded-full -ml-4"></span>
-
       </div>
       <div className="my-4 flex px-3 justify-between">
         <div className="flex items-center gap-x-0.5">

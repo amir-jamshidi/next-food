@@ -2,7 +2,7 @@ import TitleSection from "@/components/modules/TitleSection/TitleSection";
 import { getCategoires } from "@/libs/requests";
 import Image from "next/image";
 import React from "react";
-import imgSam from "@/public/images/pizzasam.png";
+
 import CategoryItem from "@/components/modules/CategoryItem/CategoryItem";
 const CategoriesSection = async () => {
   const categories = await getCategoires();
@@ -11,7 +11,7 @@ const CategoriesSection = async () => {
     <div>
       <TitleSection title={"دسته بندی هــا"} />
       <div
-        className="grid grid-cols-6 gap-2 my-12 divide-x divide-black/5"
+        className="grid grid-cols-6 gap-x-2 my-12 divide-x divide-black/0"
         dir="ltr"
       >
         {categories.map((category) => (

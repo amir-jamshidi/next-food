@@ -33,3 +33,8 @@
 .menu-item:hover {
     color: #ef4444;
 }
+
+.category-item:hover {
+    transform: scale(1.1);
+}
+
