@@ -3,12 +3,7 @@ import Image from "next/image";
 //
 import imgSam from "@/public/images/pizzasam.png";
 import {
-  AccessAlarmRounded,
-  AddRounded,
   FavoriteBorderRounded,
-  PlusOneRounded,
-  RemoveRounded,
-  ShoppingCartRounded,
 } from "@mui/icons-material";
 import Link from "next/link";
 
