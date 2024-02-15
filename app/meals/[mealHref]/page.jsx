@@ -32,6 +32,7 @@ const page = async ({ params: { mealHref } }) => {
               <p className="text-gray-700 mt-3">{meal.description}</p>
             </div>
             <MealBuyBox mealID={String(meal._id)} sizes={sizes} />
+            <span>s</span>
           </div>
         </div>
       </div>
