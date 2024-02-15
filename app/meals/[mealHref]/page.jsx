@@ -34,6 +34,7 @@ const page = async ({ params: { mealHref } }) => {
             <MealBuyBox mealID={String(meal._id)} sizes={sizes} />
             <span>s</span>
             <p></p>
+            <img src="" alt="" />
           </div>
         </div>
       </div>
