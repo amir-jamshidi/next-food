@@ -4,6 +4,7 @@ import imgSam from "@/public/images/pizzasam.png";
 import Image from "next/image";
 import MealBuyBox from "@/components/templates/meal/MealBuyBox/MealBuyBox";
 import { MopedRounded } from "@mui/icons-material";
+import Link from "next/link";
 const page = async ({ params: { mealHref } }) => {
   const meal = await getMeal(mealHref);
 
@@ -39,7 +40,7 @@ const page = async ({ params: { mealHref } }) => {
               style={{ objectFit: "contain" }}
             />
           </div>
-          <div className="my-6 flex flex-col justify-center">
+          <div className="my-6 flex flex-col justify-center py-6">
             <div className="flex flex-col gap-y-2">
               <h1 className="font-morabba-bold text-red-500 text-2xl text-center">
                 {meal.name}
@@ -51,7 +52,14 @@ const page = async ({ params: { mealHref } }) => {
               sizes={sizes}
               sellers={sellers}
             />
-            <div className="w-full bg-gray-100"></div>
+            <div className="w-full bg-white flex mt-4 items-center gap-x-1">
+              <p className="text-gray-700">دسته بندی ها : </p>
+              <Link href={`/category/${meal.categoryID.href}`}>
+                <p className="bg-red-500 rounded-full px-4 py-1 text-gray-100">
+                  {meal.categoryID.title}
+                </p>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

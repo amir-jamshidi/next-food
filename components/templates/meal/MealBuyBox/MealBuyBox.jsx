@@ -1,16 +1,33 @@
 "use client";
 import { VerifiedRounded } from "@mui/icons-material";
+import axios from "axios";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 
 const MealBuyBox = ({ sizes, mealID, sellers }) => {
   const [sizeID, setSizeID] = useState("");
   const [sellerID, setSellerID] = useState("");
-
+  const [price, setPrice] = useState(0);
+  const [sizeName, setSizeName] = useState("");
   const addToCart = () => {
-    if (!sizeID) {
-      toast.error("لطفا سایز سفارش رو مشخص کن");
-    }
+    if (!sizeID) return toast.error("لطفا سایز سفارش رو مشخص کن");
+    if (!sellerID) return toast.error("لطفا رستوران رو مشخص کن");
+    const cart = {
+      mealID,
+      sellerID,
+      sizeID,
+      price,
+      size: sizeName,
+    };
+
+    axios
+      .post("/cart", cart)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -49,6 +66,8 @@ const MealBuyBox = ({ sizes, mealID, sellers }) => {
           <div
             onClick={() => {
               setSizeID(size._id);
+              setPrice(size.price);
+              setSizeName(size.size);
             }}
             key={size._id}
             className={`${
