@@ -9,8 +9,9 @@ export const POST = async (req) => {
         const cart = await cartModel.create({
             mealID, sizeID, size, price, totalPrice: price
         })
-
-        return NextResponse.json(cart);
+        if (cart) {
+            return NextResponse.json(cart, { status: 201 });
+        }
     } catch (error) {
         return NextResponse.json({ message: error.message }, { status: 500 });
     }
