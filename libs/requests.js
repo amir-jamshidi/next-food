@@ -3,6 +3,8 @@ import menuModel from '@/models/menu';
 import mealModel from '@/models/meal';
 import categoryModel from '@/models/category'
 import sellerModel from '@/models/seller';
+import cartModel from '@/models/cart'
+import { isLogin } from "@/middlewares/isLogin";
 export const getMenu = async () => {
     try {
         connectToMongo();
@@ -46,6 +48,17 @@ export const getMeal = async (href) => {
         const meal = await mealModel.findOne({ href: `/${href}` }).populate('categoryID').populate({ path: 'sellerID', model: sellerModel }).lean();
         if (meal) {
             return meal
+        }
+    } catch (error) {
+        return error
+    }
+}
+export const getCart = async () => {
+    try {
+        const isLoginUser = await isLogin();
+        const cart = await cartModel.find({ userID: isLoginUser._id }).populate('mealID').lean();
+        if (cart) {
+            return cart
         }
     } catch (error) {
         return error

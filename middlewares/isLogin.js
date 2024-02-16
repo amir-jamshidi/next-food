@@ -11,7 +11,7 @@ export const isLogin = async () => {
             const { id } = jwt.verify(token, process.env.JWT);
             const user = await userModel.findOne({ _id: id });
             if (user) {
-                return true;
+                return user;
             }
             return false
         } catch (error) {
