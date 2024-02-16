@@ -31,7 +31,7 @@ const MealBuyBox = ({ sizes, mealID }) => {
             <span className={`${sizeID === size._id ? "flex" : "hidden"} ml-1`}>
               <VerifiedRounded className="text-green-500" />
             </span>
-            <p>سایز : {size.size}</p>
+            <p className="text-gray-700">سایز : {size.size}</p>
             <span className="flex-1 h-px border border-dashed mx-3"></span>
             <div className="flex gap-x-1">
               <p className="font-dana-bold text-red-500">

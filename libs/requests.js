@@ -2,7 +2,7 @@ import connectToMongo from "@/configs/db"
 import menuModel from '@/models/menu';
 import mealModel from '@/models/meal';
 import categoryModel from '@/models/category'
-
+import sellerModel from '@/models/seller';
 export const getMenu = async () => {
     try {
         connectToMongo();
@@ -43,7 +43,7 @@ export const getCategoires = async () => {
 export const getMeal = async (href) => {
     try {
         connectToMongo();
-        const meal = await mealModel.findOne({ href: `/${href}` }).lean();
+        const meal = await mealModel.findOne({ href: `/${href}` }).populate('categoryID').populate({ path: 'sellerID', model: sellerModel }).lean();
         if (meal) {
             return meal
         }

@@ -5,6 +5,7 @@ import Image from "next/image";
 import MealBuyBox from "@/components/templates/meal/MealBuyBox/MealBuyBox";
 const page = async ({ params: { mealHref } }) => {
   const meal = await getMeal(mealHref);
+
   const sizes = meal.sizes.map((size) => {
     return {
       size: size.size,
@@ -32,10 +33,7 @@ const page = async ({ params: { mealHref } }) => {
               <p className="text-gray-700 mt-3">{meal.description}</p>
             </div>
             <MealBuyBox mealID={String(meal._id)} sizes={sizes} />
-            <span>s</span>
-            <p></p>
-            <img src="" alt="" />
-            <h1></h1>
+            <div className="w-full bg-gray-100"></div>
           </div>
         </div>
       </div>
