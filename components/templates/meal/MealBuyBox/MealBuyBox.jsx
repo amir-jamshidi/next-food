@@ -21,7 +21,7 @@ const MealBuyBox = ({ sizes, mealID, sellers }) => {
     };
 
     axios
-      .post("/cart", cart)
+      .post("/api/cart", cart)
       .then((res) => {
         console.log(res);
       })
