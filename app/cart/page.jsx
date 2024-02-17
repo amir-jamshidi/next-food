@@ -1,11 +1,15 @@
 import { getCart } from "@/libs/requests";
 import imgSam from "@/public/images/pizzasam.png";
-import { AddRounded, RemoveRounded } from "@mui/icons-material";
+import {
+  AddRounded,
+  RemoveRounded,
+  VerifiedRounded,
+} from "@mui/icons-material";
 import Image from "next/image";
 
 const page = async () => {
   const cart = await getCart();
-
+  const totalPrice = cart.reduce((cur, acc) => cur + acc.totalPrice, 0);
   return (
     <div>
       <div className="flex items-center mt-8">
@@ -72,14 +76,31 @@ const page = async () => {
             <span className="flex-1 h-px bg-red-100"></span>
           </div>
           <div className="py-2 flex flex-col gap-y-2">
-            <p className="text-sm text-gray-600">آدرس خودتو انتخاب کن</p>
+            <p className="text-sm text-gray-600 px-1">آدرس خودتو انتخاب کن</p>
             <div className="flex flex-col gap-y-1">
-              <p className="bg-green-300 py-2 px-3 rounded-lg text-gray-700">
+              <p className="bg-gray-100 py-2 px-3 rounded-lg text-gray-700 cursor-pointer">
+                <span className="ml-2">
+                  <VerifiedRounded className="text-green-500" />
+                </span>
                 آدرس خونمون
               </p>
-              <p className="bg-gray-100 py-2 px-3 rounded-lg text-gray-700">
+              <p className="bg-gray-100 py-2 px-3 rounded-lg text-gray-700 cursor-pointer">
                 آدرس ویلامون
               </p>
+            </div>
+          </div>
+          <div className="py-2 flex flex-col gap-y-2">
+            <p className="text-sm text-gray-600 px-1">صورت حساب</p>
+            <div>
+              <div className="flex justify-between">
+                <p>قیمت کل</p>
+                <div className="flex gap-x-0.5">
+                  <p className="font-dana-bold">
+                    {totalPrice.toLocaleString()}
+                  </p>
+                  <p>تومان</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
