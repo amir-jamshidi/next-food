@@ -6,10 +6,12 @@ import React from "react";
 import SubHeader from "@/components/templates/header/SubHeader/SubHeader";
 import { isAdmin } from "@/middlewares/isAdmin";
 import Link from "next/link";
+import { getCartCount } from "@/libs/requests";
 
 const Header = async () => {
   //Check Is Admin
   const isAdminUser = await isAdmin();
+  const cartCount = await getCartCount();
 
   return (
     <header className="">
@@ -20,6 +22,7 @@ const Header = async () => {
               <Link href={"/cart"}>
                 <span className="bg-gray-300 rounded-full h-9 w-9 flex justify-center items-center">
                   <ShoppingCartRounded className="text-gray-700" />
+                  <span>{cartCount}</span>
                 </span>
               </Link>
             </div>

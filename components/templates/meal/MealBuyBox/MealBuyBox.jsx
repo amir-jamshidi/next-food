@@ -1,10 +1,12 @@
 "use client";
 import { insertToCart } from "@/libs/postRequests";
 import { VerifiedRounded } from "@mui/icons-material";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 
 const MealBuyBox = ({ sizes, mealID, sellers }) => {
+  const router = useRouter();
   const [sizeID, setSizeID] = useState("");
   const [sellerID, setSellerID] = useState("");
   const [price, setPrice] = useState(0);
@@ -20,6 +22,7 @@ const MealBuyBox = ({ sizes, mealID, sellers }) => {
       size: sizeName,
     };
     insertToCart(cart, (res) => {
+      router.refresh();
       toast.success("به سبد خرید اضافه شد");
       setSizeID("");
       setSellerID("");

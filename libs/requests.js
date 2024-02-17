@@ -64,3 +64,13 @@ export const getCart = async () => {
         return error
     }
 }
+export const getCartCount = async () => {
+    try {
+        connectToMongo();
+        const isLoginUser = await isLogin();
+        const cartCount = await cartModel.find({ userID: isLoginUser._id }).countDocuments();
+        return cartCount
+    } catch (error) {
+        return error
+    }
+}
