@@ -1,5 +1,5 @@
 import LoginLink from "@/components/templates/header/LoginLink/LoginLink";
-import { BedtimeRounded } from "@mui/icons-material";
+import { BedtimeRounded, ShoppingCartRounded } from "@mui/icons-material";
 import Image from "next/image";
 import logoImg from "@/public/images/logo.png";
 import React from "react";
@@ -16,8 +16,12 @@ const Header = async () => {
       <div className="bg-gray-200">
         <div className="h-16 container">
           <div className="flex w-full h-full">
-            <div className="flex-1">
-              <Image src={logoImg} width={45} height={45} priority />
+            <div className="flex-1 flex items-center justify-start">
+              <Link href={"/cart"}>
+                <span className="bg-gray-300 rounded-full h-9 w-9 flex justify-center items-center">
+                  <ShoppingCartRounded className="text-gray-700" />
+                </span>
+              </Link>
             </div>
             <div className="flex-1 flex justify-center items-center">
               <h1 className="text-lg font-morabba-bold">

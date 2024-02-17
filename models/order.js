@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
-import { cartSchema, cartSchema } from "./cart";
+import { cartSchema } from "./cart";
 
-const cartSchema = new mongoose.Schema({
+const orderSchema = new mongoose.Schema({
     userID: {
         type: mongoose.Types.ObjectId,
         required: true,
@@ -10,7 +10,7 @@ const cartSchema = new mongoose.Schema({
     addressID: {
         type: mongoose.Types.ObjectId,
         ref: "Address",
-        required: true
+        required: false
     },
     mealDetails: {
         type: [cartSchema],
@@ -26,3 +26,8 @@ const cartSchema = new mongoose.Schema({
     }
 
 })
+
+
+const model = mongoose.models.Order || mongoose.model('Order', orderSchema);
+
+export default model
