@@ -73,11 +73,11 @@ const page = async () => {
             <div className="">
               <div className="w-96 border border-black/5 bg-white p-2 rounded-2xl">
                 <div className="flex justify-center items-center mb-3">
-                  <h2 className="mx-2 text-gray-700">صورتحساب</h2>
+                  <h2 className="mx-2 text-gray-700">جزئیات پرداخت</h2>
                 </div>
 
                 <div className="py-2 flex flex-col gap-y-2">
-                  <p className="text-sm text-gray-600 px-1">صورت حساب</p>
+                  <p className="text-sm text-gray-600 px-1 mb-2">صورت حساب</p>
 
                   <div className="flex flex-col bg-gray-100 py-2 px-3 rounded-lg text-gray-700">
                     <div className="flex justify-between py-1">

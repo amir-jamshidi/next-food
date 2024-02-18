@@ -22,7 +22,7 @@ const Header = async () => {
               <Link href={"/cart"}>
                 <span className="relative bg-gray-300 rounded-full h-9 w-9 flex justify-center items-center">
                   <ShoppingCartRounded className="text-gray-700" />
-                  <span className="absolute -bottom-0 text-white -left-1.5 font-dana bg-red-500 rounded-full text-sm w-4 h-4 flex justify-center items-center">
+                  <span className="absolute -bottom-0 text-white -left-1.5 font-dana bg-red-500 rounded-full text-xs w-4 h-4 flex justify-center items-center">
                     {cartCount}
                   </span>
                 </span>

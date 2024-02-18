@@ -32,21 +32,26 @@ const BuyCartButton = ({ price, addresses }) => {
   return (
     <>
       <div className="py-2 flex flex-col gap-y-2">
-        <p className="text-sm text-gray-600 px-1">آدرس خودتو انتخاب کن</p>
+        <p className="text-sm text-gray-600 px-1 mb-2">آدرس خودتو انتخاب کن</p>
         <div className="flex flex-col gap-y-1">
           {addresses.map((address) => (
-            <p
+            <div
               onClick={() => setAddressID(address._id)}
               key={address._id}
-              className="bg-gray-100 py-2 px-3 rounded-lg text-gray-700 cursor-pointer"
+              className="bg-gray-100 py-2 px-3 rounded-lg text-gray-700 cursor-pointer flex justify-between"
             >
-              {addressID === address._id && (
-                <span className="ml-2">
-                  <VerifiedRounded className="text-green-500" />
-                </span>
-              )}
-              {address.name}
-            </p>
+              <div>
+                {addressID === address._id && (
+                  <span className="ml-2">
+                    <VerifiedRounded className="text-green-500" />
+                  </span>
+                )}
+                {address.name}
+              </div>
+              <div className="">
+                <p className="text-red-500 text-sm">تحویل فوری</p>
+              </div>
+            </div>
           ))}
         </div>
       </div>
