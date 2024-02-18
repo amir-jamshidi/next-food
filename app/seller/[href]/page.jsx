@@ -1,6 +1,6 @@
 import React from "react";
 
-const SellerDetails = () => {
+const SellerDetails = ({ params }) => {
   return <div>SellerDetails</div>;
 };
 
