@@ -20,9 +20,11 @@ const Header = async () => {
           <div className="flex w-full h-full">
             <div className="flex-1 flex items-center justify-start">
               <Link href={"/cart"}>
-                <span className="bg-gray-300 rounded-full h-9 w-9 flex justify-center items-center">
+                <span className="relative bg-gray-300 rounded-full h-9 w-9 flex justify-center items-center">
                   <ShoppingCartRounded className="text-gray-700" />
-                  <span>{cartCount}</span>
+                  <span className="absolute -bottom-0 text-white -left-1.5 font-dana bg-red-500 rounded-full text-sm w-4 h-4 flex justify-center items-center">
+                    {cartCount}
+                  </span>
                 </span>
               </Link>
             </div>

@@ -10,7 +10,7 @@ const orderSchema = new mongoose.Schema({
     addressID: {
         type: mongoose.Types.ObjectId,
         ref: "Address",
-        required: false
+        required: true
     },
     mealDetails: {
         type: [cartSchema],

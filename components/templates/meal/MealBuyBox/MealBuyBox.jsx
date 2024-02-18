@@ -20,6 +20,7 @@ const MealBuyBox = ({ sizes, mealID, sellers }) => {
       sizeID,
       price,
       size: sizeName,
+      action: "PLUS",
     };
     insertToCart(cart, (res) => {
       router.refresh();

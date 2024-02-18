@@ -4,6 +4,7 @@ import mealModel from '@/models/meal';
 import categoryModel from '@/models/category'
 import sellerModel from '@/models/seller';
 import cartModel from '@/models/cart'
+import addressModel from '@/models/address'
 import { isLogin } from "@/middlewares/isLogin";
 export const getMenu = async () => {
     try {
@@ -72,5 +73,18 @@ export const getCartCount = async () => {
         return cartCount
     } catch (error) {
         return error
+    }
+}
+export const getAddresses = async () => {
+    try {
+        connectToMongo();
+        const isLoginUser = await isLogin();
+        const addresses = await addressModel.find({ userID: isLoginUser._id });
+        const addressesCompress = addresses.map(addres => {
+            return { _id: String(addres._id), name: addres.name }
+        });
+        return addressesCompress
+    } catch (err) {
+        return err
     }
 }
