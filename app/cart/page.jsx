@@ -14,7 +14,7 @@ const page = async () => {
   const sendPrice = 15000;
   return (
     <>
-      {cart?.length > 0 ? (
+      {cart?.length > 0 && isLoginUser ? (
         <div>
           <div className="flex items-center mt-8">
             <span className="flex-1 inline-block h-px bg-black/5"></span>
@@ -28,7 +28,7 @@ const page = async () => {
               <div className="bg-gray-100  p-2 rounded-2xl">
                 <ul className="flex flex-col divide-y">
                   {cart.map((c) => (
-                    <li className="py-2.5">
+                    <li key={c._id} className="py-2.5">
                       <div className="flex">
                         <div className="flex-1 flex items-center gap-x-2">
                           <div className="relative">
