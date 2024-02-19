@@ -57,6 +57,7 @@ export const getMeal = async (href) => {
 export const getCart = async () => {
     try {
         const isLoginUser = await isLogin();
+        if (!isLoginUser) return []
         const cart = await cartModel.find({ userID: isLoginUser._id }).populate('mealID').lean();
         if (cart) {
             return cart
@@ -79,6 +80,7 @@ export const getAddresses = async () => {
     try {
         connectToMongo();
         const isLoginUser = await isLogin();
+        if (!isLoginUser) return [];
         const addresses = await addressModel.find({ userID: isLoginUser._id });
         const addressesCompress = addresses.map(addres => {
             return { _id: String(addres._id), name: addres.name }

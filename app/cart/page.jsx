@@ -1,10 +1,13 @@
 import CartItemControl from "@/components/modules/CartItemControl/CartItemControl";
 import BuyCartButton from "@/components/templates/BuyCartButton/BuyCartButton";
 import { getAddresses, getCart } from "@/libs/requests";
+import { isLogin } from "@/middlewares/isLogin";
 import imgSam from "@/public/images/pizzasam.png";
 import Image from "next/image";
 
 const page = async () => {
+  const isLoginUser = await isLogin();
+
   const cart = await getCart();
   const addresses = await getAddresses();
   const totalPrice = cart.reduce((cur, acc) => cur + acc.totalPrice, 0);
