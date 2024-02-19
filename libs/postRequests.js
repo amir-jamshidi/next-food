@@ -6,13 +6,17 @@ export const insertToCart = (cart, callback) => {
     axios
         .post("/api/cart", cart)
         .then((res) => {
-            console.log(res);
+            console.log(res.status);
             if (res.status === 201 || res.status === 200) {
                 callback(res)
             }
         })
         .catch((err) => {
             console.log(err);
-            toast.error('خطای ناشناخته')
+            if (err.response.status === 401) {
+                toast.error('لطفا اول ثبت نام کنید')
+            } else {
+                toast.error('خطای ناشناخته')
+            }
         });
 }
