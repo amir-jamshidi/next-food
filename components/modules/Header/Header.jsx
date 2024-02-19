@@ -7,11 +7,16 @@ import SubHeader from "@/components/templates/header/SubHeader/SubHeader";
 import { isAdmin } from "@/middlewares/isAdmin";
 import Link from "next/link";
 import { getCartCount } from "@/libs/requests";
+import { isLogin } from "@/middlewares/isLogin";
 
 const Header = async () => {
   //Check Is Admin
   const isAdminUser = await isAdmin();
-  const cartCount = await getCartCount();
+  const isLoginUser = await isLogin();
+  let cartCount = 0;
+  if (isLoginUser) {
+    cartCount = await getCartCount();
+  }
 
   return (
     <header className="">
