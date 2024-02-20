@@ -32,7 +32,7 @@ const page = async () => {
                       <div className="flex">
                         <div className="flex-1 flex items-center gap-x-2">
                           <div className="relative">
-                            <Image src={imgSam} height={100} width={100} />
+                            <Image src={c.mealID.img} height={100} width={100} />
                           </div>
                           <div className="flex flex-col">
                             <p className="text-lg text-red-500">

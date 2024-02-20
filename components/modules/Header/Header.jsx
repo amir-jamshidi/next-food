@@ -34,11 +34,13 @@ const Header = async () => {
               </Link>
             </div>
             <div className="flex-1 flex justify-center items-center">
-              <h1 className="text-lg font-morabba-bold">
-                نکستـــ{" "}
-                <span className="text-red-500 font-morabba-bold mr-0.5 ">
-                  فـــود
-                </span>
+              <h1 className="text-2xl">
+                <Link href={"/"} className="font-morabba-bold">
+                  نکستـــ{" "}
+                  <span className="text-red-500 font-morabba-bold mr-0.5 ">
+                    فـــود
+                  </span>
+                </Link>
               </h1>
             </div>
             <div className="flex-1 flex justify-end">

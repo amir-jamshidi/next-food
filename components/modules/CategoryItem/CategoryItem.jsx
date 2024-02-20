@@ -9,12 +9,8 @@ const CategoryItem = ({ category }) => {
         className="cursor-pointer py-5 rounded-2xl transition-all category-item "
         key={category._id}
       >
-        <div className="relative rounded-full">
-          <Image
-            src={imgSam}
-            style={{ objectFit: "contain" }}
-            alt=""
-          />
+        <div className="relative rounded-full h-36">
+          <Image src={category?.img} fill style={{ objectFit: "contain" }} alt="" />
         </div>
         <div className="flex justify-center">
           <p className="text-lg text-red-500">{category.title}</p>

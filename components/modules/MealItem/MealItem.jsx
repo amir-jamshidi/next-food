@@ -2,16 +2,14 @@ import React from "react";
 import Image from "next/image";
 //
 import imgSam from "@/public/images/pizzasam.png";
-import {
-  FavoriteBorderRounded,
-} from "@mui/icons-material";
+import { FavoriteBorderRounded } from "@mui/icons-material";
 import Link from "next/link";
 
 const MealItem = ({ meal }) => {
   return (
     <div key={meal._id} className="bg-white rounded-2xl">
       <div className="relative h-60">
-        <Image src={imgSam} style={{ objectFit: "contain" }} fill alt="" />
+        <Image src={meal?.img} className="p-4" style={{ objectFit: "contain" }} fill alt="" />
       </div>
       <div className="flex justify-center flex-col items-center px-3 gap-y-3">
         <h3 className="font-morabba-bold text-red-500">{meal.name}</h3>
