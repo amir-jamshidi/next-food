@@ -1,5 +1,6 @@
 import MealItem from "@/components/modules/MealItem/MealItem";
 import MealSlider from "@/components/modules/MealSlider/MealSlider";
+import MoreSection from "@/components/modules/MoreSection/MoreSection";
 import TitleSection from "@/components/modules/TitleSection/TitleSection";
 import { getMeals } from "@/libs/requests";
 import React from "react";
@@ -14,6 +15,7 @@ const SandwichSection = async () => {
           <MealItem key={sandwich._id} meal={sandwich} />
         ))}
       </div>
+      <MoreSection href={'sandwich'}/>
     </div>
   );
 };
