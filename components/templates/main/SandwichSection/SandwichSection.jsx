@@ -10,7 +10,7 @@ const SandwichSection = async () => {
   return (
     <div>
       <TitleSection title={"ساندویــچ"} />
-      <div className="grid grid-cols-4 gap-2 my-12">
+      <div className="grid grid-cols-4 gap-2 mt-12">
         {sandwiches.map((sandwich) => (
           <MealItem key={sandwich._id} meal={sandwich} />
         ))}

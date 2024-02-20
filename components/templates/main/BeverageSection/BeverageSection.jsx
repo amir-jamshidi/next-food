@@ -10,7 +10,7 @@ const BeverageSection = async () => {
   return (
     <div>
       <TitleSection title={"نوشیدنی"} />
-      <div className="grid grid-cols-4 gap-2 my-12">
+      <div className="grid grid-cols-4 gap-2 mt-12">
         {beverages.map((beverage) => (
           <MealItem key={beverage._id} meal={beverage} />
         ))}
