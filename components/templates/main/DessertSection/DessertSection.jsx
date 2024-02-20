@@ -1,4 +1,5 @@
 import MealItem from "@/components/modules/MealItem/MealItem";
+import MoreSection from "@/components/modules/MoreSection/MoreSection";
 import TitleSection from "@/components/modules/TitleSection/TitleSection";
 import { getMeals } from "@/libs/requests";
 import React from "react";
@@ -13,6 +14,7 @@ const DessertSection = async () => {
           <MealItem key={desserts._id} meal={desserts} />
         ))}
       </div>
+      <MoreSection href={'dessert'}/>
     </div>
   );
 };
