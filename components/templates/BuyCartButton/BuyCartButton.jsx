@@ -1,5 +1,5 @@
 "use client";
-import { VerifiedRounded } from "@mui/icons-material";
+
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -14,39 +14,45 @@ const BuyCartButton = ({ price, addresses }) => {
   const completeBuy = async () => {
     if (!addressID) return toast.error("لطفا آدرس خودتو انتخاب کن");
     setIsLoading(true);
-    axios
+    const promis = axios
       .post("/api/order", { price, addressID })
       .then((res) => {
         if (res.status === 201) {
-          toast.success("سفارش ثبت شد و در حال ارساله");
           setIsLoading(false);
-          router.refresh();
+          router.push("/panel");
         }
       })
       .catch((err) => {
         setIsLoading(false);
-        toast.error("خطای ناشناخته");
       });
+
+    toast.promise(promis, {
+      loading: "انتقال به درگاه بانکی ...",
+      success: "پرداخت موفق",
+      error: "خطای ناشناخته",
+    });
   };
 
   return (
     <>
-      <div className="py-2 flex flex-col gap-y-2">
-        <p className="text-sm text-gray-600 px-1 mb-2">آدرس خودتو انتخاب کن</p>
+      <div className="py-2 flex flex-col gap-y-2 mt-2">
+        <p className="text-sm text-gray-600 px-1 text-center">
+          آدرس خودتو انتخاب کن
+        </p>
         <div className="flex flex-col gap-y-1">
           {addresses.map((address) => (
             <div
               onClick={() => setAddressID(address._id)}
               key={address._id}
-              className="bg-gray-100 py-2 px-3 rounded-lg text-gray-700 cursor-pointer flex justify-between"
+              className="bg-white relative px-4 items-center rounded-lg text-gray-700 cursor-pointer flex justify-between"
             >
+              <span
+                className={`${
+                  addressID === address._id ? "w-2.5" : "w-0"
+                } absolute transition-all bg-green-500 inline-block right-0 h-full rounded-r-md`}
+              ></span>
               <div>
-                {addressID === address._id && (
-                  <span className="ml-2">
-                    <VerifiedRounded className="text-green-500" />
-                  </span>
-                )}
-                {address.name}
+                <p className="text-gray-700 py-2">{address.name}</p>
               </div>
               <div className="">
                 <p className="text-red-500 text-sm">تحویل فوری</p>

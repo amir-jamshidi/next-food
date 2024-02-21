@@ -2,8 +2,8 @@ import CartItemControl from "@/components/modules/CartItemControl/CartItemContro
 import BuyCartButton from "@/components/templates/BuyCartButton/BuyCartButton";
 import { getAddresses, getCart } from "@/libs/requests";
 import { isLogin } from "@/middlewares/isLogin";
-import imgSam from "@/public/images/pizzasam.png";
 import Image from "next/image";
+import Link from "next/link";
 
 const page = async () => {
   const isLoginUser = await isLogin();
@@ -32,11 +32,17 @@ const page = async () => {
                       <div className="flex">
                         <div className="flex-1 flex items-center gap-x-2">
                           <div className="relative">
-                            <Image src={c.mealID.img} height={100} width={100} />
+                            <Image
+                              src={c.mealID.img}
+                              height={100}
+                              width={100}
+                            />
                           </div>
                           <div className="flex flex-col">
                             <p className="text-lg text-red-500">
-                              {c.mealID.name}
+                              <Link href={`/meals/${c.mealID.href}`}>
+                                {c.mealID.name}
+                              </Link>
                             </p>
                             <p className="text-gray-700 text-sm">{c.size}</p>
                           </div>
@@ -73,16 +79,18 @@ const page = async () => {
                 </ul>
               </div>
             </div>
-            <div className="">
-              <div className="w-96 border border-black/5 bg-white p-2 rounded-2xl">
-                <div className="flex justify-center items-center mb-3">
+            <div>
+              <div className="w-96  bg-gray-100 p-2 rounded-2xl">
+                <div className="flex justify-center items-center mb-3 border-b pb-2 border-b-gray-200">
                   <h2 className="mx-2 text-gray-700">جزئیات پرداخت</h2>
                 </div>
 
                 <div className="py-2 flex flex-col gap-y-2">
-                  <p className="text-sm text-gray-600 px-1 mb-2">صورت حساب</p>
+                  <p className="text-sm text-gray-600 px-1 text-center">
+                    صورت حساب خرید
+                  </p>
 
-                  <div className="flex flex-col bg-gray-100 py-2 px-3 rounded-lg text-gray-700">
+                  <div className="flex flex-col bg-white py-2 px-3 rounded-lg text-gray-700">
                     <div className="flex justify-between py-1">
                       <p>قیمت کل</p>
                       <div className="flex gap-x-0.5 ">
@@ -93,7 +101,7 @@ const page = async () => {
                       </div>
                     </div>
 
-                    <span className="w-full h-px bg-gray-200/80 my-2"></span>
+                    <span className="w-full h-px bg-gray-200/50 my-2"></span>
 
                     <div className="flex justify-between py-1">
                       <p>هزینه پیک</p>
@@ -105,7 +113,7 @@ const page = async () => {
                       </div>
                     </div>
 
-                    <span className="w-full h-px bg-gray-200/80 my-2"></span>
+                    <span className="w-full h-px bg-gray-200/50 my-2"></span>
 
                     <div className="flex justify-between py-1">
                       <p>جمع کل</p>
@@ -136,7 +144,7 @@ const page = async () => {
               </h1>
               <span className="flex-1 inline-block h-px bg-black/5"></span>
             </div>
-            <div className="bg-white mt-8 p-4 py-20 flex justify-center rounded-2xl">
+            <div className="bg-white mt-8 p-4 py-36 flex justify-center rounded-2xl">
               <p>سبد خرید شما خالیه !!!</p>
             </div>
           </div>

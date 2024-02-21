@@ -25,9 +25,9 @@ const Header = async () => {
           <div className="flex w-full h-full">
             <div className="flex-1 flex items-center justify-start">
               <Link href={"/cart"}>
-                <span className="relative bg-gray-300 rounded-full h-9 w-9 flex justify-center items-center">
-                  <ShoppingCartRounded className="text-gray-700" />
-                  <span className="absolute -bottom-0 text-white -left-1.5 font-dana bg-red-500 rounded-full text-xs w-4 h-4 flex justify-center items-center">
+                <span className="relative bg-red-500 rounded-full h-10 w-10 flex justify-center items-center">
+                  <ShoppingCartRounded className="text-white" />
+                  <span className="absolute -bottom-0 text-white -left-1.5 font-dana bg-red-500 rounded-full text-xs w-4 h-4 flex justify-center items-center border-2 border-gray-200">
                     {cartCount}
                   </span>
                 </span>
@@ -45,8 +45,8 @@ const Header = async () => {
             </div>
             <div className="flex-1 flex justify-end">
               <div className="h-full flex items-center gap-x-1.5">
-                <span className="bg-gray-300 rounded-full h-9 w-9 flex justify-center items-center">
-                  <BedtimeRounded className="text-gray-700" />
+                <span className="bg-gray-700 rounded-full h-10 w-10 flex justify-center items-center">
+                  <BedtimeRounded className="text-gray-100" />
                 </span>
                 <LoginLink />
                 {isAdminUser && (

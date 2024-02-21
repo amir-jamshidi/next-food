@@ -17,11 +17,29 @@ export const getMenu = async () => {
 
     }
 }
-export const getMeals = async (category) => {
+export const getMeals = async (category, sort) => {
     try {
         connectToMongo();
+        let meals;
         const { _id: categoryID } = await categoryModel.findOne({ href: `/${category}` })
-        const meals = await mealModel.find({ categoryID }).populate('categoryID').lean()//.select('name description href _id');
+        if (sort) {
+            switch (sort) {
+                case "popular": {
+                    meals = await mealModel.find({ categoryID }).populate('categoryID').sort({ sellCount: -1 }).lean()
+                    break
+                }
+                case "expensive": {
+                    meals = await mealModel.find({ categoryID }).populate('categoryID').sort({ basePrice: 1 }).lean()
+                    break
+                }
+                case "inexpensive": {
+                    meals = await mealModel.find({ categoryID }).populate('categoryID').sort({ basePrice: -1 }).lean()
+                    break
+                }
+            }
+        } else {
+            meals = await mealModel.find({ categoryID }).populate('categoryID').lean()
+        }
         // meals.forEach(meal => {
         //     meal._id = String(meal._id);
         // })

@@ -2,8 +2,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 export const insertToCart = (cart, callback) => {
-    console.log('add ------------------------------------------------------');
-    axios
+    const promis = axios
         .post("/api/cart", cart)
         .then((res) => {
             console.log(res.status);
@@ -19,4 +18,11 @@ export const insertToCart = (cart, callback) => {
                 toast.error('خطای ناشناخته')
             }
         });
+    toast.promise(promis,
+        {
+            loading: 'صبر کنید ...',
+            success: 'به سبد خرید اضافه شد',
+            error: 'خطای ناشناخته',
+        }
+    )
 }
