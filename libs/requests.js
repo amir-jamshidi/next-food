@@ -29,11 +29,11 @@ export const getMeals = async (category, sort) => {
                     break
                 }
                 case "expensive": {
-                    meals = await mealModel.find({ categoryID }).populate('categoryID').sort({ basePrice: 1 }).lean()
+                    meals = await mealModel.find({ categoryID }).populate('categoryID').sort({ basePrice: -1 }).lean()
                     break
                 }
                 case "inexpensive": {
-                    meals = await mealModel.find({ categoryID }).populate('categoryID').sort({ basePrice: -1 }).lean()
+                    meals = await mealModel.find({ categoryID }).populate('categoryID').sort({ basePrice: 1 }).lean()
                     break
                 }
             }
