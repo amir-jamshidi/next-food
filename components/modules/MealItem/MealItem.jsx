@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 //
-import imgSam from "@/public/images/pizzasam.png";
 import { FavoriteBorderRounded } from "@mui/icons-material";
 import Link from "next/link";
 

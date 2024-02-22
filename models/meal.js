@@ -16,9 +16,9 @@ const schema = new mongoose.Schema({
         type: String,
         required: true
     },
-    image: {
+    img: {
         type: String,
-        required: false
+        required: true
     },
     description: {
         type: String,
@@ -44,6 +44,14 @@ const schema = new mongoose.Schema({
     },
     sizes: {
         type: [sizeSchema],
+        required: true
+    },
+    basePrice: {
+        type: Number,
+        required: true
+    },
+    sellCount: {
+        type: Number,
         required: true
     }
 }, { timestamps: true });

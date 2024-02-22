@@ -67,6 +67,7 @@ const Category = async ({ params, searchParams }) => {
           <MealItem key={meal._id} meal={meal} />
         ))}
       </div>
+
     </div>
   );
 };

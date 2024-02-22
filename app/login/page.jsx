@@ -36,14 +36,13 @@ const Login = () => {
   }, [preUserState]);
   return (
     <div className="flex flex-col justify-center items-center login-container">
-      <h1 className="text-4xl font-morabba-bold mb-10">
-        نکستـــ <span className="text-red-500 mr-1">فـــود</span>
-      </h1>
-      <div className="w-96 p-4 rounded bg-white flex items-center flex-col">
-        <h3 className="text-gray-800 text-xl font-morabba">
-          فرم ورود به حساب کاربری
-        </h3>
-        <div className="w-full mt-4">
+      <div className="w-[360px] rounded-2xl bg-white flex items-center flex-col">
+        <div className=" bg-gray-50 w-full rounded-2xl py-3 text-center border border-gray-100">
+          <h3 className="text-gray-700 text-xl font-morabba-bold">
+            ورود | ثبت نام
+          </h3>
+        </div>
+        <div className="w-full py-4 px-3 mt-2 ">
           {preUserState.isSuccess ? (
             <CodeForm
               loginUserAction={loginUserAction}
@@ -57,16 +56,16 @@ const Login = () => {
             />
           )}
           <div className="mt-2 flex ">
-            <p className="text-sm text-blue-500 ">
+            {/* <p className="text-sm text-blue-500 ">
               نیاز به راهنمایی بیشتر داری ؟
-            </p>
+            </p> */}
           </div>
         </div>
       </div>
       <div className="mt-5">
         <Link
           href={"/"}
-          className=" px-2 py-1 rounded transition-colors text-green-500 text-sm hover:bg-green-500 hover:text-gray-100"
+          className=" px-2 py-1 rounded transition-colors text-red-500 text-sm  hover:text-red-600"
         >
           برگشت به صفحه اصلی
         </Link>

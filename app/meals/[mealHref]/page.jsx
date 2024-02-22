@@ -4,6 +4,7 @@ import Image from "next/image";
 import MealBuyBox from "@/components/templates/meal/MealBuyBox/MealBuyBox";
 import { KeyboardArrowLeftRounded, MopedRounded } from "@mui/icons-material";
 import Link from "next/link";
+import AdditionalSlider from "@/components/templates/AdditionalSlider/AdditionalSlider";
 const page = async ({ params: { mealHref } }) => {
   const meal = await getMeal(mealHref);
 
@@ -56,7 +57,7 @@ const page = async ({ params: { mealHref } }) => {
             </div>
             <div className="flex flex-col gap-y-2">
               <h1 className="font-morabba-bold text-red-500 text-2xl text-center">
-              {meal.name}
+                {meal.name}
               </h1>
               <p className="text-gray-700 mt-3">{meal.description}</p>
             </div>
@@ -75,6 +76,15 @@ const page = async ({ params: { mealHref } }) => {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="">
+        <div className="flex items-center gap-x-4">
+          <span className="flex-1 h-px bg-gray-200"></span>
+          <h3 className="text-red-500 text-lg font-morabba-bold">اضافی هــا</h3>
+          <span className="flex-1 h-px bg-gray-200"></span>
+        </div>
+          <AdditionalSlider />
       </div>
     </div>
   );

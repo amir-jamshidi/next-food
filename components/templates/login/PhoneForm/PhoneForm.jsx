@@ -5,8 +5,8 @@ import { LocalPhoneRounded } from "@mui/icons-material";
 const PhoneForm = ({ preUserAction, errors }) => {
   return (
     <form action={preUserAction} className="flex flex-col gap-1">
-      <div className="rounded flex bg-gray-100 items-center w-full gap-x-1.5 p-1">
-        <span className="bg-gray-200 rounded p-1">
+      <div className="rounded-2xl flex bg-gray-100 items-center w-full gap-x-1.5 p-1.5">
+        <span className="bg-gray-200 rounded-xl p-1">
           <LocalPhoneRounded className="text-gray-700" />
         </span>
         <input

@@ -53,7 +53,7 @@ export const getMeals = async (category, sort) => {
 export const getCategoires = async () => {
     try {
         connectToMongo();
-        const categoires = await categoryModel.find({}).lean();
+        const categoires = await categoryModel.find({}).limit(6).lean();
         if (categoires) {
             return categoires;
         }

@@ -26,8 +26,8 @@
     font-family: 'morabba';
 }
 
-.login-container .min-h-s{
-    min-height: calc(100vh - 168px);
+.login-container{
+    min-height: calc(100vh - 200px);
 }
 
 .menu-item:hover {

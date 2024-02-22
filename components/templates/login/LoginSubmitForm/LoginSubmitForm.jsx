@@ -8,8 +8,8 @@ const LoginSubmitForm = ({ value }) => {
       type="submit"
       disabled={pending} 
       className={`${
-        pending ? "bg-gray-300" : "bg-violet-500 "
-      } w-full rounded text-gray-100 py-2 text-base transition-colors`}
+        pending ? "bg-gray-300" : "bg-green-500 "
+      } w-full rounded-2xl text-gray-100 py-2.5 text-base transition-colors`}
     >{`${pending ? "صبر کنید ..." : value}`}</button>
   );
 };
