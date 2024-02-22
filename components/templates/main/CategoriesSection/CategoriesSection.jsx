@@ -3,6 +3,7 @@ import { getCategoires } from "@/libs/requests";
 import Image from "next/image";
 import React from "react";
 
+
 import CategoryItem from "@/components/modules/CategoryItem/CategoryItem";
 const CategoriesSection = async () => {
   const categories = await getCategoires();
