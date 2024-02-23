@@ -11,18 +11,17 @@ export const insertToCart = (cart, callback) => {
             }
         })
         .catch((err) => {
-            console.log(err);
             if (err.response.status === 401) {
-                toast.error('لطفا اول ثبت نام کنید')
+                throw new Error('لطفا اول ثبت نام کنید');
             } else {
                 toast.error('خطای ناشناخته')
             }
         });
-    toast.promise(promis,
+    toast.promise((promis),
         {
             loading: 'صبر کنید ...',
             success: 'به سبد خرید اضافه شد',
-            error: 'خطای ناشناخته',
+            error: (err)=> err.message,
         }
     )
 }
