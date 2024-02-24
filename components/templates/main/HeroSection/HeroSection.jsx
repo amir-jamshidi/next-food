@@ -12,15 +12,15 @@ const HeroSection = () => {
           <Image src={heroImg} fill style={{ objectFit: "contain" }} className="my-4" />
         </div>
         <div className="my-28 text-center flex flex-col gap-y-2">
-          <h1 className="text-4xl text-gray-800 mb-8">
+          <h1 className="text-4xl text-gray-800 dark:text-gray-100 mb-8">
             نکستـــ{" "}
             <span className="text-red-500 font-morabba-bold">فـــود</span>
           </h1>
-          <p className="text-gray-800 text-lg font-morabba-bold">
+          <p className="text-gray-800 text-lg font-morabba-bold dark:text-gray-200">
             هرجایی که باشی تو کمترین زمان ممکن نکست فود غدای شمارو داغ داغ بهتون
             میرسونه حتی اگه توی بیابون باشی ! پس خیالت راحت راحت باشه :)
           </p>
-          <p className="text-gray-700 mx-4">
+          <p className="text-gray-700 mx-4 dark:text-gray-300">
             ما توی سراسر ایران شعبه داریم و این تضمین رو بهتون میدیم که تموم سر
             آشپزهای ما آموزش دیده هستن و خوشمزه ترین غذا ها و فست فود هارو برای
             شما میفرستن

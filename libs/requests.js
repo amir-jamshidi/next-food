@@ -6,6 +6,8 @@ import sellerModel from '@/models/seller';
 import cartModel from '@/models/cart'
 import addressModel from '@/models/address'
 import { isLogin } from "@/middlewares/isLogin";
+import userModel from '@/models/user';
+import orderModel from '@/models/order';
 export const getMenu = async () => {
     try {
         connectToMongo();
@@ -106,5 +108,50 @@ export const getAddresses = async () => {
         return addressesCompress
     } catch (err) {
         return err
+    }
+}
+export const getUsersAdmin = async () => {
+    try {
+        connectToMongo();
+        const users = await userModel.find({});
+        if (users) {
+            return users
+        }
+    } catch (error) {
+        return error;
+    }
+}
+export const getOrdersAdmin = async () => {
+    try {
+        connectToMongo();
+        const orders = await orderModel.find({}).populate('userID').populate('addressID')
+        if (orders) {
+            return orders
+        }
+    } catch (error) {
+        return error
+    }
+}
+export const getCategoriesAdmin = async () => {
+    try {
+        connectToMongo();
+        const categoires = await categoryModel.find({}).lean();
+        if (categoires) {
+            return categoires
+        }
+    } catch (err) {
+        return err
+    }
+}
+
+export const getMealsAdmin = async () => {
+    try {
+        connectToMongo();
+        const meals = await mealModel.find({}).populate('categoryID');
+        if (meals) {
+            return meals
+        }
+    } catch (error) {
+        return error
     }
 }

@@ -35,8 +35,8 @@ const MealBuyBox = ({ sizes, mealID, sellers }) => {
   
   return (
     <>
-      <div className="bg-gray-100 flex flex-col mt-5 rounded-2xl px-4 py-5 gap-y-1 ">
-        <p className="mb-2 text-gray-600 mx-2 text-sm">
+      <div className="bg-gray-100 dark:bg-gray-700 flex flex-col mt-5 rounded-2xl px-4 py-5 gap-y-1 ">
+        <p className="mb-2 text-gray-600 dark:text-gray-400 mx-2 text-sm">
           لطفا فست فودی را انتخاب کنید
         </p>
         {sellers.map((seller) => (
@@ -45,22 +45,22 @@ const MealBuyBox = ({ sizes, mealID, sellers }) => {
               setSellerID(seller._id);
             }}
             key={seller._id}
-            className={`relative bg-white flex px-4 items-center py-2 rounded-lg  cursor-pointer transition-colors`}
+            className={`relative bg-white dark:bg-gray-800 flex px-4 items-center py-2 rounded-lg  cursor-pointer transition-colors`}
           >
             <span
               className={`${
                 sellerID === seller._id ? "w-2.5" : "w-0"
               } absolute transition-all bg-green-500 inline-block right-0 h-full rounded-r-md`}
             ></span>
-            <p className="text-gray-700">نام : {seller.name}</p>
-            <span className="flex-1 h-px border border-dashed mx-3"></span>
+            <p className="text-gray-700 dark:text-gray-200">نام : {seller.name}</p>
+            <span className="flex-1 h-px border border-dashed border-gray-200 dark:border-gray-700 mx-3"></span>
             <div className="flex gap-x-1">
               <p className="text-red-500">ارسال فوری</p>
             </div>
           </div>
         ))}
 
-        <p className="mb-2 text-gray-600 mx-2 text-sm mt-2">
+        <p className="mb-2 text-gray-600 dark:text-gray-400 mx-2 text-sm mt-2">
           لطفا سایز را انتخاب کنید
         </p>
 
@@ -72,15 +72,15 @@ const MealBuyBox = ({ sizes, mealID, sellers }) => {
               setSizeName(size.size);
             }}
             key={size._id}
-            className={`relative bg-white flex px-4 items-center py-2 rounded-lg cursor-pointer transition-colors`}
+            className={`relative bg-white dark:bg-gray-800 flex px-4 items-center py-2 rounded-lg cursor-pointer transition-colors`}
           >
             <span
               className={`${
                 sizeID === size._id ? "w-2.5" : "w-0"
               } absolute transition-all bg-green-500 inline-block right-0 h-full rounded-r-md`}
             ></span>
-            <p className="text-gray-700">سایز : {size.size}</p>
-            <span className="flex-1 h-px border border-dashed mx-3"></span>
+            <p className="text-gray-700 dark:text-gray-200">سایز : {size.size}</p>
+            <span className="flex-1 h-px border border-gray-200 dark:border-gray-700 border-dashed mx-3"></span>
             <div className="flex gap-x-1">
               <p className="font-dana-bold text-red-500">
                 {Number(size.price).toLocaleString()}

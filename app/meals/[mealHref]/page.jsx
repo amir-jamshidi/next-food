@@ -25,7 +25,7 @@ const page = async ({ params: { mealHref } }) => {
 
   return (
     <div>
-      <div className="my-8 bg-white p-4 rounded-2xl">
+      <div className="my-8 dark:bg-gray-800 bg-white p-4 rounded-2xl">
         <div className="grid grid-cols-2">
           <div className="relative flex justify-center items-center">
             <div className="delay-100 group overflow-hidden w-10 h-10 z-10 transition-all hover:w-36 rounded-full flex-nowrap bg-red-500 absolute right-0 top-0 flex py-2 px-2 gap-x-1.5 items-center">
@@ -59,15 +59,15 @@ const page = async ({ params: { mealHref } }) => {
               <h1 className="font-morabba-bold text-red-500 text-2xl text-center">
                 {meal.name}
               </h1>
-              <p className="text-gray-700 mt-3">{meal.description}</p>
+              <p className="text-gray-700 mt-3 dark:text-gray-300">{meal.description}</p>
             </div>
             <MealBuyBox
               mealID={String(meal._id)}
               sizes={sizes}
               sellers={sellers}
             />
-            <div className=" bg-white flex mt-6 pt-4 items-center gap-x-1 border-t border-t-black/5 mx-10 justify-center ">
-              <p className="text-gray-700">دسته بندی ها : </p>
+            <div className=" bg-white dark:bg-gray-800 flex mt-6 pt-4 items-center gap-x-1 border-t dark:border-t-gray-700 border-t-black/5 mx-10 justify-center ">
+              <p className="text-gray-700 dark:text-gray-300">دسته بندی ها : </p>
               <Link href={`/category/${meal.categoryID.href}`}>
                 <p className="bg-red-500 rounded-full px-4 py-0.5 text-gray-100">
                   {meal.categoryID.title}
@@ -79,10 +79,10 @@ const page = async ({ params: { mealHref } }) => {
       </div>
 
       <div className="">
-        <div className="flex items-center gap-x-4">
-          <span className="flex-1 h-px bg-gray-200"></span>
+        <div className="flex items-center gap-x-4 mx-4">
+          <span className="flex-1 h-px bg-gray-200 dark:bg-gray-700"></span>
           <h3 className="text-red-500 text-lg font-morabba-bold">اضافی هــا</h3>
-          <span className="flex-1 h-px bg-gray-200"></span>
+          <span className="flex-1 h-px bg-gray-200 dark:bg-gray-700"></span>
         </div>
           <AdditionalSlider />
       </div>

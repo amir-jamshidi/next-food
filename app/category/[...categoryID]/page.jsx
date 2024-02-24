@@ -10,37 +10,39 @@ const Category = async ({ params, searchParams }) => {
   return (
     <div>
       <div className="flex items-center mt-8">
-        <span className="flex-1 inline-block h-px bg-black/5"></span>
+        <span className="flex-1 inline-block h-px bg-black/5 dark:bg-gray-700"></span>
         <h1 className="text-center text-3xl font-morabba-bold mx-5 text-red-500">
           {meals[0].categoryID.title}
         </h1>
-        <span className="flex-1 inline-block h-px bg-black/5"></span>
+        <span className="flex-1 inline-block h-px bg-black/5 dark:bg-gray-700"></span>
       </div>
 
-      <div className="flex justify-between bg-white rounded-xl py-3 mb-4 mt-12 px-4">
+      <div className="flex justify-between dark:bg-gray-800 bg-white rounded-xl py-3 mb-4 mt-12 px-4">
         <div className="flex-1 gap-x-3 flex">
           <span>
-            <SortRounded className="text-gray-700 " />
+            <SortRounded className="text-gray-700 dark:text-gray-200 " />
           </span>
           <Link href={`/category/${params.categoryID}?sort=popular`}>
-            <span className="text-gray-600 cursor-pointer hover:text-red-500 transition-colors">
+            <span className="text-gray-600 dark:text-gray-300 cursor-pointer dark:hover:text-red-500 hover:text-red-500 transition-colors">
               محبوبترین
             </span>
           </Link>
           <Link href={`/category/${params.categoryID}?sort=inexpensive`}>
-            <span className="text-gray-600 cursor-pointer hover:text-red-500 transition-colors">
+            <span className="text-gray-600 dark:text-gray-300 cursor-pointer dark:hover:text-red-500 hover:text-red-500 transition-colors">
               ارزانترین
             </span>
           </Link>
           <Link href={`/category/${params.categoryID}?sort=expensive`}>
-            <span className="text-gray-600 cursor-pointer hover:text-red-500 transition-colors">
+            <span className="text-gray-600 dark:text-gray-300 cursor-pointer dark:hover:text-red-500 hover:text-red-500 transition-colors">
               گرانترین
             </span>
           </Link>
         </div>
         {searchParams.sort && (
           <div className="flex flex-1 justify-start gap-x-1.5">
-            <p className="text-gray-700">فیلتر اعمال شده : </p>
+            <p className="text-gray-700 dark:text-gray-300">
+              فیلتر اعمال شده :{" "}
+            </p>
             <div className="relative">
               <span className="bg-red-500 rounded-full px-3 py-1 pl-6 text-gray-100 text-sm">
                 {searchParams?.sort === "popular"
@@ -67,7 +69,6 @@ const Category = async ({ params, searchParams }) => {
           <MealItem key={meal._id} meal={meal} />
         ))}
       </div>
-
     </div>
   );
 };

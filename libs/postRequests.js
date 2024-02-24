@@ -21,7 +21,7 @@ export const insertToCart = (cart, callback) => {
         {
             loading: 'صبر کنید ...',
             success: 'به سبد خرید اضافه شد',
-            error: (err)=> err.message,
+            error: (err) => err.message,
         }
     )
 }

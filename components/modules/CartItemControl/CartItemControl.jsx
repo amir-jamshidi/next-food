@@ -46,14 +46,14 @@ const CartItemControl = ({ mealID, count, sizeID }) => {
   };
 
   return (
-    <div className="flex justify-center items-center bg-white rounded-lg py-2 px-3">
+    <div className="flex justify-center items-center bg-white dark:bg-gray-800 rounded-lg py-2 px-3">
       <span
         onClick={addCount}
-        className="px-1 py-1 hover:bg-gray-100 transition-colors cursor-pointer rounded-full"
+        className="px-1 py-1 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors cursor-pointer rounded-full"
       >
         <AddRounded className="text-green-500" />
       </span>
-      <p className="font-dana-bold min-w-8 text-center text-gray-700">
+      <p className="font-dana-bold min-w-8 text-center text-gray-700 dark:text-gray-200">
         {count}
       </p>
       {count === 1 ? (
@@ -66,7 +66,7 @@ const CartItemControl = ({ mealID, count, sizeID }) => {
       ) : (
         <span
           onClick={minusCount}
-          className="px-1 py-1 hover:bg-gray-100 transition-colors cursor-pointer rounded-full"
+          className="px-1 py-1 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors cursor-pointer rounded-full"
         >
           <RemoveRounded className="text-red-500" />
         </span>

@@ -15,10 +15,10 @@ const AdditionalSlider = () => {
     () => axios.get("/api/category/additional")
   );
   return (
-    <div className="mt-5">
+    <div className="mt-7">
       <Swiper loop slidesPerView={4} spaceBetween={10} className="mySwiper rounded-2xl">
         {meals.map((meal) => (
-          <SwiperSlide className="bg-white rounded-2xl" key={meal._id}>
+          <SwiperSlide className="bg-white dark:bg-gray-800 rounded-2xl" key={meal._id}>
             <MealItem meal={meal} />
           </SwiperSlide>
         ))}

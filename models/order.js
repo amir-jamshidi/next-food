@@ -25,7 +25,7 @@ const orderSchema = new mongoose.Schema({
         default: Date.now() + Math.round(Math.random() * 10000)
     }
 
-})
+}, {timestamps : true})
 
 
 const model = mongoose.models.Order || mongoose.model('Order', orderSchema);

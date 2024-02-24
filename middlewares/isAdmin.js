@@ -9,9 +9,9 @@ export const isAdmin = async () => {
         const { value: token } = cookies().get("token");
         try {
             const { id } = jwt.verify(token, process.env.JWT);
-            const { role } = await userModel.findOne({ _id: id });
-            if (role === 'ADMIN') {
-                return true;
+            const user = await userModel.findOne({ _id: id });
+            if (user.role === 'ADMIN') {
+                return user;
             }
             return false
         } catch (error) {

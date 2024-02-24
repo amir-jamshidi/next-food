@@ -36,7 +36,7 @@ const BuyCartButton = ({ price, addresses }) => {
   return (
     <>
       <div className="py-2 flex flex-col gap-y-2 mt-2">
-        <p className="text-sm text-gray-600 px-1 text-center">
+        <p className="text-sm text-gray-600 dark:text-gray-300 px-1 text-center">
           آدرس خودتو انتخاب کن
         </p>
         <div className="flex flex-col gap-y-1">
@@ -44,7 +44,7 @@ const BuyCartButton = ({ price, addresses }) => {
             <div
               onClick={() => setAddressID(address._id)}
               key={address._id}
-              className="bg-white relative px-4 items-center rounded-lg text-gray-700 cursor-pointer flex justify-between"
+              className="bg-white dark:bg-gray-800 relative px-4 items-center rounded-lg text-gray-700 cursor-pointer flex justify-between"
             >
               <span
                 className={`${
@@ -52,7 +52,7 @@ const BuyCartButton = ({ price, addresses }) => {
                 } absolute transition-all bg-green-500 inline-block right-0 h-full rounded-r-md`}
               ></span>
               <div>
-                <p className="text-gray-700 py-2">{address.name}</p>
+                <p className="text-gray-700 dark:text-gray-200 py-2">{address.name}</p>
               </div>
               <div className="">
                 <p className="text-red-500 text-sm">تحویل فوری</p>
