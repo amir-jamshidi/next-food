@@ -36,9 +36,9 @@ const Login = () => {
   }, [preUserState]);
   return (
     <div className="flex flex-col justify-center items-center login-container">
-      <div className="w-[360px] rounded-2xl bg-white flex items-center flex-col">
-        <div className=" bg-gray-50 w-full rounded-2xl py-3 text-center border border-gray-100">
-          <h3 className="text-gray-700 text-xl font-morabba-bold">
+      <div className="w-[360px] rounded-2xl bg-white dark:bg-gray-800 flex items-center flex-col">
+        <div className=" bg-gray-50 dark:bg-gray-700  w-full rounded-2xl py-3 text-center border border-gray-100 dark:border-gray-700">
+          <h3 className="text-gray-700 text-xl font-morabba-bold dark:text-gray-300">
             ورود | ثبت نام
           </h3>
         </div>

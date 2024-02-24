@@ -13,7 +13,7 @@ const AdminPanelLayout = async ({ children }) => {
             <div className="w-[350px] ">
                 <SideBarAdmin />
             </div>
-            <div className="flex-1 bg-gray-50 rounded-2xl px-2 pb-4">
+            <div className="flex-1 dark:bg-gray-700 bg-gray-50 rounded-2xl px-2 pb-4">
                 {children}
             </div>
         </div>

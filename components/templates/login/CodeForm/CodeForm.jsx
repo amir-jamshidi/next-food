@@ -6,15 +6,15 @@ const CodeForm = ({ loginUserAction, phone, errors }) => {
   
   return (
     <form action={loginUserAction} className="flex flex-col gap-1">
-      <div className=" rounded-2xl flex bg-gray-100  items-center w-full gap-x-1.5 p-1.5">
-        <span className="bg-gray-200 rounded-xl p-1">
-          <LocalPhoneRounded className="text-gray-700" />
+      <div className=" rounded-2xl flex bg-gray-100 dark:bg-gray-700 items-center w-full gap-x-1.5 p-1.5">
+        <span className="bg-gray-200 rounded-xl p-1 dark:bg-gray-500">
+          <LocalPhoneRounded className="text-gray-700 dark:text-gray-300" />
         </span>
         <span></span>
         <input
           name="code"
           type="text"
-          className="outline-none w-full text-gray-700 bg-gray-100"
+          className="outline-none w-full text-gray-700 bg-gray-100 dark:bg-gray-700 dark:text-gray-200"
           placeholder="کد فعالسازی"
           required
         />

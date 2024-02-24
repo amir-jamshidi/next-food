@@ -20,9 +20,13 @@ const LoginLink = async () => {
       ) : (
         <Link
           href={"/login"}
-          className="bg-red-500 px-4 py-2 h-9 inline-block rounded-full text-gray-100 text-sm"
+          className="dark:bg-gray-800 bg-gray-100 border border-gray-200  dark:border-gray-700 px-5 py-2 h-10 flex rounded-full dark:text-gray-200 text-gray-800 text-sm gap-x-1"
         >
-          ورود به حساب
+          <div className="mt-0.5">
+            <span>ورود</span>
+            <span className="mx-1">|</span>
+            <span>ثبت نام</span>
+          </div>
         </Link>
       )}
     </>
