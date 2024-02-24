@@ -141,8 +141,8 @@ const page = async () => {
               </h1>
               <span className="flex-1 inline-block h-px bg-black/5"></span>
             </div>
-            <div className="bg-white mt-8 p-4 py-36 flex justify-center rounded-2xl">
-              <p>سبد خرید شما خالیه !!!</p>
+            <div className="bg-white dark:bg-gray-800 mt-8 p-4 py-36 flex justify-center rounded-2xl">
+              <p className="text-gray-700 dark:text-gray-300 text-lg">سبد خرید شما خالیه !!!</p>
             </div>
           </div>
         </>
