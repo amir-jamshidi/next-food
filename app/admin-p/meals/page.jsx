@@ -20,10 +20,6 @@ const Meals = async () => {
               <th scope="col" className="px-6 py-3">
                 دسته بندی
               </th>
-
-              <th scope="col" className="px-2 py-3">
-                ایجاد در
-              </th>
               <th scope="col" className="px-2 py-3">
                 قیمت ها
               </th>
@@ -43,7 +39,7 @@ const Meals = async () => {
             {meals.map((meal) => (
               <tr
                 key={meal._id}
-                className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                className="h-[90px] bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
               >
                 <td className="px-2 py-4">{meal.name}</td>
                 <td className="px-2 py-4">{meal.href}</td>
@@ -52,11 +48,8 @@ const Meals = async () => {
                     {meal.categoryID.title}
                   </span>
                 </td>
-
-                <td className="px-2 py-4 font-dana">
-                  {ConvertToPersian(meal.createdAt)}
-                </td>
-                <td className="px-2 py-4">
+                
+                <td className="px-2 py-4 ">
                   {meal.sizes.map((size) => (
                     <div
                       key={size._id}

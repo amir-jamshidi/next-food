@@ -8,10 +8,10 @@ const Users = async () => {
     <>
       <div className="p-4">
         <TitleAdminPage title={"لیست کاربران سایت"} />
-        <div className="relative overflow-x-auto shadow sm:rounded-lg">
-          <table className="w-full text-sm text-gray-500 dark:text-gray-400 text-center">
-            <thead className="text-sm text-gray-700 uppercase bg-gray-200">
-              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+        <div className="relative overflow-x-auto rounded-2xl">
+          <table className="w-full text-sm text-gray-700 dark:text-gray-300 text-center">
+            <thead className="text-sm text-gray-700 uppercase bg-gray-200 dark:bg-gray-800">
+              <tr className="text-gray-800 dark:text-gray-300 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <th scope="col" className="px-6 py-3">
                   نام کاربر
                 </th>

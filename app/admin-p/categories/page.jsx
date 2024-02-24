@@ -10,10 +10,10 @@ const Categories = async () => {
   return (
     <div className="p-4">
       <TitleAdminPage title={"لیست دسته بندی ها"} />
-      <div className="relative overflow-x-auto shadow sm:rounded-lg">
-        <table className="w-full text-sm text-gray-500 dark:text-gray-400 text-center">
-          <thead className="text-sm text-gray-700 uppercase bg-gray-200">
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+      <div className="relative overflow-x-auto rounded-2xl">
+        <table className="w-full text-sm text-gray-700 dark:text-gray-300 text-center">
+          <thead className="text-sm text-gray-700 uppercase bg-gray-200 dark:bg-gray-800">
+            <tr className="text-gray-800 dark:text-gray-300 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
               <th scope="col" className="px-6 py-3">
                 عنوان
               </th>
@@ -45,7 +45,7 @@ const Categories = async () => {
               >
                 <td className="px-2 py-4">{cate.title}</td>
                 <td className="px-2 py-4">{cate.href}</td>
-                <td className="px-2 py-4 flex justify-center">
+                <td className="px-2 py-4 flex justify-center max-h-20">
                   <Image src={cate.img} width={60} height={60} />
                 </td>
                 <td className="px-2 py-4">{ConvertToPersian("2024-02-21")}</td>

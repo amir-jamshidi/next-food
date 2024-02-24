@@ -11,7 +11,7 @@ const SideBarAdmin = () => {
       </div>
       <div className="my-4 flex flex-col divide-y divide-gray-200/60 dark:divide-gray-700/60">
         <div className="py-3 px-3 mx-3 ">
-          <Link href={"/admin-p/dashnoard"}>
+          <Link href={"/admin-p/dashboard"}>
             <p className="text-gray-700 dark:text-gray-300">داشبورد</p>
           </Link>
         </div>

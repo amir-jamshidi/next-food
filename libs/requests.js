@@ -8,6 +8,8 @@ import addressModel from '@/models/address'
 import { isLogin } from "@/middlewares/isLogin";
 import userModel from '@/models/user';
 import orderModel from '@/models/order';
+
+// ----------------- USERS ACTION
 export const getMenu = async () => {
     try {
         connectToMongo();
@@ -110,10 +112,15 @@ export const getAddresses = async () => {
         return err
     }
 }
+// ----------------- END USERS ACTION
+
+
+
+// ---------------- ADMIN PANEL
 export const getUsersAdmin = async () => {
     try {
         connectToMongo();
-        const users = await userModel.find({});
+        const users = await userModel.find({}).sort({ _id }).lean();
         if (users) {
             return users
         }
@@ -124,7 +131,7 @@ export const getUsersAdmin = async () => {
 export const getOrdersAdmin = async () => {
     try {
         connectToMongo();
-        const orders = await orderModel.find({}).populate('userID').populate('addressID')
+        const orders = await orderModel.find({}).sort({ _id: -1 }).populate('userID').populate('addressID')
         if (orders) {
             return orders
         }
@@ -135,7 +142,7 @@ export const getOrdersAdmin = async () => {
 export const getCategoriesAdmin = async () => {
     try {
         connectToMongo();
-        const categoires = await categoryModel.find({}).lean();
+        const categoires = await categoryModel.find({}).sort({ _id: -1 }).lean();
         if (categoires) {
             return categoires
         }
@@ -143,11 +150,10 @@ export const getCategoriesAdmin = async () => {
         return err
     }
 }
-
 export const getMealsAdmin = async () => {
     try {
         connectToMongo();
-        const meals = await mealModel.find({}).populate('categoryID');
+        const meals = await mealModel.find({}).sort({ _id: -1 }).populate('categoryID');
         if (meals) {
             return meals
         }
@@ -155,3 +161,9 @@ export const getMealsAdmin = async () => {
         return error
     }
 }
+// ---------------- END ADMIN PANEL
+
+
+// ----------------- USERS PANEL
+
+// ----------------- END USERS PANEL
