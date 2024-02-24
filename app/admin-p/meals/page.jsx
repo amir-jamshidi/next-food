@@ -1,17 +1,16 @@
 import TitleAdminPage from "@/components/modules/TitleAdminPage/TitleAdminPage";
 import ConvertToPersian from "@/helpers/convertToPersian";
 import { getMealsAdmin } from "@/libs/requests";
-import Image from "next/image";
 
 const Meals = async () => {
   const meals = await getMealsAdmin();
   return (
     <div className="p-4">
       <TitleAdminPage title={"لیست محصولات"} />
-      <div className="relative overflow-x-auto shadow sm:rounded-lg">
-        <table className="w-full text-sm text-gray-500 dark:text-gray-400 text-center">
-          <thead className="text-sm text-gray-700 uppercase bg-gray-200">
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+      <div className="relative overflow-x-auto rounded-2xl">
+        <table className="w-full text-sm text-gray-700 dark:text-gray-300 text-center">
+          <thead className="text-sm text-gray-700 uppercase bg-gray-200 dark:bg-gray-800">
+            <tr className="text-gray-800 dark:text-gray-300 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
               <th scope="col" className="px-6 py-3">
                 عنوان
               </th>
@@ -49,19 +48,19 @@ const Meals = async () => {
                 <td className="px-2 py-4">{meal.name}</td>
                 <td className="px-2 py-4">{meal.href}</td>
                 <td className="px-2 py-4">
-                  <span className="bg-red-200 rounded-md px-2 py-0.5">
+                  <span className="bg-sky-300 text-gray-700 rounded-md px-2 py-0.5">
                     {meal.categoryID.title}
                   </span>
                 </td>
 
                 <td className="px-2 py-4 font-dana">
-                  {ConvertToPersian("2024-02-21")}
+                  {ConvertToPersian(meal.createdAt)}
                 </td>
                 <td className="px-2 py-4">
                   {meal.sizes.map((size) => (
                     <div
                       key={size._id}
-                      className="flex gap-x-1 mt-1 py-0.5 justify-center bg-green-300 rounded-md"
+                      className="flex gap-x-1 mt-1 py-px justify-center"
                     >
                       <span className="text-sm">{size.size}</span>
                       <span className="font-dana text-sm">
