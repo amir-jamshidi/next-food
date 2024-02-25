@@ -3,9 +3,9 @@ import React from 'react'
 
 const Panellayout = ({ children }) => {
     return (
-        <div className='flex'>
+        <div className='flex flex-col gap-y-4'>
             <TabMenusPanel />
-            <div>
+            <div className='bg-gray-800 p-4 rounded-2xl'>
                 {children}
             </div>
         </div>

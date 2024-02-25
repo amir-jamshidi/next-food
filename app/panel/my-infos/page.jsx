@@ -1,8 +1,10 @@
-import React from 'react'
+import TitleUserPanel from '@/components/modules/panel/TitleUserPanel/TitleUserPanel'
 
 const MyInfos = () => {
   return (
-    <div>MyInfos</div>
+    <div>
+      <TitleUserPanel title={'اطلاعات حساب من'}/>
+    </div>
   )
 }
 

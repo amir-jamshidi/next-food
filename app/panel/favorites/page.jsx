@@ -1,9 +1,12 @@
-import React from 'react'
+import TitleUserPanel from "@/components/modules/panel/TitleUserPanel/TitleUserPanel";
+import React from "react";
 
 const Favorites = () => {
   return (
-    <div>Favorites</div>
-  )
-}
+    <div>
+      <TitleUserPanel title={"علاقه مندی های من"} />
+    </div>
+  );
+};
 
-export default Favorites
+export default Favorites;

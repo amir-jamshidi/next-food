@@ -130,7 +130,7 @@ export const getUsersAdmin = async () => {
 export const getOrdersAdmin = async () => {
     try {
         connectToMongo();
-        const orders = await orderModel.find({}).sort({ _id: -1 }).populate('userID').populate('addressID').populate('orderStatusID')
+        const orders = await orderModel.find({}).sort({ _id: -1 }).populate('userID').populate('addressID').populate('statusID')
         if (orders) {
             return orders
         }
@@ -160,15 +160,14 @@ export const getMealsAdmin = async () => {
         return error
     }
 }
-
 export const getAdminDashboard = async () => {
     try {
         connectToMongo();
         const users = await userModel.find({}).sort({ _id: -1 }).limit(5).lean();
         const orders = await orderModel.find({}).sort({ _id: -1 }).populate('userID').populate('addressID').populate('statusID').limit(5).lean()
-        console.log(users , orders);
+        console.log(users, orders);
         return {
-            users , orders
+            users, orders
         }
     } catch (error) {
         console.log(error);
@@ -179,5 +178,17 @@ export const getAdminDashboard = async () => {
 
 
 // ----------------- USERS PANEL
-
+export const getUserOrders = async () => {
+    try {
+        connectToMongo();
+        const isLoginUser = await isLogin();
+        if (isLoginUser) {
+            const orders = await orderModel.find({ userID: isLoginUser._id }).lean();
+            return orders
+        }
+        return []
+    } catch (error) {
+        return error
+    }
+}
 // ----------------- END USERS PANEL

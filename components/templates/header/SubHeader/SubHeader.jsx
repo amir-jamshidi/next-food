@@ -7,7 +7,7 @@ const SubHeader = async () => {
 
   return (
     <div className="container">
-      <div className="bg-gray-300 dark:bg-gray-700 transition-colors h-10 rounded-bl-2xl rounded-br-2xl max-w-4xl mx-auto flex justify-center items-center">
+      <div className="bg-gray-300 dark:bg-gray-700 transition-colors h-10 rounded-bl-3xl rounded-br-3xl max-w-4xl mx-auto flex justify-center items-center">
         <ul className="flex justify-center gap-x-5">
           {menus.map((menu) => (
             <li key={menu._id}>

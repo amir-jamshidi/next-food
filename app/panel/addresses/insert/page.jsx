@@ -1,8 +1,11 @@
+import TitleUserPanel from '@/components/modules/panel/TitleUserPanel/TitleUserPanel'
 import React from 'react'
 
 const InsertAddress = () => {
   return (
-    <div>InsertAddress</div>
+    <div>
+      <TitleUserPanel title={'آدرس های من'}/>
+    </div>
   )
 }
 
