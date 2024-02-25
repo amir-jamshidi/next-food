@@ -12,7 +12,7 @@ const LoginLink = async () => {
   return (
     <>
       {state === "logout" ? (
-        <Link href={"/panel"} className="">
+        <Link href={"/panel/dashboard"} className="">
           <span className="bg-green-500 rounded-full h-10 w-10 flex justify-center items-center cursor-pointer">
             <PersonRounded className="text-gray-100" />
           </span>

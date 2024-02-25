@@ -56,7 +56,17 @@ const Orders = async () => {
                     <DownloadDoneRounded className="text-green-500" />
                   </span>
                 </td>
-                <td className="px-2 py-4">بررسی</td>
+                <td
+                  className={`${
+                    order.orderStatusID.type === "warning"
+                      ? "text-orange-500"
+                      : order.orderStatusID.type === "error"
+                      ? "text-red-500"
+                      : "text-green-500"
+                  } px-2 py-4`}
+                >
+                  {order.orderStatusID.name}
+                </td>
                 <td className="px-2 py-4 font-dana">
                   {Number(order.price).toLocaleString()} ت
                 </td>

@@ -115,12 +115,11 @@ export const getAddresses = async () => {
 // ----------------- END USERS ACTION
 
 
-
 // ---------------- ADMIN PANEL
 export const getUsersAdmin = async () => {
     try {
         connectToMongo();
-        const users = await userModel.find({}).sort({ _id }).lean();
+        const users = await userModel.find({}).sort({ _id: -1 }).lean();
         if (users) {
             return users
         }
@@ -131,7 +130,7 @@ export const getUsersAdmin = async () => {
 export const getOrdersAdmin = async () => {
     try {
         connectToMongo();
-        const orders = await orderModel.find({}).sort({ _id: -1 }).populate('userID').populate('addressID')
+        const orders = await orderModel.find({}).sort({ _id: -1 }).populate('userID').populate('addressID').populate('orderStatusID')
         if (orders) {
             return orders
         }
@@ -158,6 +157,21 @@ export const getMealsAdmin = async () => {
             return meals
         }
     } catch (error) {
+        return error
+    }
+}
+
+export const getAdminDashboard = async () => {
+    try {
+        connectToMongo();
+        const users = await userModel.find({}).sort({ _id: -1 }).limit(5).lean();
+        const orders = await orderModel.find({}).sort({ _id: -1 }).populate('userID').populate('addressID').populate('statusID').limit(5).lean()
+        console.log(users , orders);
+        return {
+            users , orders
+        }
+    } catch (error) {
+        console.log(error);
         return error
     }
 }

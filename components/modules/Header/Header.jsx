@@ -53,7 +53,7 @@ const Header = async () => {
                 <LoginLink />
                 {isAdminUser && (
                   <Link
-                    href={"/admin-p/orders"}
+                    href={"/admin-p/dashboard"}
                     className="bg-green-500 px-4 py-2 rounded-full text-gray-100 text-sm"
                   >
                     پنل مدیریت

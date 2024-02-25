@@ -23,9 +23,14 @@ const orderSchema = new mongoose.Schema({
     code: {
         type: Number,
         default: Date.now() + Math.round(Math.random() * 10000)
+    },
+    statusID: {
+        type: mongoose.Types.ObjectId,
+        ref: "Status",
+        required: true
     }
 
-}, {timestamps : true})
+}, { timestamps: true })
 
 
 const model = mongoose.models.Order || mongoose.model('Order', orderSchema);

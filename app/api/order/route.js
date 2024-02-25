@@ -2,7 +2,7 @@ import connectToMongo from "@/configs/db"
 import { isLogin } from "@/middlewares/isLogin"
 import cartModel from '@/models/cart'
 import orderModel from '@/models/order'
-import { revalidatePath } from "next/cache"
+import orderStatusModel from "@/models/orderStatus"
 import { NextResponse } from "next/server"
 
 export const POST = async (req) => {
@@ -15,11 +15,13 @@ export const POST = async (req) => {
 
         if (!cart.length) return NextResponse.json({ message: "no cart" }, { status: 500 })
 
+        const { _id: statusID } = await orderStatusModel.findOne({ code: 1 });
         const order = await orderModel.create({
             userID: isLoginUser._id,
             mealDetails: cart,
             price,
-            addressID
+            addressID,
+            statusID
         })
 
         if (order) {
