@@ -21,7 +21,7 @@ const ticketSchema = new Schema({
     orderID: {
         type: Types.ObjectId,
         ref: "Order",
-        required: true
+        required: false
     },
     sectionID: {
         type: Types.ObjectId,

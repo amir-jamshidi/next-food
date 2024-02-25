@@ -183,7 +183,8 @@ export const getUserOrders = async () => {
         connectToMongo();
         const isLoginUser = await isLogin();
         if (isLoginUser) {
-            const orders = await orderModel.find({ userID: isLoginUser._id }).lean();
+            const orders = await orderModel.find({ userID: isLoginUser._id }).populate({ path: 'mealDetails', populate: 'mealID' }).sort({ _id: -1 }).lean();
+            // console.log(orders);
             return orders
         }
         return []
