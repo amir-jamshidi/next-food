@@ -8,6 +8,7 @@ import addressModel from '@/models/address'
 import { isLogin } from "@/middlewares/isLogin";
 import userModel from '@/models/user';
 import orderModel from '@/models/order';
+import ticketModel from "@/models/ticket";
 
 // ----------------- USERS ACTION
 export const getMenu = async () => {
@@ -184,10 +185,20 @@ export const getUserOrders = async () => {
         const isLoginUser = await isLogin();
         if (isLoginUser) {
             const orders = await orderModel.find({ userID: isLoginUser._id }).populate({ path: 'mealDetails', populate: 'mealID' }).sort({ _id: -1 }).lean();
-            // console.log(orders);
             return orders
         }
         return []
+    } catch (error) {
+        return error
+    }
+}
+export const getUserTickets = async () => {
+    try {
+        connectToMongo();
+        const isLoginUser = await isLogin();
+        if (!isLoginUser) return false
+        const tickets = await ticketModel.find({ userID: isLoginUser._id });
+        return tickets
     } catch (error) {
         return error
     }

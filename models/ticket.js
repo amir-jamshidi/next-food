@@ -34,7 +34,7 @@ const ticketSchema = new Schema({
     },
     answerContent: {
         type: String,
-        default: 0
+        default: null
     }
 }, { timestamps: true });
 
