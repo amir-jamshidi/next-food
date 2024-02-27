@@ -1,4 +1,5 @@
 import OrderItemPanel from "@/components/modules/panel/OrderPanelItem/OrderItemPanel";
+import TicketItemPanel from "@/components/modules/panel/TicketItemPanel/TicketItemPanel";
 import TitleUserPanel from "@/components/modules/panel/TitleUserPanel/TitleUserPanel";
 import { getUserDashboard } from "@/libs/requests";
 import {
@@ -61,7 +62,12 @@ const PanelDashboard = async () => {
       </div>
       <div className="grid grid-cols-5 gap-2 mt-8">
         {orders.map((order) => (
-          <OrderItemPanel order={order} />
+          <OrderItemPanel key={order._id} order={order} />
+        ))}
+      </div>
+      <div className="mt-8 grid grid-cols-2 gap-2">
+        {tickets.map((ticket) => (
+          <TicketItemPanel ticket={ticket} key={ticket._id} />
         ))}
       </div>
     </div>

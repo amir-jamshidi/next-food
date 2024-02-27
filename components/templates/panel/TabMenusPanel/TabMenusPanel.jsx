@@ -48,21 +48,21 @@ const TabMenusPanel = () => {
           </Link>
         </div>
         <div className="flex gap-x-1 px-2 border-l border-l-gray-700 items-center">
-          <Link href={"/panel/my-infos"} className="flex items-center gap-x-1">
-            <span>
-              <PersonPinCircleRounded className="dark:text-gray-300" />
-            </span>
-            <p className="text-gray-200">جزئیات حساب</p>
-          </Link>
-        </div>
-        <div className="flex gap-x-1 pr-2 items-center">
           <Link href={"/panel/favorites"} className="flex items-center gap-x-1">
             <span>
               <FavoriteRounded className="dark:text-gray-300" />
             </span>
             <p className="text-gray-200">علاقه مندی</p>
           </Link>
-        </div>
+        </div>{" "}
+        <div className="flex gap-x-1 pr-2 items-center">
+          <Link href={"/panel/my-infos"} className="flex items-center gap-x-1">
+            <span>
+              <PersonPinCircleRounded className="dark:text-gray-300" />
+            </span>
+            <p className="text-gray-200">جزئیات حساب</p>
+          </Link>
+        </div> 
       </div>
 
       <div className=" flex justify-end text-sm items-center">
