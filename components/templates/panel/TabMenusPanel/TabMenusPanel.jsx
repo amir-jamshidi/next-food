@@ -11,6 +11,7 @@ import {
 import Link from "next/link";
 import React from "react";
 
+
 const TabMenusPanel = () => {
   return (
     <div className="flex bg-gray-800 w-full mt-14 rounded-2xl py-2 px-4 justify-between">
