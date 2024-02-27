@@ -21,7 +21,7 @@ const TabMenusPanel = () => {
             <span>
               <DashboardRounded className="dark:text-gray-300" />
             </span>
-            <p className="text-gray-200">داشبورد</p>
+            <p className="text-gray-200">داشبـورد</p>
           </Link>
         </div>
         <div className="flex gap-x-1 px-2 border-l border-l-gray-700 items-center">
