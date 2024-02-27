@@ -60,10 +60,16 @@ const PanelDashboard = async () => {
           </div>
         </div>
       </div>
+      <div className="flex justify-center items-center mt-8">
+        <span className="text-sm text-gray-300">سفارش های اخیر</span>
+      </div>
       <div className="grid grid-cols-5 gap-2 mt-8">
         {orders.map((order) => (
           <OrderItemPanel key={order._id} order={order} />
         ))}
+      </div>
+      <div className="flex justify-center items-center mt-8">
+        <span className="text-sm text-gray-300">تیکت های اخیر</span>
       </div>
       <div className="mt-8 grid grid-cols-2 gap-2">
         {tickets.map((ticket) => (

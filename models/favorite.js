@@ -13,6 +13,6 @@ const schema = new Schema({
     }
 }, { timestamps: true })
 
-const FavoriteModel = models.Favorite || model('Favorite', schema);
+const favoriteModel = models.Favorite || model('Favorite', schema);
 
-export default FavoriteModel
+export default favoriteModel
