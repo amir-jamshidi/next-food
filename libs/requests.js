@@ -9,6 +9,7 @@ import { isLogin } from "@/middlewares/isLogin";
 import userModel from '@/models/user';
 import orderModel from '@/models/order';
 import ticketModel from "@/models/ticket";
+import favoriteModel from "@/models/favorite";
 
 // ----------------- USERS ACTION
 export const getMenu = async () => {
@@ -203,7 +204,6 @@ export const getUserTickets = async () => {
         return error
     }
 }
-
 export const getUserAddresses = async () => {
     try {
         connectToMongo()
@@ -215,7 +215,6 @@ export const getUserAddresses = async () => {
         return error
     }
 }
-
 export const getUserDashboard = async () => {
     try {
         connectToMongo();
@@ -224,7 +223,7 @@ export const getUserDashboard = async () => {
         if (!isLoginUser) return false
 
         const conditional = { userID: isLoginUser._id };
-        const [orderCount, ticketCount, addressCount, prices , tickets , orders] = await Promise.all([
+        const [orderCount, ticketCount, addressCount, prices, tickets, orders] = await Promise.all([
             orderModel.find(conditional).countDocuments().lean()
             , ticketModel.find(conditional).countDocuments().lean()
             , addressModel.find(conditional).countDocuments().lean()
@@ -248,6 +247,17 @@ export const getUserDashboard = async () => {
 
     } catch (error) {
         console.log(error);
+        return error
+    }
+}
+export const getUserFavorite = async () => {
+    try {
+        connectToMongo();
+        const isLoginUser = await isLogin();
+        if (!isLoginUser) return false
+        const favorites = favoriteModel.find({ userID: isLoginUser._id }).populate("mealID").lean();
+        return favorites
+    } catch (error) {
         return error
     }
 }

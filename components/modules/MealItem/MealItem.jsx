@@ -4,11 +4,17 @@ import Image from "next/image";
 import { FavoriteBorderRounded } from "@mui/icons-material";
 import Link from "next/link";
 
-const MealItem = ({ meal }) => {
+const MealItem = ({ meal, circle = true }) => {
   return (
     <div key={meal._id} className="bg-white dark:bg-gray-800 rounded-2xl">
       <div className="relative h-60">
-        <Image src={meal?.img} className="p-4" style={{ objectFit: "contain" }} fill alt="" />
+        <Image
+          src={meal?.img}
+          className="p-4"
+          style={{ objectFit: "contain" }}
+          fill
+          alt=""
+        />
       </div>
       <div className="flex justify-center flex-col items-center px-3 gap-y-3">
         <h3 className="font-morabba-bold text-red-500">{meal.name}</h3>
@@ -17,7 +23,9 @@ const MealItem = ({ meal }) => {
         </p>
       </div>
       <div className="flex items-center mt-5 ">
-        <span className="bg-gray-100 dark:bg-gray-900 h-8 w-8 flex rounded-full -mr-4"></span>
+        {circle && (
+          <span className="bg-gray-100 dark:bg-gray-900 h-8 w-8 flex rounded-full -mr-4"></span>
+        )}
         <span className="flex-1 h-px dark:border-gray-600 border-gray-100 border-dashed inline-block border"></span>
         <Link
           href={`/meals/${meal.href}`}
@@ -26,7 +34,9 @@ const MealItem = ({ meal }) => {
           سفارش
         </Link>
         <span className="flex-1 h-px border-dashed dark:border-gray-600 border-gray-100 inline-block border"></span>
-        <span className="bg-gray-100 dark:bg-gray-900 h-8 w-8 flex rounded-full -ml-4"></span>
+        {circle && (
+          <span className="bg-gray-100 dark:bg-gray-900 h-8 w-8 flex rounded-full -ml-4"></span>
+        )}
       </div>
       <div className="my-4 flex px-3 justify-between">
         <div className="flex items-center gap-x-0.5">
