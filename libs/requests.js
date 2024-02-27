@@ -203,4 +203,39 @@ export const getUserTickets = async () => {
         return error
     }
 }
+export const getUserDashboard = async () => {
+    try {
+        connectToMongo();
+        const isLoginUser = await isLogin();
+
+        if (!isLoginUser) return false
+
+        const conditional = { userID: isLoginUser._id };
+        const [orderCount, ticketCount, addressCount, prices , tickets , orders] = await Promise.all([
+            orderModel.find(conditional).countDocuments().lean()
+            , ticketModel.find(conditional).countDocuments().lean()
+            , addressModel.find(conditional).countDocuments().lean()
+            , orderModel.find(conditional).select('price -_id').lean()
+            , ticketModel.find(conditional).limit(4).sort({ _id: -1 }).lean()
+            , orderModel.find(conditional).limit(5).populate({ path: 'mealDetails', populate: 'mealID' }).sort({ _id: -1 }).lean()
+        ])
+        const totalPrice = prices.reduce((total, curent) => total + curent.price, 0);
+
+
+
+        return {
+            orderCount,
+            ticketCount,
+            addressCount,
+            totalPrice,
+            tickets,
+            orders
+        }
+
+
+    } catch (error) {
+        console.log(error);
+        return error
+    }
+}
 // ----------------- END USERS PANEL
