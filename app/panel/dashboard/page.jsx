@@ -1,9 +1,14 @@
+import OrderItemPanel from "@/components/modules/panel/OrderPanelItem/OrderItemPanel";
 import TitleUserPanel from "@/components/modules/panel/TitleUserPanel/TitleUserPanel";
 import { getUserDashboard } from "@/libs/requests";
-import { EuroSymbolRounded, LocationOnRounded, SendRounded, ViewStreamRounded } from "@mui/icons-material";
+import {
+  EuroSymbolRounded,
+  LocationOnRounded,
+  SendRounded,
+  ViewStreamRounded,
+} from "@mui/icons-material";
 
 const PanelDashboard = async () => {
-
   const { orderCount, ticketCount, addressCount, totalPrice, tickets, orders } =
     await getUserDashboard();
 
@@ -54,9 +59,13 @@ const PanelDashboard = async () => {
           </div>
         </div>
       </div>
+      <div className="grid grid-cols-5 gap-2 mt-8">
+        {orders.map((order) => (
+          <OrderItemPanel order={order} />
+        ))}
+      </div>
     </div>
   );
 };
-
 
 export default PanelDashboard;

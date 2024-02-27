@@ -12,7 +12,7 @@ const Tickets = async () => {
       <div className="mt-14">
         <div className="grid grid-cols-2 gap-2">
           {tickets.map((ticket) => (
-            <div className="relative border border-gray-700 rounded-2xl line-clamp-2 p-3 flex flex-col">
+            <div key={ticket._id} className="relative border border-gray-700 rounded-2xl line-clamp-2 p-3 flex flex-col">
               <p className="text-gray-300 line-clamp-2  text-justify">
                 {ticket.body}
               </p>

@@ -203,6 +203,19 @@ export const getUserTickets = async () => {
         return error
     }
 }
+
+export const getUserAddresses = async () => {
+    try {
+        connectToMongo()
+        const isLoginUser = await isLogin();
+        if (!isLoginUser) return false
+        const addresses = addressModel.find({ userID: isLoginUser._id });
+        return addresses
+    } catch (error) {
+        return error
+    }
+}
+
 export const getUserDashboard = async () => {
     try {
         connectToMongo();

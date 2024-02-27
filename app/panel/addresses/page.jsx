@@ -1,10 +1,10 @@
-import TitleUserPanel from '@/components/modules/panel/TitleUserPanel/TitleUserPanel'
-import { getAddresses } from '@/libs/requests';
-import { LocationOnRounded } from '@mui/icons-material';
-import Link from 'next/link';
+import TitleUserPanel from "@/components/modules/panel/TitleUserPanel/TitleUserPanel";
+import { getUserAddresses } from "@/libs/requests";
+import { LocationOnRounded } from "@mui/icons-material";
+import Link from "next/link";
 
 const Addresses = async () => {
-  const addresses = await getAddresses();
+  const addresses = await getUserAddresses();
 
   return (
     <div>
@@ -12,7 +12,10 @@ const Addresses = async () => {
       <div className="mt-14">
         <div className="grid grid-cols-5 gap-2">
           {addresses.map((address) => (
-            <div className="border border-t-0 border-gray-700 rounded-2xl">
+            <div
+              key={address._id}
+              className="border border-t-0 border-gray-700 rounded-2xl"
+            >
               <div className="h-32 bg-gray-700 rounded-2xl flex justify-center items-center">
                 <LocationOnRounded fontSize="large" className="text-gray-300" />
               </div>
@@ -37,4 +40,4 @@ const Addresses = async () => {
   );
 };
 
-export default Addresses
+export default Addresses;
