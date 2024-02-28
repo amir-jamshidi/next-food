@@ -261,4 +261,14 @@ export const getUserFavorite = async () => {
         return error
     }
 }
+export const getUserInfo = async () => {
+    try {
+        connectToMongo();
+        const isLoginUser = await isLogin();
+        if (!isLoginUser) return false
+        return isLoginUser
+    } catch (error) {
+        return error
+    }
+}
 // ----------------- END USERS PANEL

@@ -5,7 +5,7 @@ const AddressItemPanel = ({ address }) => {
   return (
     <div
       key={address._id}
-      className="border border-t-0 border-gray-700 rounded-2xl"
+      className="border border-t-0 border-gray-700 rounded-2xl pb-2"
     >
       <div className="h-32 bg-gray-700 rounded-2xl flex justify-center items-center">
         <LocationOnRounded fontSize="large" className="text-gray-300" />
