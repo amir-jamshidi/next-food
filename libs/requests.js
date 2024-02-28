@@ -10,6 +10,7 @@ import userModel from '@/models/user';
 import orderModel from '@/models/order';
 import ticketModel from "@/models/ticket";
 import favoriteModel from "@/models/favorite";
+import { isAdmin } from "@/middlewares/isAdmin";
 
 // ----------------- USERS ACTION
 export const getMenu = async () => {
@@ -176,6 +177,17 @@ export const getAdminDashboard = async () => {
         return error
     }
 }
+export const getAdminTickets = async () => {
+    try {
+        connectToMongo();
+        const isAdminUser = isAdmin();
+        if (!isAdminUser) return false;
+        const tickets = await ticketModel.find({}).lean()
+        return tickets
+    } catch (error) {
+        return false
+    }
+}
 // ---------------- END ADMIN PANEL
 
 
@@ -185,8 +197,11 @@ export const getUserOrders = async () => {
         connectToMongo();
         const isLoginUser = await isLogin();
         if (isLoginUser) {
-            const orders = await orderModel.find({ userID: isLoginUser._id }).populate({ path: 'mealDetails', populate: 'mealID' }).sort({ _id: -1 }).lean();
-            return orders
+            const orders = await orderModel.find({ userID: isLoginUser._id }).populate({ path: 'mealDetails', populate: 'mealID' }).populate('statusID').sort({ _id: -1 }).lean();
+            const orderPendingCount = orders.reduce((total, order) => order.statusID.code >= 1 && order.statusID.code <= 3 ? ++total : total, 0)
+            const orderSuccessCount = orders.reduce((total, order) => order.statusID.code === 4 ? ++total : total, 0)
+            const orderCancelCount = orders.reduce((total, order) => order.statusID.code >= 5 && order.statusID.code <= 6 ? ++total : total, 0)
+            return { orders, orderSuccessCount, orderPendingCount, orderCancelCount }
         }
         return []
     } catch (error) {
@@ -198,8 +213,10 @@ export const getUserTickets = async () => {
         connectToMongo();
         const isLoginUser = await isLogin();
         if (!isLoginUser) return false
-        const tickets = await ticketModel.find({ userID: isLoginUser._id });
-        return tickets
+        const tickets = await ticketModel.find({ userID: isLoginUser._id }).lean();
+        const ticketAnswer = tickets.reduce((total, tickets) => tickets.isAnswer === 1 ? ++total : total, 0)
+        const ticketPending = tickets.reduce((total, tickets) => tickets.isAnswer !== 1 ? ++total : total, 0)
+        return { tickets, ticketPending, ticketAnswer }
     } catch (error) {
         return error
     }
