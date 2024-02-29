@@ -7,6 +7,7 @@ import {
   NotificationsActiveRounded,
   PersonPinCircleRounded,
   PowerSettingsNewRounded,
+  ReplyRounded,
   SellRounded,
 } from "@mui/icons-material";
 import Link from "next/link";
@@ -69,18 +70,41 @@ const TabMenusPanel = async () => {
       </div>
 
       <div className=" flex justify-end text-sm items-center">
-        <div className="relative flex gap-0.5 px-2 items-center border-l border-l-gray-700">
+        <div className="group relative flex gap-0.5 px-2 items-center border-l border-l-gray-700">
+          {notification.length > 0 && (<span className="w-2 h-2 inline-block rounded bg-red-500"></span>)}
           <span>
             <NotificationsActiveRounded className="text-gray-200" />
           </span>
           <span className="text-gray-200">اعلان ها</span>
-          <div className="absolute bg-gray-700 divide-y divide-gra    w-56 p-2 top-10 left-0 rounded-xl">
-            {notification.map((notification) => (
-              <div className="flex items-center  gap-x-0.5">
-                <span className={`w-2 h-2 rounded inline-block shrink-0 ${notification.type === 'success' ? 'bg-green-500':'bg-red-500'}`}></span>
-                <p className="text-justify">{notification.message}</p>
-              </div>
-            ))}
+          <div className="absolute invisible opacity-0 group-hover:visible group-hover:opacity-100 top-0 pt-10 left-0 delay-75">
+            <div className=" flex flex-col bg-gray-700 divide-y divide-gray-600 w-56 p-3  rounded-xl">
+              {notification.map((notification) => (
+                <div className="py-2 flex flex-col">
+                  <div className="flex items-start gap-x-1.5 ">
+                    <span
+                      className={`w-2 h-2 rounded inline-block shrink-0 mt-1.5 ${
+                        notification.type === "success"
+                          ? "bg-green-500"
+                          : "bg-red-500"
+                      }`}
+                    ></span>
+                    <p className="text-justify text-gray-300">
+                      {notification.message}
+                    </p>
+                  </div>
+                  <div className="flex justify-end gap-x-1">
+                    {notification.href && (
+                      <Link href={`${notification.href}`}>
+                        <span className="inline-block">
+                          <ReplyRounded className="text-sky-500 rotate" />
+                        </span>
+                      </Link>
+                    )}
+                    <span className="text-green-500 text-sm pt-0.5">دیدم</span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
