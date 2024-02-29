@@ -109,7 +109,6 @@ const TabMenusPanel = async () => {
         
           </div>
         </div>
-
         <div className="flex gap-0.5 pr-2 items-center">
           <span>
             <PowerSettingsNewRounded className="text-red-500" />
