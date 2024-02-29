@@ -75,6 +75,7 @@ const TabMenusPanel = async () => {
           <span>
             <NotificationsActiveRounded className="text-gray-200" />
           </span>
+          
           <span className="text-gray-200">اعلان ها</span>
           <div className="absolute invisible opacity-0 group-hover:visible group-hover:opacity-100 top-0 pt-10 left-0 delay-75">
             <div className=" flex flex-col bg-gray-700 divide-y divide-gray-600 w-56 p-3  rounded-xl">
