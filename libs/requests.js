@@ -11,6 +11,7 @@ import orderModel from '@/models/order';
 import ticketModel from "@/models/ticket";
 import favoriteModel from "@/models/favorite";
 import { isAdmin } from "@/middlewares/isAdmin";
+import notificationModel from '@/models/notification';
 
 // ----------------- USERS ACTION
 export const getMenu = async () => {
@@ -288,4 +289,16 @@ export const getUserInfo = async () => {
         return error
     }
 }
+export const getUserNotifications = async () => {
+    try {
+        connectToMongo();
+        const isLoginUser = await isLogin();
+        if (!isLoginUser) return false;
+        const notification = await notificationModel.find({ userID: isLoginUser._id }).lean();
+        return notification
+    } catch (error) {
+        return false
+    }
+}
+
 // ----------------- END USERS PANEL
