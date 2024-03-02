@@ -72,13 +72,13 @@ const TabMenusPanel = async () => {
       <div className=" flex justify-end text-sm items-center">
         <div className="group relative flex gap-0.5 px-2 items-center border-l border-l-gray-700">
           {notification.length > 0 && (<span className="w-2 h-2 inline-block rounded bg-red-500"></span>)}
-          <span>
+          <span className="cursor-pointer">
             <NotificationsActiveRounded className="text-gray-200" />
           </span>
           
-          <span className="text-gray-200">اعلان ها</span>
-          <div className="absolute invisible opacity-0 group-hover:visible group-hover:opacity-100 top-0 pt-10 left-0 delay-75">
-            <div className=" flex flex-col bg-gray-700 divide-y divide-gray-600 w-56 p-3  rounded-xl">
+          <span className="text-gray-200 cursor-pointer">اعلان ها</span>
+          <div className="absolute invisible opacity-0 group-hover:visible group-hover:opacity-100 top-7 pt-3 left-0 delay-75">
+            <div className=" flex flex-col bg-gray-800 shadow-md divide-y divide-gray-700 w-64 p-3  rounded-xl">
               {notification.map((notification) => (
                 <div className="py-2 flex flex-col">
                   <div className="flex items-start gap-x-1.5 ">
@@ -106,8 +106,8 @@ const TabMenusPanel = async () => {
                 </div>
               ))}
             </div>
-        
           </div>
+
         </div>
         <div className="flex gap-0.5 pr-2 items-center">
           <span>
