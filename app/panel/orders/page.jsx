@@ -4,15 +4,18 @@ import { getUserOrders } from "@/libs/requests";
 import {
   CloseRounded,
   DoneAllRounded,
-  EuroSymbolRounded,
   HourglassBottomRounded,
-  SendRounded,
   ViewStreamRounded,
 } from "@mui/icons-material";
 
 const Orders = async () => {
-  const { orders, orderSuccessCount, orderPendingCount, orderCancelCount } =
-    await getUserOrders();
+  const {
+    orders = [],
+    orderSuccessCount,
+    orderPendingCount,
+    orderCancelCount,
+  } = await getUserOrders();
+
   return (
     <div>
       <TitleUserPanel title={"سفارشات من"} />

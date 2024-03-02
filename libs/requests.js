@@ -134,7 +134,7 @@ export const getUsersAdmin = async () => {
 export const getOrdersAdmin = async () => {
     try {
         connectToMongo();
-        const orders = await orderModel.find({}).sort({ _id: -1 }).populate('userID').populate('addressID').populate('statusID')
+        const orders = await orderModel.find({}).sort({ _id: -1 }).populate('userID').populate('addressID').populate('stateID')
         if (orders) {
             return orders
         }
@@ -198,14 +198,15 @@ export const getUserOrders = async () => {
         connectToMongo();
         const isLoginUser = await isLogin();
         if (isLoginUser) {
-            const orders = await orderModel.find({ userID: isLoginUser._id }).populate({ path: 'mealDetails', populate: 'mealID' }).populate('statusID').sort({ _id: -1 }).lean();
-            const orderPendingCount = orders.reduce((total, order) => order.statusID.code >= 1 && order.statusID.code <= 3 ? ++total : total, 0)
-            const orderSuccessCount = orders.reduce((total, order) => order.statusID.code === 4 ? ++total : total, 0)
-            const orderCancelCount = orders.reduce((total, order) => order.statusID.code >= 5 && order.statusID.code <= 6 ? ++total : total, 0)
+            const orders = await orderModel.find({ userID: isLoginUser._id }).populate({ path: 'mealDetails', populate: 'mealID' }).populate('stateID').sort({ _id: -1 }).lean();
+            const orderPendingCount = orders.reduce((total, order) => order.stateID.code >= 1 && order.stateID.code <= 3 ? ++total : total, 0)
+            const orderSuccessCount = orders.reduce((total, order) => order.stateID.code === 4 ? ++total : total, 0)
+            const orderCancelCount = orders.reduce((total, order) => order.stateID.code >= 5 && order.stateID.code <= 6 ? ++total : total, 0)
             return { orders, orderSuccessCount, orderPendingCount, orderCancelCount }
         }
-        return []
+        return false
     } catch (error) {
+        console.log(error);
         return error
     }
 }

@@ -15,13 +15,13 @@ export const POST = async (req) => {
 
         if (!cart.length) return NextResponse.json({ message: "no cart" }, { status: 500 })
 
-        const { _id: statusID } = await orderStatusModel.findOne({ code: 1 });
+        const { _id: stateID } = await orderStatusModel.findOne({ code: 1 });
         const order = await orderModel.create({
             userID: isLoginUser._id,
             mealDetails: cart,
             price,
             addressID,
-            statusID
+            stateID
         })
 
         if (order) {

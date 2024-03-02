@@ -7,7 +7,6 @@ const orderStatusSchema = new mongoose.Schema({
     },
     type: {
         type: String,
-        // enum: ['success', 'error', 'warning'],
         default: 'warning'
     },
     code: {
@@ -16,6 +15,6 @@ const orderStatusSchema = new mongoose.Schema({
     }
 }, { timestamps: true });
 
-const orderStatusModel = mongoose.models.Status || mongoose.model('Status', orderStatusSchema);
+const orderStatusModel = mongoose.models.State || mongoose.model('State', orderStatusSchema);
 
 export default orderStatusModel

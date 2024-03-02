@@ -24,9 +24,9 @@ const orderSchema = new mongoose.Schema({
         type: Number,
         default: Date.now() + Math.round(Math.random() * 10000)
     },
-    statusID: {
+    stateID: {
         type: mongoose.Types.ObjectId,
-        ref: "Status",
+        ref: "State",
         required: true
     }
 

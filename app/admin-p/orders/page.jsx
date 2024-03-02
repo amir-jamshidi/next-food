@@ -58,14 +58,14 @@ const Orders = async () => {
                 </td>
                 <td
                   className={`${
-                    order.statusID.type === "warning"
+                    order.stateID.type === "warning"
                       ? "text-orange-500"
-                      : order.statusID.type === "error"
+                      : order.stateID.type === "error"
                       ? "text-red-500"
                       : "text-green-500"
                   } px-2 py-4`}
                 >
-                  {order.statusID.name}
+                  {order.stateID.name}
                 </td>
                 <td className="px-2 py-4 font-dana">
                   {Number(order.price).toLocaleString()} ت
