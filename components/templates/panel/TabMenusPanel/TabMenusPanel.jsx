@@ -78,9 +78,9 @@ const TabMenusPanel = async () => {
           
           <span className="text-gray-200 cursor-pointer">اعلان ها</span>
           <div className="absolute invisible opacity-0 group-hover:visible group-hover:opacity-100 top-7 pt-3 left-0 delay-75">
-            <div className=" flex flex-col bg-gray-800 shadow-md divide-y divide-gray-700 w-64 p-3  rounded-xl">
+            <div className=" flex flex-col bg-gray-800 shadow-md divide-y divide-gray-700 w-64 p-3  rounded-xl border border-gray-700">
               {notification.map((notification) => (
-                <div className="py-2 flex flex-col">
+                <div className="py-2 flex flex-col transition-colors hover:bg-gray-700">
                   <div className="flex items-start gap-x-1.5 ">
                     <span
                       className={`w-2 h-2 rounded inline-block shrink-0 mt-1.5 ${
