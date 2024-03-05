@@ -1,9 +1,9 @@
 import connectToMongo from "@/configs/db"
 import { isLogin } from "@/middlewares/isLogin"
 import cartModel from '@/models/cart'
-import orderModel from '@/models/order'
-import orderStatusModel from "@/models/orderStatus"
+import stateModel from "@/models/state"
 import { NextResponse } from "next/server"
+import orderModel from '@/models/order';
 
 export const POST = async (req) => {
     try {
@@ -15,7 +15,9 @@ export const POST = async (req) => {
 
         if (!cart.length) return NextResponse.json({ message: "no cart" }, { status: 500 })
 
-        const { _id: stateID } = await orderStatusModel.findOne({ code: 1 });
+        const { _id: stateID } = await stateModel.findOne({ code: 1 });
+
+        console.log(stateID)
         const order = await orderModel.create({
             userID: isLoginUser._id,
             mealDetails: cart,
@@ -30,6 +32,7 @@ export const POST = async (req) => {
             return NextResponse.json({ message: 'success' }, { status: 201 })
         }
     } catch (error) {
+        console.log(error.message)
         return NextResponse.json({ message: error.message }, { status: 500 });
     }
 

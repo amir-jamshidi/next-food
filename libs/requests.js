@@ -12,6 +12,7 @@ import ticketModel from "@/models/ticket";
 import favoriteModel from "@/models/favorite";
 import { isAdmin } from "@/middlewares/isAdmin";
 import notificationModel from '@/models/notification';
+import stateModel from "@/models/state";
 
 // ----------------- USERS ACTION
 export const getMenu = async () => {
@@ -301,5 +302,4 @@ export const getUserNotifications = async () => {
         return false
     }
 }
-
 // ----------------- END USERS PANEL
