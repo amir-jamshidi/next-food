@@ -302,4 +302,16 @@ export const getUserNotifications = async () => {
         return false
     }
 }
+export const getOrderDetails = async (orderID) => {
+    try {
+        connectToMongo();
+        const isLoginUser = await isLogin();
+        if (!isLoginUser) return false
+        const order = await orderModel.findOne({ _id: orderID, userID: isLoginUser._id }).lean();
+        if (!order) return false;
+        return order
+    } catch (error) {
+        return error
+    }
+}
 // ----------------- END USERS PANEL

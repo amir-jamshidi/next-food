@@ -1,11 +1,11 @@
 import TitleAdminPage from "@/components/modules/TitleAdminPage/TitleAdminPage";
 import ConvertToPersian from "@/helpers/convertToPersian";
 import { getAdminDashboard } from "@/libs/requests";
-import orderStatusModel from "@/models/orderStatus";
+
 import { DownloadDoneRounded } from "@mui/icons-material";
 
 const Dashboard = async () => {
-  await orderStatusModel.create({ name: "s", code: 2 });
+
   const { orders = [], users = [] } = await getAdminDashboard();
 
   return (

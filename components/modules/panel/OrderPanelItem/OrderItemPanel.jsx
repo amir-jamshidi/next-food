@@ -1,6 +1,7 @@
 import ConvertToPersian from "@/helpers/convertToPersian";
 import sectionModel from "@/models/section";
 import Image from "next/image";
+import Link from "next/link";
 const OrderItemPanel = ({ order }) => {
   return (
     <div className="border-gray-700 rounded-2xl border border-t-0">
@@ -67,9 +68,11 @@ const OrderItemPanel = ({ order }) => {
           </span>
         </div>
       </div>
-      <button className="bg-gray-800 w-full rounded-2xl py-2 text-green-500 border-t border-t-gray-700 text-sm">
-        مشاهده جزئیات
-      </button>
+      <Link href={`/panel/orders/${order._id}`}>
+        <button className="bg-gray-800 w-full rounded-2xl py-2 text-green-500 border-t border-t-gray-700 text-sm">
+          مشاهده جزئیات
+        </button>
+      </Link>
     </div>
   );
 };

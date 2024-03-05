@@ -58,9 +58,9 @@ const Orders = async () => {
                 </td>
                 <td
                   className={`${
-                    order.stateID.type === "warning"
+                    order.stateID.state === "warning"
                       ? "text-orange-500"
-                      : order.stateID.type === "error"
+                      : order.stateID.state === "error"
                       ? "text-red-500"
                       : "text-green-500"
                   } px-2 py-4`}

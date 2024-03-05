@@ -1,9 +1,16 @@
-import React from 'react'
+import TitleUserPanel from "@/components/modules/panel/TitleUserPanel/TitleUserPanel";
+import { getOrderDetails } from "@/libs/requests";
+import React from "react";
 
-const ShowOrder = () => {
+const ShowOrder = async ({ params: { orderID } }) => {
+  const order = await getOrderDetails(orderID);
+
   return (
-    <div>ShowOrder</div>
-  )
-}
+    <div>
+      <TitleUserPanel title={"جزئیات سفارش من"} />
+      <div className="mt-14"></div>
+    </div>
+  );
+};
 
-export default ShowOrder
+export default ShowOrder;
