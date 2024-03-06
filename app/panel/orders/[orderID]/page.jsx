@@ -64,6 +64,9 @@ const ShowOrder = async ({ params: { orderID } }) => {
           ))}
           <div className="bg-orange-500 rounded-2xl p-2 text-gray-50">
             <div className="bg-orange-600 w-full h-full rounded-2xl">
+              <div>
+                <p>وضعیت پرداخت : موفق</p>
+              </div>
               <div className="flex items-center">
                 <p>وضعیت سفارش : </p>
                 <p>{order.stateID.name}</p>
