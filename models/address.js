@@ -26,6 +26,10 @@ const addressSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
+    },
+    fullAddress: {
+        type: String,
+        required: true
     }
 }, { timestamps: true });
 
