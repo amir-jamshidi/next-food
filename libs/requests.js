@@ -331,7 +331,7 @@ export const getAddressDetails = async (addressID) => {
         connectToMongo();
         const isLoginUser = await isLogin();
         if (!isLoginUser) return false
-        const addressDetails = await addressModel.find({ _id: addressID, userID: isLoginUser._id }).lean();
+        const addressDetails = await addressModel.findOne({ _id: addressID, userID: isLoginUser._id }).lean();
         if (!addressDetails) return false
         return addressDetails
     } catch (error) {

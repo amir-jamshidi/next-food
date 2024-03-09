@@ -17,7 +17,10 @@ const AddressItemPanel = ({ address }) => {
         <p className="font-dana">{address.phone}</p>
       </div>
       <div className="px-3 flex justify-end gap-x-2 mb">
-        <Link href="" className="text-green-400">
+        <Link
+          href={`/panel/addresses/${address._id}`}
+          className="text-green-400"
+        >
           مشاهده
         </Link>
         <DeleteAddressButton addressID={String(address._id)} />
