@@ -296,7 +296,7 @@ export const getUserNotifications = async () => {
         connectToMongo();
         const isLoginUser = await isLogin();
         if (!isLoginUser) return false;
-        const notification = await notificationModel.find({ userID: isLoginUser._id }).lean();
+        const notification = await notificationModel.find({ userID: isLoginUser._id, isSeen: 0 }).lean();
         return notification
     } catch (error) {
         return false

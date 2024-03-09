@@ -24,6 +24,6 @@ const notificationSchema = new Schema({
     }
 });
 
-const notificationMode = models.Notification || model('Notification', notificationSchema);
+const notificationModel = models.Notification || model('Notification', notificationSchema);
 
-export default notificationMode
+export default notificationModel
