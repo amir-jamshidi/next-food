@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { LocationOnRounded } from "@mui/icons-material";
+import DeleteAddressButton from "@/components/templates/panel/DeleteAddressButton/DeleteAddressButton";
 const AddressItemPanel = ({ address }) => {
   return (
     <div
@@ -19,9 +20,7 @@ const AddressItemPanel = ({ address }) => {
         <Link href="" className="text-green-400">
           مشاهده
         </Link>
-        <Link href="" className="text-red-500">
-          حذف
-        </Link>
+        <DeleteAddressButton addressID={String(address._id)} />
       </div>
     </div>
   );
