@@ -21,7 +21,7 @@ const TicketItemPanel = ({ ticket }) => {
             {ConvertToPersian(ticket.createdAt)}
           </span>
         </div>
-        <Link className="text-sm text-green-400" href={""}>
+        <Link className="text-sm text-green-400" href={`/panel/tickets/${ticket._id}`}>
           نمایش جزئیات
         </Link>
       </div>

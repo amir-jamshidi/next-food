@@ -1,12 +1,17 @@
-import TitleUserPanel from '@/components/modules/panel/TitleUserPanel/TitleUserPanel'
-import React from 'react'
+"use client";
+import TitleUserPanel from "@/components/modules/panel/TitleUserPanel/TitleUserPanel";
 
-const InsertAddress = () => {
+const route = () => {
   return (
-    <div>
-      <TitleUserPanel title={'آدرس های من'}/>
-    </div>
-  )
-}
+    <>
+      <TitleUserPanel title={"اضافه کردن آدرس"} />
+      <form>
+        <div>
+          
+        </div>
+      </form>
+    </>
+  );
+};
 
-export default InsertAddress
+export default route;

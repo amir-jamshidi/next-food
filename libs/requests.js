@@ -307,7 +307,7 @@ export const getOrderDetails = async (orderID) => {
         connectToMongo();
         const isLoginUser = await isLogin();
         if (!isLoginUser) return false
-        const order = await orderModel.findOne({ _id: orderID, userID: isLoginUser._id }).populate({path : 'mealDetails' , populate:"mealID"}).populate('stateID').lean();
+        const order = await orderModel.findOne({ _id: orderID, userID: isLoginUser._id }).populate({ path: 'mealDetails', populate: "mealID" }).populate('stateID').lean();
         if (!order) return false;
         return order
     } catch (error) {
@@ -319,7 +319,7 @@ export const getTicketDetails = async (ticketID) => {
         connectToMongo();
         const isLoginUser = await isLogin();
         if (!isLoginUser) return false;
-        const ticket = await ticketModel.findOne({ _id: ticketID, userID: isLoginUser._id }).lean();
+        const ticket = await ticketModel.findOne({ _id: ticketID, userID: isLoginUser._id }).populate('orderID').lean();
         if (!ticket) return false
         return ticket
     } catch (error) {
