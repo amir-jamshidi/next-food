@@ -16,7 +16,7 @@ const NotificationButton = ({ notificationID }) => {
       });
   };
 
-  return <span onClick={seenNotification}>دیدم</span>;
+  return <span onClick={seenNotification} className="text-green-600 cursor-pointer">دیدم</span>;
 };
 
 export default NotificationButton;

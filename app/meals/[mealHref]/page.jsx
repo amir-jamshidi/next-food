@@ -5,8 +5,9 @@ import MealBuyBox from "@/components/templates/meal/MealBuyBox/MealBuyBox";
 import { KeyboardArrowLeftRounded, MopedRounded } from "@mui/icons-material";
 import Link from "next/link";
 import AdditionalSlider from "@/components/templates/AdditionalSlider/AdditionalSlider";
+import FavoriteButton from "@/components/templates/FavoriteButton/FavoriteButton";
 const page = async ({ params: { mealHref } }) => {
-  const meal = await getMeal(mealHref);
+  const { meal, isFavorite } = await getMeal(mealHref);
 
   const sizes = meal.sizes.map((size) => {
     return {
@@ -36,6 +37,7 @@ const page = async ({ params: { mealHref } }) => {
                 ارسال از همین الان
               </p>
             </div>
+            <FavoriteButton isFavorite={isFavorite} mealID={String(meal._id)} />
             <Image
               className="p-4"
               src={meal.img}
@@ -59,7 +61,9 @@ const page = async ({ params: { mealHref } }) => {
               <h1 className="font-morabba-bold text-red-500 text-2xl text-center">
                 {meal.name}
               </h1>
-              <p className="text-gray-700 mt-3 dark:text-gray-300">{meal.description}</p>
+              <p className="text-gray-700 mt-3 dark:text-gray-300">
+                {meal.description}
+              </p>
             </div>
             <MealBuyBox
               mealID={String(meal._id)}
@@ -67,7 +71,9 @@ const page = async ({ params: { mealHref } }) => {
               sellers={sellers}
             />
             <div className=" bg-white dark:bg-gray-800 flex mt-6 pt-4 items-center gap-x-1 border-t dark:border-t-gray-700 border-t-black/5 mx-10 justify-center ">
-              <p className="text-gray-700 dark:text-gray-300">دسته بندی ها : </p>
+              <p className="text-gray-700 dark:text-gray-300">
+                دسته بندی ها :{" "}
+              </p>
               <Link href={`/category/${meal.categoryID.href}`}>
                 <p className="bg-red-500 rounded-full px-4 py-0.5 text-gray-100">
                   {meal.categoryID.title}
@@ -84,7 +90,7 @@ const page = async ({ params: { mealHref } }) => {
           <h3 className="text-red-500 text-lg font-morabba-bold">اضافی هــا</h3>
           <span className="flex-1 h-px bg-gray-200 dark:bg-gray-700"></span>
         </div>
-          <AdditionalSlider />
+        <AdditionalSlider />
       </div>
     </div>
   );

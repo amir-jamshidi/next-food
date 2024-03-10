@@ -5,7 +5,6 @@ import {NextResponse} from "next/server";
 
 export const PUT = async (_, { params: { notificationID } }) => {
     try {
-        console.log('********************************************' , notificationID);
         connectToMongo();
         const isLoginUser = await isLogin();
         if (!isLoginUser) return NextResponse.json({ message: 'unAuth' }, { status: 500 });

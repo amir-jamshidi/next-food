@@ -35,6 +35,10 @@ const ticketSchema = new Schema({
     answerContent: {
         type: String,
         default: null
+    },
+    code: {
+        type: Number,
+        default: () => Number(String(Date.now()).slice(-9))
     }
 }, { timestamps: true });
 

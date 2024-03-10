@@ -8,8 +8,8 @@ export const POST = async (req) => {
         connectToMongo()
         const isLoginUser = await isLogin();
         if (!isLoginUser) return NextResponse.json({ message: 'unAuth' }, { status: 500 });
-        const { fullname } = await req.json();
-        const user = await userModel.findOneAndUpdate({ _id: isLoginUser._id }, { fullname });
+        const { fullname, email } = await req.json();
+        const user = await userModel.findOneAndUpdate({ _id: isLoginUser._id }, { fullname, email });
         if (!user) return NextResponse.json({ message: 'notfound user' }, { status: 500 });
         return NextResponse.json({ message: 'edited' }, { status: 200 });
     } catch (error) {

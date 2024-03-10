@@ -1,5 +1,6 @@
 import TitleUserPanel from "@/components/modules/panel/TitleUserPanel/TitleUserPanel";
 import UserInfoForm from "@/components/templates/panel/UserInfoForm/UserInfoForm";
+import ConvertToPersian from "@/helpers/convertToPersian";
 import { getUserInfo } from "@/libs/requests";
 
 const MyInfos = async () => {
@@ -10,9 +11,8 @@ const MyInfos = async () => {
     email: userInfo.email,
     phone: userInfo.phone,
     role: userInfo.role,
+    createdAt: ConvertToPersian(userInfo.createdAt),
   };
-
-
 
   return (
     <div>

@@ -22,7 +22,7 @@ const notificationSchema = new Schema({
         type: String,
         required: false
     }
-});
+},{timestamps:true});
 
 const notificationModel = models.Notification || model('Notification', notificationSchema);
 

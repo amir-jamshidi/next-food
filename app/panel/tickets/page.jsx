@@ -3,17 +3,27 @@ import { getUserTickets } from "@/libs/requests";
 import React from "react";
 import TicketItemPanel from "@/components/modules/panel/TicketItemPanel/TicketItemPanel";
 import {
+  AddRounded,
   DoneAllRounded,
   HourglassBottomRounded,
   SendRounded,
   ViewStreamRounded,
 } from "@mui/icons-material";
+import BackButton from "@/components/modules/panel/BackButton/BackButton";
+import Link from "next/link";
 
 const Tickets = async () => {
   const { tickets, ticketPending, ticketAnswer } = await getUserTickets();
   return (
-    <div>
+    <div className="relative">
       <TitleUserPanel title={"تیکت های من"} />
+      <div className="absolute top-6 left-0">
+        <Link href={`/panel/tickets/insert`}>
+          <span className="w-10 h-10 flex justify-center items-center bg-green-500 rounded-full">
+            <AddRounded className="text-gray-100" />
+          </span>
+        </Link>
+      </div>
       <div className="mt-14">
         <div className="grid grid-cols-4 gap-1.5">
           <div className="h-20 border rounded-2xl border-gray-700 flex justify-center items-center gap-x-1 text-gray-200">

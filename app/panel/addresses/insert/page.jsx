@@ -1,4 +1,5 @@
 "use client";
+import BackButton from "@/components/modules/panel/BackButton/BackButton";
 import TitleUserPanel from "@/components/modules/panel/TitleUserPanel/TitleUserPanel";
 import axios from "axios";
 import { useState } from "react";
@@ -29,9 +30,10 @@ const route = () => {
   };
 
   return (
-    <>
+    <div className="relative">
       <TitleUserPanel title={"اضافه کردن آدرس"} />
-      <form className="mt-8" onSubmit={addAddress}>
+      <BackButton/>
+      <form className="mt-14" onSubmit={addAddress}>
         <div className="w-full border border-gray-700 p-2 rounded-2xl">
           <textarea
             value={fullAddress}
@@ -75,7 +77,7 @@ const route = () => {
           className="bg-green-500 rounded-2xl px-6 py-1.5 text-gray-200 mt-2"
         />
       </form>
-    </>
+    </div>
   );
 };
 

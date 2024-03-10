@@ -74,8 +74,14 @@ export const getMeal = async (href) => {
     try {
         connectToMongo();
         const meal = await mealModel.findOne({ href: `/${href}` }).populate('categoryID').populate({ path: 'sellerID', model: sellerModel }).lean();
+        const isLoginUser = await isLogin();
+        let isFavorite = false
+        if (isLoginUser) {
+            const isFavoriteMeal = await favoriteModel.findOne({ mealID: meal._id, userID: isLoginUser._id }).lean();
+            if (isFavoriteMeal) isFavorite = true
+        }
         if (meal) {
-            return meal
+            return { meal, isFavorite }
         }
     } catch (error) {
         return error
@@ -200,9 +206,9 @@ export const getUserOrders = async () => {
         const isLoginUser = await isLogin();
         if (isLoginUser) {
             const orders = await orderModel.find({ userID: isLoginUser._id }).populate({ path: 'mealDetails', populate: 'mealID' }).populate('stateID').sort({ _id: -1 }).lean();
-            const orderPendingCount = orders.reduce((total, order) => order.stateID.code >= 1 && order.stateID.code <= 3 ? ++total : total, 0)
-            const orderSuccessCount = orders.reduce((total, order) => order.stateID.code === 4 ? ++total : total, 0)
-            const orderCancelCount = orders.reduce((total, order) => order.stateID.code >= 5 && order.stateID.code <= 6 ? ++total : total, 0)
+            const orderPendingCount = orders.reduce((total, order) => order.stateID.state === 'warning' ? ++total : total, 0)
+            const orderSuccessCount = orders.reduce((total, order) => order.stateID.state === 'success' ? ++total : total, 0)
+            const orderCancelCount = orders.reduce((total, order) => order.stateID.state === "error" ? ++total : total, 0)
             return { orders, orderSuccessCount, orderPendingCount, orderCancelCount }
         }
         return false

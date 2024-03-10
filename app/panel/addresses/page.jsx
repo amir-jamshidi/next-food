@@ -1,14 +1,22 @@
 import AddressItemPanel from "@/components/modules/panel/AddressItemPanel/AddressItemPanel";
 import TitleUserPanel from "@/components/modules/panel/TitleUserPanel/TitleUserPanel";
 import { getUserAddresses } from "@/libs/requests";
-import { LocationOnRounded } from "@mui/icons-material";
+import { AddRounded, LocationOnRounded } from "@mui/icons-material";
+import Link from "next/link";
 
 const Addresses = async () => {
   const addresses = await getUserAddresses();
 
   return (
-    <div>
+    <div className="relative">
       <TitleUserPanel title={"آدرس های من"} />
+      <div className="absolute top-6 left-0">
+        <Link href={`/panel/addresses/insert`}>
+          <span className="w-10 h-10 flex justify-center items-center bg-green-500 rounded-full">
+            <AddRounded className="text-gray-100" />
+          </span>
+        </Link>
+      </div>
       <div className="mt-14">
         <div className="grid grid-cols-4 gap-1.5">
           <div className="h-20 border rounded-2xl border-gray-700 flex justify-center items-center gap-x-1 text-gray-200">

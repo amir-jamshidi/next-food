@@ -1,17 +1,13 @@
 import mongoose from "mongoose";
 import { cartSchema } from "./cart";
-
+import { addressSchema } from "./address";
 const orderSchema = new mongoose.Schema({
     userID: {
         type: mongoose.Types.ObjectId,
         required: true,
         ref: 'User'
     },
-    addressID: {
-        type: mongoose.Types.ObjectId,
-        ref: "Address",
-        required: true
-    },
+    addressID: addressSchema,
     mealDetails: {
         type: [cartSchema],
         required: true

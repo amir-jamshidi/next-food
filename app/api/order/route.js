@@ -4,6 +4,7 @@ import cartModel from '@/models/cart'
 import stateModel from "@/models/state"
 import { NextResponse } from "next/server"
 import orderModel from '@/models/order';
+import addressModel from '@/models/address';
 
 export const POST = async (req) => {
     try {
@@ -17,12 +18,12 @@ export const POST = async (req) => {
 
         const { _id: stateID } = await stateModel.findOne({ code: 1 });
 
-        console.log(stateID)
+        const address = await addressModel.findOne({ _id: addressID }).lean();
         const order = await orderModel.create({
             userID: isLoginUser._id,
             mealDetails: cart,
             price,
-            addressID,
+            addressID: address,
             stateID
         })
 

@@ -81,12 +81,18 @@ const TabMenusPanel = async () => {
           <span className="text-gray-200 cursor-pointer">اعلان ها</span>
           <div className="absolute invisible opacity-0 group-hover:visible group-hover:opacity-100 top-7 pt-3 left-0 delay-75">
             <div className=" flex flex-col bg-gray-700 w-72 p-3 rounded-xl gap-y-1">
-              {notification.map((notification) => (
-                <NotificationItem
-                  key={notification._id}
-                  notification={notification}
-                />
-              ))}
+              {notification.length > 0 ? (
+                <>
+                  {notification.map((notification) => (
+                    <NotificationItem
+                      key={notification._id}
+                      notification={notification}
+                    />
+                  ))}
+                </>
+              ) : (
+                <p className="text-gray-300 text-center py-3">اعلانی برای شما نیست !!!</p>
+              )}
             </div>
           </div>
         </div>

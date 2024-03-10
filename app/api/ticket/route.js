@@ -5,11 +5,11 @@ import { NextResponse } from "next/server";
 export const POST = async (req) => {
     try {
         connectToMongo();
-        const { body, score, orderID, sectionID } = await req.json();
+        const { body, score = 5, orderID = null , sectionID } = await req.json();
         const isLoginUser = await isLogin();
-        // if (!isLoginUser) return NextResponse.json({ message: "UnAuth" }, { status: 500 });
+        if (!isLoginUser) return NextResponse.json({ message: "UnAuth" }, { status: 500 });
         const ticket = await TicketModel.create({
-            body, score, userID: "65c9f520362bd6d411b44bd6", orderID, sectionID
+            body, score, userID: isLoginUser._id, orderID, sectionID
         })
         if (!ticket) return NextResponse.json({ message: "Error In Create Ticket" })
         return NextResponse.json({ message: "created" }, { status: 201 });

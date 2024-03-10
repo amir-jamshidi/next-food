@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 
-const addressSchema = new mongoose.Schema({
+export const addressSchema = new mongoose.Schema({
     userID: {
         type: mongoose.Types.ObjectId,
         required: true,

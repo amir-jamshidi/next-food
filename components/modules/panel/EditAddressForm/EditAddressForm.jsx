@@ -23,7 +23,7 @@ const EditAddressForm = ({ address }) => {
   };
 
   return (
-    <form className="mt-8" onSubmit={editAddress}>
+    <form className="mt-14" onSubmit={editAddress}>
       <div className="w-full border border-gray-700 p-2 rounded-2xl">
         <textarea
           value={fullAddress}

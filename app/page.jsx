@@ -4,6 +4,7 @@ import DessertSection from "@/components/templates/main/DessertSection/DessertSe
 import HeroSection from "@/components/templates/main/HeroSection/HeroSection";
 import PizzaSection from "@/components/templates/main/PizzaSection/PizzaSection";
 import SandwichSection from "@/components/templates/main/SandwichSection/SandwichSection";
+import { SocialMedia } from "@/components/templates/main/SocialMedia/SocialMedia";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <CategoriesSection />
       <DessertSection />
       <BeverageSection />
+      <SocialMedia />
     </div>
   );
 }

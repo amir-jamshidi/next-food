@@ -1,3 +1,4 @@
+import BackButton from "@/components/modules/panel/BackButton/BackButton";
 import TitleUserPanel from "@/components/modules/panel/TitleUserPanel/TitleUserPanel";
 import ConvertToPersian from "@/helpers/convertToPersian";
 import { getTicketDetails } from "@/libs/requests";
@@ -7,8 +8,9 @@ import React from "react";
 const ShowTicket = async ({ params: { ticketID } }) => {
   const ticket = await getTicketDetails(ticketID);
   return (
-    <div>
+    <div className="relative">
       <TitleUserPanel title={"جزئیات تیکت من"} />
+      <BackButton />
       <div className="mt-14">
         <div className="border border-gray-700 p-3 mx-3 flex rounded-2xl text-sm">
           <div className="flex gap-x-0.5 items-center border-l border-l-gray-700 pl-2">

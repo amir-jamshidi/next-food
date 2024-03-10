@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 //
-import { FavoriteBorderRounded } from "@mui/icons-material";
+import { FavoriteBorderRounded, MoreHorizRounded } from "@mui/icons-material";
 import Link from "next/link";
 
 const MealItem = ({ meal, circle = true }) => {
@@ -46,9 +46,11 @@ const MealItem = ({ meal, circle = true }) => {
           <p className="text-green-500">تومان</p>
         </div>
         <div className="flex gap-x-1">
-          <button className="w-10 h-10 delay-75 hover:w-20 hover:border-red-400 transition-all  text-gray-800  border border-red-300 dark:border-gray-600 rounded-full text-sm">
-            <FavoriteBorderRounded fontSize="small" className=" text-red-500" />
-          </button>
+          <Link href={`/meals/${meal.href}`}>
+            <button className="w-10 h-10 delay-75 hover:w-20 hover:border-red-400 transition-all  text-gray-800  border border-red-300 dark:border-gray-600 rounded-full text-sm">
+              <MoreHorizRounded fontSize="small" className=" text-red-500" />
+            </button>
+          </Link>
         </div>
       </div>
     </div>

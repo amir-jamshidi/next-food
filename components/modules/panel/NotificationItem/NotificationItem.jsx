@@ -2,6 +2,7 @@ import { ReplyRounded } from "@mui/icons-material";
 import Link from "next/link";
 import React from "react";
 import NotificationButton from "./../../../templates/panel/NotificationButton/NotificationButton";
+import ConvertToPersian from "@/helpers/convertToPersian";
 
 const NotificationItem = ({ notification }) => {
   return (
@@ -14,9 +15,11 @@ const NotificationItem = ({ notification }) => {
         ></span> */}
         <p className="text-justify text-gray-300">{notification.message}</p>
       </div>
-      <div className="flex justify-between gap-x-1">
+      <div className="flex justify-between gap-x-1 mt-1.5 items-center">
         <div>
-            <span>{notification.createdAt}</span>
+          <span className="font-dana text-gray-400 text-sm">
+            {ConvertToPersian(notification.createdAt)}
+          </span>
         </div>
         <div>
           {notification.href && (
