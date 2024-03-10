@@ -2,12 +2,12 @@
 
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 const DeleteAddressButton = ({ addressID }) => {
   const router = useRouter();
   const removeAddress = () => {
-    console.log(addressID);
-    axios
+    const promise = axios
       .delete(`/api/address/${addressID}`)
       .then((res) => {
         console.log(res);
@@ -16,6 +16,12 @@ const DeleteAddressButton = ({ addressID }) => {
       .catch((err) => {
         console.log(err);
       });
+
+    toast.promise(promise, {
+      loading: "لطفا صبر کنید ...",
+      success: "آدرس با موفقیت حذف شد",
+      error: "خطای ناشناخته",
+    });
   };
 
   return (

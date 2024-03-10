@@ -1,51 +1,62 @@
 "use client";
-
 import BackButton from "@/components/modules/panel/BackButton/BackButton";
 import TitleUserPanel from "@/components/modules/panel/TitleUserPanel/TitleUserPanel";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 import { useQuery } from "react-query";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { ticketSchema } from "@/helpers/schemas";
 
 const InsertTicket = () => {
-  const [sectionID, setSectionID] = useState("-1");
-  const [orderID, setOrderID] = useState("-1");
-  const [body, setBody] = useState("");
-
   const router = useRouter();
-
   const { data: { sections = [], orders = [] } = {} } = useQuery(
     ["ticket/details"],
     () => axios.get("/api/ticket/details").then((res) => res.data)
   );
 
-  const sendTicket = async (e) => {
-    e.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(ticketSchema),
+  });
+
+  const sendTicket = async (values) => {
     try {
       let data;
-      orderID !== "-1"
-        ? (data = { orderID, sectionID, body })
-        : (data = { body, sectionID });
+      values.orderID !== "-1"
+        ? (data = {
+            orderID: values.orderID,
+            sectionID: values.sectionID,
+            body: values.body,
+          })
+        : (data = { body: values.body, sectionID: values.sectionID });
       const { status } = await axios.post("/api/ticket", data);
       if (status === 201) {
         router.refresh();
         router.push("/panel/tickets");
       }
-    } catch (error) {
-      console.log(error.message);
-    }
+    } catch (error) {}
   };
 
   return (
     <div className="relative">
       <TitleUserPanel title={"ارسال تیکت جدید"} />
       <BackButton />
-      <form className="mt-14" onSubmit={sendTicket}>
+      <div className="flex absolute top-9 right-0 flex-wrap ml-10 gap-1">
+        {Object.entries(errors).map((error) => (
+          <p className="bg-red-500 px-3 py-0.5 rounded-xl text-sm text-gray-100">
+            {error[1]?.message}
+          </p>
+        ))}
+      </div>
+      <form className="mt-14" onSubmit={handleSubmit(sendTicket)}>
         <div className="grid grid-cols-2 gap-x-2">
           <div className="border border-gray-700 p-2 rounded-2xl">
             <select
-              value={sectionID}
-              onChange={(e) => setSectionID(e.target.value)}
+              {...register("sectionID")}
               className="w-full bg-gray-800 text-gray-200 outline-none border-none"
             >
               <option value={"-1"}>بخش مورد نظر</option>
@@ -57,11 +68,10 @@ const InsertTicket = () => {
 
           <div className="border border-gray-700 p-2 rounded-2xl">
             <select
-              value={orderID}
-              onChange={(e) => setOrderID(e.target.value)}
+              {...register("orderID")}
               className="w-full bg-gray-800 text-gray-200 outline-none border-none"
             >
-              <option>شناسه سفارش مورد نظر</option>
+              <option value={"-1"}>شناسه سفارش مورد نظر</option>
               {orders.map((order) => (
                 <option value={order._id} className="font-dana">
                   {order.code}
@@ -72,8 +82,7 @@ const InsertTicket = () => {
         </div>
         <div className="w-full border border-gray-700 p-2 rounded-2xl mt-2">
           <textarea
-            value={body}
-            onChange={(e) => setBody(e.target.value)}
+            {...register("body")}
             placeholder="متن تیکت"
             className="w-full h-full border-none outline-none bg-gray-800 min-h-40 max-h-44 text-gray-300"
           />

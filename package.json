@@ -11,6 +11,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
+    "@hookform/resolvers": "^3.3.4",
     "@mui/icons-material": "^5.15.9",
     "@mui/material": "^5.15.9",
     "axios": "^1.6.7",
@@ -21,10 +22,12 @@
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-hook-form": "^7.51.0",
     "react-hot-toast": "^2.4.1",
     "react-query": "^3.39.3",
     "react-spinners": "^0.13.8",
     "swiper": "^11.0.6",
+    "yup": "^1.4.0",
     "zarinpal-pay": "^1.0.3",
     "zod": "^3.22.4"
   },

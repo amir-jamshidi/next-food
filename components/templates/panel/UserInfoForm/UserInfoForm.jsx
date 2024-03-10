@@ -1,26 +1,19 @@
 "use client";
-import ConvertToPersian from "@/helpers/convertToPersian";
 import {
   AlternateEmailRounded,
   PersonRounded,
   PhoneRounded,
 } from "@mui/icons-material";
 import axios from "axios";
-import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { userSchema } from "@/helpers/schemas";
 import toast from "react-hot-toast";
 
 const UserInfoForm = ({ newUserInfo: userInfo }) => {
-  const [fullname, setFullname] = useState(userInfo.fullname);
-  const [email, setEmail] = useState(userInfo.email);
-
-  const updateInfos = async (e) => {
-    e.preventDefault();
-    if (fullname.length < 3)
-      return toast.error("نام نباید کمتر از سه کاراکتر باشه");
-    if (email.length < 5)
-      return toast.error("ایمل نباید کمتر از پنج کاراکتر باشه");
+  const updateInfos = async (data) => {
     const promise = axios
-      .post("/api/user-info", { fullname, email })
+      .post("/api/user-info", data)
       .then((res) => {
         console.log(res);
       })
@@ -35,28 +28,43 @@ const UserInfoForm = ({ newUserInfo: userInfo }) => {
     });
   };
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(userSchema),
+  });
+
   return (
     <div>
-      <form onSubmit={updateInfos}>
+      <div className="flex absolute top-9 right-0 flex-wrap ml-10 gap-1">
+        {Object.entries(errors).map((error) => (
+          <p className="bg-red-500 px-3 py-0.5 rounded-xl text-sm text-gray-100">
+            {error[1]?.message}
+          </p>
+        ))}
+      </div>
+      <form onSubmit={handleSubmit(updateInfos)}>
         <div className="grid grid-cols-2 gap-2">
           <div className="bg-gray-800 rounded-2xl overflow-hidden flex items-center border border-gray-700">
             <span className="mr-4">
               <PersonRounded className="text-gray-300" />
             </span>
             <input
-              onChange={(e) => setFullname(e.target.value)}
-              value={fullname}
+              defaultValue={userInfo.fullname}
+              {...register("fullname")}
               className="bg-gray-800 text-gray-300 py-2.5 px-2 border-none outline-none w-full"
               placeholder="نام کامل شما"
-            />
+              />
           </div>
           <div className="bg-gray-800 rounded-2xl overflow-hidden flex items-center border border-gray-700">
             <span className="mr-4">
               <AlternateEmailRounded className="text-gray-300" />
             </span>
             <input
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              defaultValue={userInfo.email}
+              {...register("email")}
               className="bg-gray-800 text-gray-300 py-2.5 px-2 border-none outline-none w-full"
               placeholder="ایمیل شما"
             />

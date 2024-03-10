@@ -5,6 +5,7 @@ import stateModel from "@/models/state"
 import { NextResponse } from "next/server"
 import orderModel from '@/models/order';
 import addressModel from '@/models/address';
+import notificationModel from "@/models/notification"
 
 export const POST = async (req) => {
     try {
@@ -29,7 +30,10 @@ export const POST = async (req) => {
 
         if (order) {
             await cartModel.deleteMany({ userID: isLoginUser._id }).lean();
-            console.log(req.nextUrl);
+            const notification = {
+                userID: isLoginUser._id, message: `سفارش شما ثبت شد ${order.code}`, type: "success", isSeen: 0
+            }
+            await notificationModel.create(notification)
             return NextResponse.json({ message: 'success' }, { status: 201 })
         }
     } catch (error) {

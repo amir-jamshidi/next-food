@@ -15,7 +15,7 @@ const MyInfos = async () => {
   };
 
   return (
-    <div>
+    <div className="relative">
       <TitleUserPanel title={"اطلاعات حساب من"} />
       <div className="mt-14 grid grid-cols-2 gap-x-5">
         <UserInfoForm newUserInfo={newUserInfo} />
