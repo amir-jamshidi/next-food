@@ -12,6 +12,7 @@ import {
 } from "@mui/icons-material";
 import Link from "next/link";
 import React from "react";
+import LogoutButton from "../LogoutButton/LogoutButton";
 
 const TabMenusPanel = async () => {
   const notification = await getUserNotifications();
@@ -98,12 +99,7 @@ const TabMenusPanel = async () => {
             </div>
           </div>
         </div>
-        <div className="flex gap-0.5 pr-2 items-center">
-          <span>
-            <PowerSettingsNewRounded className="text-red-500" />
-          </span>
-          <span className="text-red-500">خروج</span>
-        </div>
+        <LogoutButton/>
       </div>
     </div>
   );

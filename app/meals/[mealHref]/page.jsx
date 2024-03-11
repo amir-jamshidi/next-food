@@ -7,7 +7,7 @@ import Link from "next/link";
 import AdditionalSlider from "@/components/templates/AdditionalSlider/AdditionalSlider";
 import FavoriteButton from "@/components/templates/FavoriteButton/FavoriteButton";
 const page = async ({ params: { mealHref } }) => {
-  const { meal, isFavorite } = await getMeal(mealHref);
+  const { meal, isFavorite, loginUser } = await getMeal(mealHref);
 
   const sizes = meal.sizes.map((size) => {
     return {
@@ -37,7 +37,13 @@ const page = async ({ params: { mealHref } }) => {
                 ارسال از همین الان
               </p>
             </div>
-            <FavoriteButton isFavorite={isFavorite} mealID={String(meal._id)} />
+            {loginUser && (
+              <FavoriteButton
+                isFavorite={isFavorite}
+                mealID={String(meal._id)}
+              />
+            )}
+
             <Image
               className="p-4"
               src={meal.img}

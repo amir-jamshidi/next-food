@@ -76,12 +76,15 @@ export const getMeal = async (href) => {
         const meal = await mealModel.findOne({ href: `/${href}` }).populate('categoryID').populate({ path: 'sellerID', model: sellerModel }).lean();
         const isLoginUser = await isLogin();
         let isFavorite = false
+        let loginUser = false;
         if (isLoginUser) {
             const isFavoriteMeal = await favoriteModel.findOne({ mealID: meal._id, userID: isLoginUser._id }).lean();
+            loginUser = true
             if (isFavoriteMeal) isFavorite = true
+
         }
         if (meal) {
-            return { meal, isFavorite }
+            return { meal, isFavorite, loginUser }
         }
     } catch (error) {
         return error
@@ -235,7 +238,7 @@ export const getUserAddresses = async () => {
         connectToMongo()
         const isLoginUser = await isLogin();
         if (!isLoginUser) return false
-        const addresses = addressModel.find({ userID: isLoginUser._id }).sort({_id:-1}).lean();
+        const addresses = addressModel.find({ userID: isLoginUser._id }).sort({ _id: -1 }).lean();
         return addresses
     } catch (error) {
         return error
@@ -281,7 +284,7 @@ export const getUserFavorite = async () => {
         connectToMongo();
         const isLoginUser = await isLogin();
         if (!isLoginUser) return false
-        const favorites = favoriteModel.find({ userID: isLoginUser._id }).sort({_id:-1}).populate("mealID").lean();
+        const favorites = favoriteModel.find({ userID: isLoginUser._id }).sort({ _id: -1 }).populate("mealID").lean();
         return favorites
     } catch (error) {
         return error
@@ -302,7 +305,7 @@ export const getUserNotifications = async () => {
         connectToMongo();
         const isLoginUser = await isLogin();
         if (!isLoginUser) return false;
-        const notification = await notificationModel.find({ userID: isLoginUser._id, isSeen: 0 }).lean();
+        const notification = await notificationModel.find({ userID: isLoginUser._id, isSeen: 0 }).sort({ _id: -1 }).lean();
         return notification
     } catch (error) {
         return false
