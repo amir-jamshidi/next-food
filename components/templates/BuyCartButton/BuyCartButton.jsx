@@ -19,7 +19,8 @@ const BuyCartButton = ({ price, addresses }) => {
       .then((res) => {
         if (res.status === 201) {
           setIsLoading(false);
-          router.push("/panel");
+          router.push("/panel/orders");
+          router.refresh();
         }
       })
       .catch((err) => {
@@ -52,7 +53,9 @@ const BuyCartButton = ({ price, addresses }) => {
                 } absolute transition-all bg-green-500 inline-block right-0 h-full rounded-r-md`}
               ></span>
               <div>
-                <p className="text-gray-700 dark:text-gray-200 py-2">{address.name}</p>
+                <p className="text-gray-700 dark:text-gray-200 py-2">
+                  {address.name}
+                </p>
               </div>
               <div className="">
                 <p className="text-red-500 text-sm">تحویل فوری</p>

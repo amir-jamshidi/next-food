@@ -58,3 +58,14 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
+
+  .swal2-confirm{
+    border-radius: 16px !important;
+    background-color : 'red' !important
+  } 
+  
+  .swal2-styled{
+    border-radius : 18px !important;
+    width : 80px  !important;
+    padding : 6px 6px !important
+  }
