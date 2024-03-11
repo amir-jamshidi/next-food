@@ -14,12 +14,8 @@ const UserInfoForm = ({ newUserInfo: userInfo }) => {
   const updateInfos = async (data) => {
     const promise = axios
       .post("/api/user-info", data)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      .then((res) => {})
+      .catch((err) => {});
 
     toast.promise(promise, {
       loading: "صبر کنید ...",
@@ -56,7 +52,7 @@ const UserInfoForm = ({ newUserInfo: userInfo }) => {
               {...register("fullname")}
               className="bg-gray-800 text-gray-300 py-2.5 px-2 border-none outline-none w-full"
               placeholder="نام کامل شما"
-              />
+            />
           </div>
           <div className="bg-gray-800 rounded-2xl overflow-hidden flex items-center border border-gray-700">
             <span className="mr-4">

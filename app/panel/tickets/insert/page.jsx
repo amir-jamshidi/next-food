@@ -7,6 +7,7 @@ import { useQuery } from "react-query";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ticketSchema } from "@/helpers/schemas";
+import toast from "react-hot-toast";
 
 const InsertTicket = () => {
   const router = useRouter();
@@ -23,22 +24,32 @@ const InsertTicket = () => {
     resolver: yupResolver(ticketSchema),
   });
 
-  const sendTicket = async (values) => {
-    try {
-      let data;
-      values.orderID !== "-1"
-        ? (data = {
-            orderID: values.orderID,
-            sectionID: values.sectionID,
-            body: values.body,
-          })
-        : (data = { body: values.body, sectionID: values.sectionID });
-      const { status } = await axios.post("/api/ticket", data);
-      if (status === 201) {
-        router.refresh();
-        router.push("/panel/tickets");
-      }
-    } catch (error) {}
+  const sendTicket = (values) => {
+    let data;
+    values.orderID !== "-1"
+      ? (data = {
+          orderID: values.orderID,
+          sectionID: values.sectionID,
+          body: values.body,
+        })
+      : (data = { body: values.body, sectionID: values.sectionID });
+    const promise = axios
+      .post("/api/ticket", data)
+      .then((res) => {
+        if (res.status === 201) {
+          router.push("/panel/tickets");
+          router.refresh();
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    toast.promise(promise, {
+      loading: "لطفا صبر کنید ...",
+      success: "تیکت ارسال شد",
+      error: "خطای ناشناخته",
+    });
   };
 
   return (
@@ -90,7 +101,7 @@ const InsertTicket = () => {
         <input
           type="submit"
           value="ارسال تیکت"
-          className="bg-green-500 rounded-2xl px-6 py-1.5 text-gray-200 mt-2"
+          className="cursor-pointer bg-green-500 rounded-2xl px-6 py-1.5 text-gray-200 mt-2"
         />
       </form>
     </div>

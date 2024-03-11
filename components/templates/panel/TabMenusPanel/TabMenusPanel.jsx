@@ -17,7 +17,7 @@ const TabMenusPanel = async () => {
   const notification = await getUserNotifications();
 
   return (
-    <div className="flex bg-gray-800 w-full mt-14 rounded-2xl py-2 px-4 justify-between">
+    <div className="flex bg-gray-800 w-full mt-14 rounded-2xl py-2 px-4 justify-between z-50">
       <div className=" flex text-sm">
         <div className="flex pl-2 border-l border-l-gray-700 items-center">
           <Link href={"/panel/dashboard"} className="flex items-center gap-x-1">
@@ -91,7 +91,9 @@ const TabMenusPanel = async () => {
                   ))}
                 </>
               ) : (
-                <p className="text-gray-300 text-center py-3">اعلانی برای شما نیست !!!</p>
+                <p className="text-gray-300 text-center py-3">
+                  اعلانی برای شما نیست !!!
+                </p>
               )}
             </div>
           </div>

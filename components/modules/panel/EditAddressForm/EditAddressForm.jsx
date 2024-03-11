@@ -4,19 +4,28 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { addressSchema } from "@/helpers/schemas";
+import { useRouter } from "next/navigation";
 
 const EditAddressForm = ({ address = {} }) => {
+  const router = useRouter();
+
   const addAddress = (data) => {
     let promise;
     if (Object.entries(address).length > 0) {
       promise = axios
         .put(`/api/address/${address.id}`, data)
-        .then((res) => {})
+        .then((res) => {
+          router.push("/panel/addresses");
+          router.refresh();
+        })
         .catch((err) => {});
     } else {
       promise = axios
         .post(`/api/address`, data)
-        .then((res) => {})
+        .then((res) => {
+          router.push("/panel/addresses");
+          router.refresh();
+        })
         .catch((err) => {});
     }
     toast.promise(promise, {
@@ -85,7 +94,7 @@ const EditAddressForm = ({ address = {} }) => {
         <input
           type="submit"
           value="ذخیره"
-          className="bg-green-500 rounded-2xl px-6 py-1.5 text-gray-200 mt-2"
+          className="bg-green-500 rounded-2xl px-6 py-1.5 text-gray-200 mt-2 cursor-pointer"
         />
       </form>
     </>

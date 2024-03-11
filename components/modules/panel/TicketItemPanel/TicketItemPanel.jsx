@@ -5,9 +5,9 @@ const TicketItemPanel = ({ ticket }) => {
   return (
     <div
       key={ticket._id}
-      className="relative border border-gray-700 rounded-2xl line-clamp-2 p-3 flex flex-col"
+      className="relative border border-gray-700 rounded-2xl line-clamp-1 p-3 flex flex-col"
     >
-      <p className="text-gray-300 line-clamp-2  text-justify">{ticket.body}</p>
+      <p className="text-gray-300 line-clamp-1  text-justify">{ticket.body}</p>
       <span className=" h-px border border-dashed inline border-gray-700 mt-3"></span>
       <div className="flex justify-between mt-3">
         <div className="flex items-center gap-x-1">

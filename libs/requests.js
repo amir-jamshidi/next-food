@@ -222,7 +222,7 @@ export const getUserTickets = async () => {
         connectToMongo();
         const isLoginUser = await isLogin();
         if (!isLoginUser) return false
-        const tickets = await ticketModel.find({ userID: isLoginUser._id }).lean();
+        const tickets = await ticketModel.find({ userID: isLoginUser._id }).sort({ _id: -1 }).lean();
         const ticketAnswer = tickets.reduce((total, tickets) => tickets.isAnswer === 1 ? ++total : total, 0)
         const ticketPending = tickets.reduce((total, tickets) => tickets.isAnswer !== 1 ? ++total : total, 0)
         return { tickets, ticketPending, ticketAnswer }
@@ -235,7 +235,7 @@ export const getUserAddresses = async () => {
         connectToMongo()
         const isLoginUser = await isLogin();
         if (!isLoginUser) return false
-        const addresses = addressModel.find({ userID: isLoginUser._id });
+        const addresses = addressModel.find({ userID: isLoginUser._id }).sort({_id:-1}).lean();
         return addresses
     } catch (error) {
         return error
@@ -281,7 +281,7 @@ export const getUserFavorite = async () => {
         connectToMongo();
         const isLoginUser = await isLogin();
         if (!isLoginUser) return false
-        const favorites = favoriteModel.find({ userID: isLoginUser._id }).populate("mealID").lean();
+        const favorites = favoriteModel.find({ userID: isLoginUser._id }).sort({_id:-1}).populate("mealID").lean();
         return favorites
     } catch (error) {
         return error
