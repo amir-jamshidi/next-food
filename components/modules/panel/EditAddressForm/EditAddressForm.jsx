@@ -1,37 +1,17 @@
 "use client";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import axios from "axios";
-import toast from "react-hot-toast";
 import { addressSchema } from "@/helpers/schemas";
 import { useRouter } from "next/navigation";
+import { AddAddress } from "@/libs/postRequests";
 
 const EditAddressForm = ({ address = {} }) => {
   const router = useRouter();
 
-  const addAddress = (data) => {
-    let promise;
-    if (Object.entries(address).length > 0) {
-      promise = axios
-        .put(`/api/address/${address.id}`, data)
-        .then((res) => {
-          router.push("/panel/addresses");
-          router.refresh();
-        })
-        .catch((err) => {});
-    } else {
-      promise = axios
-        .post(`/api/address`, data)
-        .then((res) => {
-          router.push("/panel/addresses");
-          router.refresh();
-        })
-        .catch((err) => {});
-    }
-    toast.promise(promise, {
-      loading: "لطفا صبر کنید ...",
-      success: "درس با موفقیت اضافه شد",
-      error: "خطای ناشناخته",
+  const startAddAddress = (values) => {
+    AddAddress(values, address, (res) => {
+      router.push("/panel/addresses");
+      router.refresh();
     });
   };
 
@@ -52,8 +32,7 @@ const EditAddressForm = ({ address = {} }) => {
           </p>
         ))}
       </div>
-
-      <form className="mt-14" onSubmit={handleSubmit(addAddress)}>
+      <form className="mt-14" onSubmit={handleSubmit(startAddAddress)}>
         <div className="w-full border border-gray-700 p-2 rounded-2xl">
           <textarea
             defaultValue={address?.fullAddress}
@@ -102,23 +81,3 @@ const EditAddressForm = ({ address = {} }) => {
 };
 
 export default EditAddressForm;
-
-/*
-
-  const editAddress = async (e) => {
-    e.preventDefault();
-    const data = { fullAddress, reciver, name, phone };
-    const promise = axios
-      .put(`/api/address/${address.id}`, data)
-      .then((res) => {})
-      .catch((err) => {
-        console.log(err);
-      });
-    toast.promise(promise, {
-      loading: "لطفا صبر کنید ...",
-      success: "آدرس با موفقیت اضافه شد",
-      error: "خطای ناشناخته",
-    });
-  };
-
-*/

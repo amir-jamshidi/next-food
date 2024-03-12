@@ -7,10 +7,11 @@ import { useQuery } from "react-query";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ticketSchema } from "@/helpers/schemas";
-import toast from "react-hot-toast";
+import { SendTicket } from "@/libs/postRequests";
 
 const InsertTicket = () => {
   const router = useRouter();
+
   const { data: { sections = [], orders = [] } = {} } = useQuery(
     ["ticket/details"],
     () => axios.get("/api/ticket/details").then((res) => res.data)
@@ -24,31 +25,10 @@ const InsertTicket = () => {
     resolver: yupResolver(ticketSchema),
   });
 
-  const sendTicket = (values) => {
-    let data;
-    values.orderID !== "-1"
-      ? (data = {
-          orderID: values.orderID,
-          sectionID: values.sectionID,
-          body: values.body,
-        })
-      : (data = { body: values.body, sectionID: values.sectionID });
-    const promise = axios
-      .post("/api/ticket", data)
-      .then((res) => {
-        if (res.status === 201) {
-          router.push("/panel/tickets");
-          router.refresh();
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-
-    toast.promise(promise, {
-      loading: "لطفا صبر کنید ...",
-      success: "تیکت ارسال شد",
-      error: "خطای ناشناخته",
+  const startSendTicket = (values) => {
+    SendTicket(values, (_) => {
+      router.push("/panel/tickets");
+      router.refresh();
     });
   };
 
@@ -63,12 +43,12 @@ const InsertTicket = () => {
           </p>
         ))}
       </div>
-      <form className="mt-14" onSubmit={handleSubmit(sendTicket)}>
+      <form className="mt-14" onSubmit={handleSubmit(startSendTicket)}>
         <div className="grid grid-cols-2 gap-x-2">
-          <div className="border border-gray-700 p-2 rounded-2xl">
+          <div className="border border-gray-700 px-2 rounded-2xl">
             <select
               {...register("sectionID")}
-              className="w-full bg-gray-800 text-gray-200 outline-none border-none"
+              className="w-full bg-gray-800 text-gray-200 outline-none border-none h-10 rounded-2xl"
             >
               <option value={"-1"}>بخش مورد نظر</option>
               {sections.map((section) => (
@@ -77,10 +57,10 @@ const InsertTicket = () => {
             </select>
           </div>
 
-          <div className="border border-gray-700 p-2 rounded-2xl">
+          <div className="border border-gray-700 px-2 rounded-2xl">
             <select
               {...register("orderID")}
-              className="w-full bg-gray-800 text-gray-200 outline-none border-none"
+              className="w-full bg-gray-800 text-gray-200 outline-none border-none h-10 rounded-2xl"
             >
               <option value={"-1"}>شناسه سفارش مورد نظر</option>
               {orders.map((order) => (
@@ -101,7 +81,7 @@ const InsertTicket = () => {
         <input
           type="submit"
           value="ارسال تیکت"
-          className="cursor-pointer bg-green-500 rounded-2xl px-6 py-1.5 text-gray-200 mt-2"
+          className="cursor-pointer  bg-green-500 rounded-2xl px-6 py-1.5 text-gray-200 mt-2"
         />
       </form>
     </div>
