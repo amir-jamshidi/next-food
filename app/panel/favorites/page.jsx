@@ -7,7 +7,7 @@ import React from "react";
 const Favorites = async () => {
   const favorites = await getUserFavorite();
   return (
-    <div>
+    <div className="mb-12">
       <TitleUserPanel title={"علاقه مندی های من"} />
       <div className="mt-14">
         <div className="grid grid-cols-4 gap-1.5">
@@ -23,11 +23,21 @@ const Favorites = async () => {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-5 gap-3 mt-8">
-        {favorites.map((favorite) => (
-          <MealItem circle={false} key={favorite._id} meal={favorite.mealID} />
-        ))}
-      </div>
+      {favorites.length > 0 ? (
+        <div className="grid grid-cols-5 gap-3 mt-8">
+          {favorites.map((favorite) => (
+            <MealItem
+              circle={false}
+              key={favorite._id}
+              meal={favorite.mealID}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="flex rounded-2xl py-2 justify-center linier-bg mt-14">
+          <p className="text-sm text-gray-400">چیزی در علاقه مندی وجود ندارد</p>
+        </div>
+      )}
     </div>
   );
 };
