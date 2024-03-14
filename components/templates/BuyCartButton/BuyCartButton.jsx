@@ -1,5 +1,6 @@
 "use client";
 
+import { completeBuyCart } from "@/libs/postRequests";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -11,26 +12,13 @@ const BuyCartButton = ({ price, addresses }) => {
 
   const router = useRouter();
 
-  const completeBuy = async () => {
+  const startCompleteBuyCart = async () => {
     if (!addressID) return toast.error("لطفا آدرس خودتو انتخاب کن");
     setIsLoading(true);
-    const promis = axios
-      .post("/api/order", { price, addressID })
-      .then((res) => {
-        if (res.status === 201) {
-          setIsLoading(false);
-          router.push("/panel/orders");
-          router.refresh();
-        }
-      })
-      .catch((err) => {
-        setIsLoading(false);
-      });
-
-    toast.promise(promis, {
-      loading: "انتقال به درگاه بانکی ...",
-      success: "پرداخت موفق",
-      error: "خطای ناشناخته",
+    completeBuyCart({ price, addressID }, (_) => {
+      setIsLoading(false);
+      router.push("/panel/orders");
+      router.refresh();
     });
   };
 
@@ -66,7 +54,7 @@ const BuyCartButton = ({ price, addresses }) => {
       </div>
       <button
         disabled={isLoading}
-        onClick={completeBuy}
+        onClick={startCompleteBuyCart}
         className="bg-red-500 text-gray-100 py-2 rounded-lg"
       >
         {isLoading ? "در حال اتصال ..." : "  تسویه حساب و پرداخت آنلاین"}

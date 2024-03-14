@@ -1,40 +1,31 @@
 "use client";
+import { AddToFavorite, RemoveFromFavorite } from "@/libs/postRequests";
 import { FavoriteBorderRounded, FavoriteRounded } from "@mui/icons-material";
-import axios from "axios";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const FavoriteButton = ({ isFavorite: isFavoriteMeal, mealID }) => {
   const [isFavorite, setIsFavorite] = useState(isFavoriteMeal);
+  const router = useRouter();
 
-  const addToFavorite = () => {
-    console.log("ADD");
-    axios
-      .post(`/api/favorite/${mealID}`)
-      .then((res) => {
-        if (res.status === 201) setIsFavorite(true);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  const startAddToFavorite = () => {
+    AddToFavorite(mealID, (_) => {
+      setIsFavorite(true);
+      router.refresh();
+    });
   };
 
-  const removeFromFavorite = () => {
-    axios
-      .delete(`/api/favorite/${mealID}`)
-      .then((res) => {
-        if (res.status === 200) {
-          setIsFavorite(false);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  const startRemoveFromFavorite = () => {
+    RemoveFromFavorite(mealID, (_) => {
+      setIsFavorite(false);
+      router.refresh();
+    });
   };
 
   return (
     <>
       <div
-        onClick={isFavorite ? removeFromFavorite : addToFavorite}
+        onClick={isFavorite ? startRemoveFromFavorite : startAddToFavorite}
         className={`${
           isFavorite ? "bg-red-500 " : " bg-gray-100 "
         } cursor-pointer transition-colors absolute top-11 z-10 right-0 w-10 h-10 rounded-full flex items-center justify-center`}

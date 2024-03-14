@@ -1,5 +1,6 @@
 "use client";
 
+import { RemoveAddress } from "@/libs/postRequests";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
@@ -7,24 +8,6 @@ import Swal from "sweetalert2";
 
 const DeleteAddressButton = ({ addressID }) => {
   const router = useRouter();
-
-  const removeAddress = () => {
-    const promise = axios
-      .delete(`/api/address/${addressID}`)
-      .then((res) => {
-        console.log(res);
-        router.refresh();
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-
-    toast.promise(promise, {
-      loading: "لطفا صبر کنید ...",
-      success: "آدرس با موفقیت حذف شد",
-      error: "خطای ناشناخته",
-    });
-  };
 
   const removeAddressDialog = async () => {
     const { isConfirmed } = await Swal.fire({
@@ -38,7 +21,10 @@ const DeleteAddressButton = ({ addressID }) => {
       cancelButtonText: "نه !",
     });
 
-    if (isConfirmed) removeAddress();
+    if (!isConfirmed) return;
+    RemoveAddress(addressID, (_) => {
+      router.refresh();
+    });
   };
 
   return (

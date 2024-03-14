@@ -1,54 +1,34 @@
 "use client";
 
-import ToastPromise from "@/utils/ToastPromise";
+import { AddCountCart, MinusCountCart, RemoveCart } from "@/libs/postRequests";
 import { AddRounded, DeleteRounded, RemoveRounded } from "@mui/icons-material";
-import axios from "axios";
 import { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
 
 const CartItemControl = ({ mealID, count, sizeID }) => {
   const router = useRouter();
 
-  const addCount = () => {
-    console.log(sizeID);
+  const startAddCount = () => {
+    AddCountCart({ mealID, sizeID, action: "PLUS" }, (res) => {
+      router.refresh();
+    });
+  };
 
-    const promise = axios
-      .post("/api/cart", { mealID, sizeID, action: "PLUS" })
-      .then((res) => {
-        if (res.status === 200) {
-          router.refresh();
-        }
-      })
-      .catch((err) => {});
-    ToastPromise(promise, "تعداد محصول اضافه شد");
+  const startRemoveCart = () => {
+    RemoveCart({ mealID, sizeID, action: "REMOVE" }, (res) => {
+      router.refresh();
+    });
   };
-  const removeFromCart = () => {
-    const promise = axios
-      .post("/api/cart", { mealID, sizeID, action: "REMOVE" })
-      .then((res) => {
-        if (res.status === 200) {
-          router.refresh();
-        }
-      })
-      .catch((err) => {});
-    ToastPromise(promise, "محصول از سبد حذف شد");
-  };
+
   const minusCount = () => {
-    const promise = axios
-      .post("/api/cart", { mealID, sizeID, action: "MINUS" })
-      .then((res) => {
-        if (res.status === 200) {
-          router.refresh();
-        }
-      })
-      .catch((err) => {});
-    ToastPromise(promise, "تعداد محصول کم شد");
+    MinusCountCart({ mealID, sizeID, action: "MINUS" } , (res=>{
+      router.refresh();
+    }))
   };
 
   return (
     <div className="flex justify-center items-center bg-white dark:bg-gray-800 rounded-lg py-2 px-3">
       <span
-        onClick={addCount}
+        onClick={startAddCount}
         className="px-1 py-1 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors cursor-pointer rounded-full"
       >
         <AddRounded className="text-green-500" />
@@ -58,7 +38,7 @@ const CartItemControl = ({ mealID, count, sizeID }) => {
       </p>
       {count === 1 ? (
         <span
-          onClick={removeFromCart}
+          onClick={startRemoveCart}
           className="px-1 py-1 hover:bg-gray-100 transition-colors cursor-pointer rounded-full"
         >
           <DeleteRounded className="text-red-500" />

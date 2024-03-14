@@ -7,7 +7,6 @@ import Link from "next/link";
 
 const page = async () => {
   const isLoginUser = await isLogin();
-
   const cart = await getCart();
   const addresses = await getAddresses();
   const totalPrice = cart.reduce((cur, acc) => cur + acc.totalPrice, 0);
@@ -44,7 +43,9 @@ const page = async () => {
                                 {c.mealID.name}
                               </Link>
                             </p>
-                            <p className="text-gray-700 text-sm dark:text-gray-300">{c.size}</p>
+                            <p className="text-gray-700 text-sm dark:text-gray-300">
+                              {c.size}
+                            </p>
                           </div>
                         </div>
                         <div className="flex-1 flex justify-center items-center">
@@ -69,7 +70,9 @@ const page = async () => {
                               <p className="text-sm text-gray-700 dark:text-gray-300 font-dana-bold">
                                 {Number(c.price).toLocaleString()}
                               </p>
-                              <p className="text-sm text-gray-700 dark:text-gray-300">تــــ</p>
+                              <p className="text-sm text-gray-700 dark:text-gray-300">
+                                تــــ
+                              </p>
                             </div>
                           </div>
                         </div>
@@ -81,7 +84,6 @@ const page = async () => {
             </div>
             <div>
               <div className="w-96  bg-gray-100 dark:bg-gray-700 p-2 rounded-2xl">
-
                 <div className="py-2 flex flex-col gap-y-2">
                   <p className="text-sm text-gray-600 px-1 text-center dark:text-gray-300">
                     صورت حساب خرید
@@ -142,7 +144,9 @@ const page = async () => {
               <span className="flex-1 inline-block h-px bg-black/5"></span>
             </div>
             <div className="bg-white dark:bg-gray-800 mt-8 p-4 py-36 flex justify-center rounded-2xl">
-              <p className="text-gray-700 dark:text-gray-300 text-lg">سبد خرید شما خالیه !!!</p>
+              <p className="text-gray-700 dark:text-gray-300 text-lg">
+                سبد خرید شما خالیه !!!
+              </p>
             </div>
           </div>
         </>

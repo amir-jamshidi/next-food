@@ -3,69 +3,73 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: 'morabba';
-    src: url('../assets/fonts/mo-medium.woff');
+  font-family: 'morabba';
+  src: url('../assets/fonts/mo-medium.woff');
 }
 
 @font-face {
-    font-family: 'morabba-bold';
-    src: url('../assets/fonts/mo-bold.woff');
+  font-family: 'morabba-bold';
+  src: url('../assets/fonts/mo-bold.woff');
 }
 
 @font-face {
-    font-family: 'dana';
-    src: url('../assets/fonts/dana-medium.ttf');
+  font-family: 'dana';
+  src: url('../assets/fonts/dana-medium.ttf');
 }
 
 @font-face {
-    font-family: 'dana-bold';
-    src: url('../assets/fonts/dana-demi-bold.ttf');
+  font-family: 'dana-bold';
+  src: url('../assets/fonts/dana-demi-bold.ttf');
 }
 
 * {
-    font-family: 'morabba';
+  font-family: 'morabba';
 }
 
-.login-container{
-    min-height: calc(100vh - 216px);
+.login-container {
+  min-height: calc(100vh - 216px);
 }
 
 .menu-item:hover {
-    color: #ef4444;
+  color: #ef4444;
 }
 
 .category-item:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 
 /* width */
 ::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
+  width: 10px;
+}
 
-  .swal2-confirm{
-    border-radius: 16px !important;
-    background-color : 'red' !important
-  } 
-  
-  .swal2-styled{
-    border-radius : 18px !important;
-    width : 80px  !important;
-    padding : 6px 6px !important
-  }
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.swal2-confirm {
+  border-radius: 16px !important;
+  background-color: 'red' !important
+}
+
+.swal2-styled {
+  border-radius: 18px !important;
+  width: 80px !important;
+  padding: 6px 6px !important
+}
+
+.swal2-popup {
+  border-radius: 16px;
+}

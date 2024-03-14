@@ -9,19 +9,11 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { userSchema } from "@/helpers/schemas";
 import toast from "react-hot-toast";
+import { UpdateInfos } from "@/libs/postRequests";
 
 const UserInfoForm = ({ newUserInfo: userInfo }) => {
-  const updateInfos = async (data) => {
-    const promise = axios
-      .post("/api/user-info", data)
-      .then((res) => {})
-      .catch((err) => {});
-
-    toast.promise(promise, {
-      loading: "صبر کنید ...",
-      success: "اطلاعات شما ویرایش شد",
-      error: "خطای ناشناخته",
-    });
+  const startUpdateInfos = async (values) => {
+    UpdateInfos(values);
   };
 
   const {
@@ -41,7 +33,7 @@ const UserInfoForm = ({ newUserInfo: userInfo }) => {
           </p>
         ))}
       </div>
-      <form onSubmit={handleSubmit(updateInfos)}>
+      <form onSubmit={handleSubmit(startUpdateInfos)}>
         <div className="grid grid-cols-2 gap-2">
           <div className="bg-gray-800 rounded-2xl overflow-hidden flex items-center border border-gray-700">
             <span className="mr-4">
