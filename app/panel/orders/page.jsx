@@ -17,7 +17,7 @@ const Orders = async () => {
   } = await getUserOrders();
 
   return (
-    <div>
+    <div className="mb-12">
       <TitleUserPanel title={"سفارشات من"} />
       <div className="mt-14">
         <div className="grid grid-cols-4 gap-1.5">
@@ -65,11 +65,17 @@ const Orders = async () => {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-5 gap-2 mt-8 ">
-        {orders.map((order) => (
-          <OrderItemPanel key={order._id} order={order} />
-        ))}
-      </div>
+      {orders.length > 0 ? (
+        <div className="grid grid-cols-5 gap-2 mt-8 ">
+          {orders.map((order) => (
+            <OrderItemPanel key={order._id} order={order} />
+          ))}
+        </div>
+      ) : (
+        <div className="flex rounded-2xl py-2 justify-center linier-bg mt-14">
+          <p className="text-sm text-gray-400">اخیرا سفارشی ثبت نشده</p>
+        </div>
+      )}
     </div>
   );
 };
