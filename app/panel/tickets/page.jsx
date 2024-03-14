@@ -15,7 +15,7 @@ import Link from "next/link";
 const Tickets = async () => {
   const { tickets, ticketPending, ticketAnswer } = await getUserTickets();
   return (
-    <div className="relative">
+    <div className="relative mb-12">
       <TitleUserPanel title={"تیکت های من"} />
       <div className="absolute top-6 left-0">
         <Link href={`/panel/tickets/insert`}>
@@ -59,11 +59,17 @@ const Tickets = async () => {
         </div>
       </div>
       <div className="mt-8">
-        <div className="grid grid-cols-2 gap-2">
-          {tickets.map((ticket) => (
-            <TicketItemPanel ticket={ticket} key={ticket._id} />
-          ))}
-        </div>
+        {tickets.length > 0 ? (
+          <div className="grid grid-cols-2 gap-2">
+            {tickets.map((ticket) => (
+              <TicketItemPanel ticket={ticket} key={ticket._id} />
+            ))}
+          </div>
+        ) : (
+          <div className="flex rounded-2xl py-2 justify-center linier-bg mt-14">
+            <p className="text-sm text-gray-400">اخیرا سفارشی ثبت نشده</p>
+          </div>
+        )}
       </div>
     </div>
   );

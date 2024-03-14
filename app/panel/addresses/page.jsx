@@ -8,7 +8,7 @@ const Addresses = async () => {
   const addresses = await getUserAddresses();
 
   return (
-    <div className="relative">
+    <div className="relative mb-12">
       <TitleUserPanel title={"آدرس های من"} />
       <div className="absolute top-6 left-0">
         <Link href={`/panel/addresses/insert`}>
@@ -32,11 +32,17 @@ const Addresses = async () => {
         </div>
       </div>
       <div className="mt-8">
-        <div className="grid grid-cols-5 gap-2">
-          {addresses.map((address) => (
-            <AddressItemPanel key={address._id} address={address} />
-          ))}
-        </div>
+        {addresses.length > 0 ? (
+          <div className="grid grid-cols-5 gap-2">
+            {addresses.map((address) => (
+              <AddressItemPanel key={address._id} address={address} />
+            ))}
+          </div>
+        ) : (
+          <div className="flex rounded-2xl py-2 justify-center linier-bg mt-14">
+            <p className="text-sm text-gray-400">اخیرا آدرسی ثبت نشده</p>
+          </div>
+        )}
       </div>
     </div>
   );
