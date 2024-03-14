@@ -73,3 +73,8 @@
 .swal2-popup {
   border-radius: 16px;
 }
+
+.linier-bg {
+  background: rgb(31, 41, 55) !important;
+  background: linear-gradient(90deg, rgba(31, 41, 55, 1) 15%, rgba(55, 65, 81, 1) 50%, rgba(31, 41, 55, 1) 85%) !important;
+}

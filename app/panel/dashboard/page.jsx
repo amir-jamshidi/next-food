@@ -14,7 +14,7 @@ const PanelDashboard = async () => {
     await getUserDashboard();
 
   return (
-    <div>
+    <div className="mb-12">
       <TitleUserPanel title={"داشبورد"} />
       <div className="mt-14">
         <div className="grid grid-cols-4 gap-1.5">
@@ -60,22 +60,36 @@ const PanelDashboard = async () => {
           </div>
         </div>
       </div>
+
       <div className="flex justify-center items-center mt-8">
         <span className="text-sm text-gray-300">سفارش های اخیر</span>
       </div>
-      <div className="grid grid-cols-5 gap-2 mt-8">
-        {orders.map((order) => (
-          <OrderItemPanel key={order._id} order={order} />
-        ))}
-      </div>
+      {orders.length > 0 ? (
+        <div className="grid grid-cols-5 gap-2 mt-8">
+          {orders.map((order) => (
+            <OrderItemPanel key={order._id} order={order} />
+          ))}
+        </div>
+      ) : (
+        <div className="flex rounded-2xl py-2 justify-center mt-6 linier-bg">
+          <p className="text-sm text-gray-400">اخیرا سفارشی ثبت نشده</p>
+        </div>
+      )}
+
       <div className="flex justify-center items-center mt-8">
         <span className="text-sm text-gray-300">تیکت های اخیر</span>
       </div>
-      <div className="mt-8 grid grid-cols-2 gap-2">
-        {tickets.map((ticket) => (
-          <TicketItemPanel ticket={ticket} key={ticket._id} />
-        ))}
-      </div>
+      {tickets.length > 0 ? (
+        <div className="mt-8 grid grid-cols-2 gap-2">
+          {tickets.map((ticket) => (
+            <TicketItemPanel ticket={ticket} key={ticket._id} />
+          ))}
+        </div>
+      ) : (
+        <div className="flex rounded-2xl py-2 justify-center mt-6 linier-bg">
+          <p className="text-sm text-gray-400">اخیرا تیکتی ثبت نشده</p>
+        </div>
+      )}
     </div>
   );
 };
