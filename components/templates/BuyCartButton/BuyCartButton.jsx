@@ -2,6 +2,7 @@
 
 import { completeBuyCart } from "@/libs/postRequests";
 import axios from "axios";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
@@ -29,27 +30,37 @@ const BuyCartButton = ({ price, addresses }) => {
           آدرس خودتو انتخاب کن
         </p>
         <div className="flex flex-col gap-y-1">
-          {addresses.map((address) => (
-            <div
-              onClick={() => setAddressID(address._id)}
-              key={address._id}
-              className="bg-white dark:bg-gray-800 relative px-4 items-center rounded-lg text-gray-700 cursor-pointer flex justify-between"
-            >
-              <span
-                className={`${
-                  addressID === address._id ? "w-2.5" : "w-0"
-                } absolute transition-all bg-green-500 inline-block right-0 h-full rounded-r-md`}
-              ></span>
-              <div>
-                <p className="text-gray-700 dark:text-gray-200 py-2">
-                  {address.name}
-                </p>
-              </div>
-              <div className="">
-                <p className="text-red-500 text-sm">تحویل فوری</p>
-              </div>
+          {addresses.length > 0 ? (
+            <>
+              {addresses.map((address) => (
+                <div
+                  onClick={() => setAddressID(address._id)}
+                  key={address._id}
+                  className="bg-white dark:bg-gray-800 relative px-4 items-center rounded-lg text-gray-700 cursor-pointer flex justify-between"
+                >
+                  <span
+                    className={`${
+                      addressID === address._id ? "w-2.5" : "w-0"
+                    } absolute transition-all bg-green-500 inline-block right-0 h-full rounded-r-md`}
+                  ></span>
+                  <div>
+                    <p className="text-gray-700 dark:text-gray-200 py-2">
+                      {address.name}
+                    </p>
+                  </div>
+                  <div className="">
+                    <p className="text-red-500 text-sm">تحویل فوری</p>
+                  </div>
+                </div>
+              ))}
+            </>
+          ) : (
+            <div className="bg-gray-800 py-2.5 rounded-lg flex justify-center">
+              <Link href={`/panel/addresses`}>
+                <span className="text-sm text-sky-500">اضافه کردن آدرس</span>
+              </Link>
             </div>
-          ))}
+          )}
         </div>
       </div>
       <button

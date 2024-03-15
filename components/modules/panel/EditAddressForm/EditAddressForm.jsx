@@ -35,6 +35,7 @@ const EditAddressForm = ({ address = {} }) => {
       <form className="mt-14" onSubmit={handleSubmit(startAddAddress)}>
         <div className="w-full border border-gray-700 p-2 rounded-2xl">
           <textarea
+            autoComplete="off"
             defaultValue={address?.fullAddress}
             {...register("fullAddress")}
             placeholder="آدرس دقیق شما به همراه کوچه و پلاک و واحد"
@@ -44,6 +45,7 @@ const EditAddressForm = ({ address = {} }) => {
         <div className="grid grid-cols-3 mt-2 gap-x-1">
           <div className="p-2 border border-gray-700 rounded-2xl">
             <input
+              autoComplete="off"
               defaultValue={address?.name}
               {...register("name")}
               type="text"
@@ -53,6 +55,7 @@ const EditAddressForm = ({ address = {} }) => {
           </div>
           <div className="p-2 border border-gray-700 rounded-2xl">
             <input
+              autoComplete="off"
               defaultValue={address?.reciver}
               {...register("reciver")}
               type="text"
@@ -62,6 +65,7 @@ const EditAddressForm = ({ address = {} }) => {
           </div>
           <div className="p-2 border border-gray-700 rounded-2xl">
             <input
+              autoComplete="off"
               defaultValue={address?.phone}
               {...register("phone")}
               type="text"

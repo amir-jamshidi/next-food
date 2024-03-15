@@ -47,6 +47,7 @@ const InsertTicket = () => {
         <div className="grid grid-cols-2 gap-x-2">
           <div className="border border-gray-700 px-2 rounded-2xl">
             <select
+              autoComplete="off"
               {...register("sectionID")}
               className="w-full bg-gray-800 text-gray-200 outline-none border-none h-10 rounded-2xl"
             >
@@ -59,6 +60,7 @@ const InsertTicket = () => {
 
           <div className="border border-gray-700 px-2 rounded-2xl">
             <select
+              autoComplete="off"
               {...register("orderID")}
               className="w-full bg-gray-800 text-gray-200 outline-none border-none h-10 rounded-2xl"
             >
@@ -73,6 +75,7 @@ const InsertTicket = () => {
         </div>
         <div className="w-full border border-gray-700 p-2 rounded-2xl mt-2">
           <textarea
+            autoComplete="off"
             {...register("body")}
             placeholder="متن تیکت"
             className="w-full h-full border-none outline-none bg-gray-800 min-h-40 max-h-44 text-gray-300"

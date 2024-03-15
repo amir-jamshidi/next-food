@@ -13,8 +13,8 @@ const LoginLink = async () => {
     <>
       {state === "logout" ? (
         <Link href={"/panel/dashboard"} className="">
-          <span className="bg-green-500 rounded-full h-10 w-10 flex justify-center items-center cursor-pointer">
-            <PersonRounded className="text-gray-100" />
+          <span className="bg-gray-800 rounded-full h-10 border border-gray-700 text-sm px-3 text-gray-100 flex justify-center items-center cursor-pointer">
+            پنل کاربری
           </span>
         </Link>
       ) : (

@@ -53,9 +53,9 @@ const page = async ({ params: { mealHref } }) => {
             />
           </div>
           <div className="py-12 px-4 flex flex-col justify-center relative">
-            <div className="w-10 h-10 z-10 transition-colors rounded-full hover:bg-red-600 bg-red-500 absolute left-0 top-0 flex py-2 px-2 gap-x-1.5 items-center">
+            <div className="w-10 h-10 z-10 transition-colors rounded-full hover:bg-red-600 bg-red-500 absolute left-0 top-0 flex pr-0.5 items-center">
               <Link href={"/"}>
-                <span>
+                <span className="w-10 h-10 flex items-center justify-center">
                   <KeyboardArrowLeftRounded
                     fontSize="medium"
                     className="text-white"

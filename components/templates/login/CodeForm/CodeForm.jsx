@@ -3,7 +3,6 @@ import React from "react";
 import LoginSubmitForm from "../LoginSubmitForm/LoginSubmitForm";
 
 const CodeForm = ({ loginUserAction, phone, errors }) => {
-  
   return (
     <form action={loginUserAction} className="flex flex-col gap-1">
       <div className=" rounded-2xl flex bg-gray-100 dark:bg-gray-700 items-center w-full gap-x-1.5 p-1.5">
@@ -12,6 +11,7 @@ const CodeForm = ({ loginUserAction, phone, errors }) => {
         </span>
         <span></span>
         <input
+          autoComplete="off"
           name="code"
           type="text"
           className="outline-none w-full text-gray-700 bg-gray-100 dark:bg-gray-700 dark:text-gray-200"
@@ -19,6 +19,7 @@ const CodeForm = ({ loginUserAction, phone, errors }) => {
           required
         />
         <input
+          autoComplete="off"
           name="phone"
           type="text"
           value={phone}

@@ -54,7 +54,7 @@ const Header = async () => {
                 {isAdminUser && (
                   <Link
                     href={"/admin-p/dashboard"}
-                    className="bg-green-500 px-4 py-2 rounded-full text-gray-100 text-sm"
+                    className="bg-gray-800 px-4 py-2 rounded-full text-gray-100 text-sm border border-gray-700"
                   >
                     پنل مدیریت
                   </Link>

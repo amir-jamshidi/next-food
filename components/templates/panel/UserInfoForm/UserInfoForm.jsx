@@ -40,6 +40,7 @@ const UserInfoForm = ({ newUserInfo: userInfo }) => {
               <PersonRounded className="text-gray-300" />
             </span>
             <input
+              autoComplete="off"
               defaultValue={userInfo.fullname}
               {...register("fullname")}
               className="bg-gray-800 text-gray-300 py-2.5 px-2 border-none outline-none w-full"
@@ -51,6 +52,7 @@ const UserInfoForm = ({ newUserInfo: userInfo }) => {
               <AlternateEmailRounded className="text-gray-300" />
             </span>
             <input
+              autoComplete="off"
               defaultValue={userInfo.email}
               {...register("email")}
               className="bg-gray-800 text-gray-300 py-2.5 px-2 border-none outline-none w-full"
@@ -81,7 +83,7 @@ const UserInfoForm = ({ newUserInfo: userInfo }) => {
           </button>
         </div>
       </form>
-      <div className="flex text-gray-300 items-center gap-x-1 mt-8 pr-2  rounded-2xl py-2">
+      <div className="flex text-gray-300 items-center gap-x-1 mt-8 pr-2 text-sm rounded-2xl py-2">
         <p>از</p>
         <p className="font-dana">{userInfo.createdAt}</p>
         <p>کنار مایی !</p>

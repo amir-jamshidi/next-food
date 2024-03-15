@@ -3,7 +3,6 @@ import LoginSubmitForm from "../LoginSubmitForm/LoginSubmitForm";
 import { LocalPhoneRounded } from "@mui/icons-material";
 
 const PhoneForm = ({ preUserAction, errors }) => {
-  
   return (
     <form action={preUserAction} className="flex flex-col gap-1">
       <div className="rounded-2xl flex bg-gray-100 dark:bg-gray-700 items-center w-full gap-x-1.5 p-1.5">
@@ -11,6 +10,7 @@ const PhoneForm = ({ preUserAction, errors }) => {
           <LocalPhoneRounded className="text-gray-700 dark:text-gray-300 " />
         </span>
         <input
+          autoComplete="off"
           name="phone"
           type="text"
           className=" outline-none w-full text-gray-700 bg-gray-100 dark:bg-gray-700 dark:text-gray-200"
