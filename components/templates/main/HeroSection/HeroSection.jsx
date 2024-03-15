@@ -9,7 +9,13 @@ const HeroSection = () => {
     <>
       <div className="grid grid-cols-2">
         <div className="flex items-center justify-center relative">
-          <Image src={heroImg} fill style={{ objectFit: "contain" }} className="my-4" />
+          <Image
+            src={heroImg}
+            fill
+            style={{ objectFit: "contain" }}
+            alt="Main Pizza Image"
+            className="my-4"
+          />
         </div>
         <div className="my-28 text-center flex flex-col gap-y-2">
           <h1 className="text-4xl text-gray-800 dark:text-gray-100 mb-8">

@@ -126,7 +126,7 @@ const Dashboard = async () => {
             </thead>
             <tbody>
               {users.map((user) => (
-                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <tr key={user._id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                   <td className="px-2 py-4">{user.fullname}</td>
                   <td className="px-2 py-4">{user.phone}</td>
                   <td className="px-2 py-4">{user.email ? user.email : "-"}</td>

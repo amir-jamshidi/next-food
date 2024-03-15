@@ -45,6 +45,7 @@ const page = async ({ params: { mealHref } }) => {
             )}
 
             <Image
+              alt={meal.name}
               className="p-4"
               src={meal.img}
               fill

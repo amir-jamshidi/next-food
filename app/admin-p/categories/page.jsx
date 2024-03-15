@@ -46,7 +46,12 @@ const Categories = async () => {
                 <td className="px-2 py-4">{cate.title}</td>
                 <td className="px-2 py-4">{cate.href}</td>
                 <td className="px-2 py-4 flex justify-center max-h-20">
-                  <Image src={cate.img} width={60} height={60} />
+                  <Image
+                    alt={cate.title}
+                    src={cate.img}
+                    width={60}
+                    height={60}
+                  />
                 </td>
                 <td className="px-2 py-4">{ConvertToPersian("2024-02-21")}</td>
                 <td className="px-2 py-4">

@@ -1,22 +1,25 @@
 "use client";
 
+import { SeenNotification } from "@/libs/postRequests";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
 const NotificationButton = ({ notificationID }) => {
   const router = useRouter();
-  const seenNotification = () => {
-    axios
-      .put(`/api/notification/${notificationID}`)
-      .then((res) => {
-        router.refresh();
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  const startSeenNotification = () => {
+    SeenNotification(notificationID, (_) => {
+      router.refresh();
+    });
   };
 
-  return <span onClick={seenNotification} className="text-green-600 cursor-pointer">دیدم</span>;
+  return (
+    <span
+      onClick={startSeenNotification}
+      className="text-green-600 cursor-pointer"
+    >
+      دیدم
+    </span>
+  );
 };
 
 export default NotificationButton;

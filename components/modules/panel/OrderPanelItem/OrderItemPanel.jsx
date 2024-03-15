@@ -21,7 +21,7 @@ const OrderItemPanel = ({ order }) => {
                   order.mealDetails.length === 3 && i === 2 && "col-span-2"
                 } `}
               >
-                <img className="h-14 w-14" src={meal.mealID.img} fill />
+                <img className="h-14 w-14" src={meal.mealID.img} />
                 <span className="absolute w-4 h-4 flex items-center justify-center bg-gray-800 rounded-full top-1 right-1 text-gray-100 font-dana text-sm">
                   {meal.count}
                 </span>

@@ -1,23 +1,24 @@
-'use client'
+"use client";
+import { Logout } from "@/libs/postRequests";
 import { PowerSettingsNewRounded } from "@mui/icons-material";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
 const LogoutButton = () => {
   const router = useRouter();
-  const logout = () => {
-    axios
-      .post("/api/logout")
-      .then((res) => {
-          router.push("/");
-          router.refresh();
-      })
-      .catch((err) => {
-        console.log(err.message)
-      });
+
+  const startLogout = () => {
+    Logout((_) => {
+      router.push("/");
+      router.refresh();
+    });
   };
+
   return (
-    <div onClick={logout} className="flex gap-0.5 pr-2 items-center cursor-pointer">
+    <div
+      onClick={startLogout}
+      className="flex gap-0.5 pr-2 items-center cursor-pointer"
+    >
       <span>
         <PowerSettingsNewRounded className="text-red-500" />
       </span>

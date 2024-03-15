@@ -10,7 +10,6 @@ export const Provider = ({ children }) => {
 
     useEffect(() => {
         document.documentElement.className = theme
-        console.log(theme);
     }, [theme])
 
     return <>

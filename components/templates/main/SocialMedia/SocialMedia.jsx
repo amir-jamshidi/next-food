@@ -11,17 +11,35 @@ export const SocialMedia = () => {
       <div className="grid grid-cols-3 gap-2 mt-12">
         <div className="h-40 rounded-2xl bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center">
           <Link href={""}>
-            <Image src={instaImg} width={125} height={125} />
+            <Image
+           
+              alt="Instagram Logo"
+              src={instaImg}
+              width={125}
+              height={125}
+            />
           </Link>
         </div>
         <div className="h-40 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center">
           <Link href={""}>
-            <Image src={telImg} width={125} height={125} />
+            <Image
+            
+              alt="Telegram Logo"
+              src={telImg}
+              width={125}
+              height={125}
+            />
           </Link>
         </div>
         <div className="h-40 rounded-2xl bg-gradient-to-r from-red-500 to-red-600 flex items-center justify-center">
           <Link href={""}>
-            <Image src={youtubeImg} width={125} height={125} />
+            <Image
+              sizes="100vw"
+              alt="Youtube Logo"
+              src={youtubeImg}
+              width={125}
+              height={125}
+            />
           </Link>
         </div>
       </div>

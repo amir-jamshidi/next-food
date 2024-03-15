@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 //
-import { FavoriteBorderRounded, MoreHorizRounded } from "@mui/icons-material";
+import { MoreHorizRounded } from "@mui/icons-material";
 import Link from "next/link";
 
 const MealItem = ({ meal, circle = true }) => {
@@ -12,8 +12,9 @@ const MealItem = ({ meal, circle = true }) => {
           src={meal?.img}
           className="p-4"
           style={{ objectFit: "contain" }}
-          fill
-          alt=""
+          fill={true}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          alt={meal.name}
         />
       </div>
       <div className="flex justify-center flex-col items-center px-3 gap-y-3">

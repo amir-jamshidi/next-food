@@ -38,7 +38,10 @@ const InsertTicket = () => {
       <BackButton />
       <div className="flex absolute top-9 right-0 flex-wrap ml-10 gap-1">
         {Object.entries(errors).map((error) => (
-          <p className="bg-red-500 px-3 py-0.5 rounded-xl text-sm text-gray-100">
+          <p
+            key={error[1].message}
+            className="bg-red-500 px-3 py-0.5 rounded-xl text-sm text-gray-100"
+          >
             {error[1]?.message}
           </p>
         ))}
@@ -53,7 +56,9 @@ const InsertTicket = () => {
             >
               <option value={"-1"}>بخش مورد نظر</option>
               {sections.map((section) => (
-                <option value={section._id}>{section.name}</option>
+                <option key={section._id} value={section._id}>
+                  {section.name}
+                </option>
               ))}
             </select>
           </div>
@@ -66,7 +71,7 @@ const InsertTicket = () => {
             >
               <option value={"-1"}>شناسه سفارش مورد نظر</option>
               {orders.map((order) => (
-                <option value={order._id} className="font-dana">
+                <option value={order._id} key={order._id} className="font-dana">
                   {order.code}
                 </option>
               ))}

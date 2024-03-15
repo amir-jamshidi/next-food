@@ -27,7 +27,7 @@ const EditAddressForm = ({ address = {} }) => {
     <>
       <div className="flex absolute top-9 right-0 flex-wrap ml-10 gap-1">
         {Object.entries(errors).map((error) => (
-          <p className="bg-red-500 px-3 py-0.5 rounded-xl text-sm text-gray-100">
+          <p key={error[1].message} className="bg-red-500 px-3 py-0.5 rounded-xl text-sm text-gray-100">
             {error[1]?.message}
           </p>
         ))}

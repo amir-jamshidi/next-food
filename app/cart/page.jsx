@@ -32,6 +32,7 @@ const page = async () => {
                         <div className="flex-1 flex items-center gap-x-2">
                           <div className="relative h-[100px] flex items-center">
                             <Image
+                              alt={c.mealID.name}
                               src={c.mealID.img}
                               height={100}
                               width={100}

@@ -12,7 +12,7 @@ const ShowOrder = async ({ params: { orderID } }) => {
   return (
     <div className="relative">
       <TitleUserPanel title={"جزئیات سفارش من"} />
-      <BackButton/>
+      <BackButton />
       <div className="mt-14">
         <div className="grid grid-cols-5">
           {order.mealDetails.map((meal, i) => (
@@ -26,13 +26,15 @@ const ShowOrder = async ({ params: { orderID } }) => {
                 <span className="absolute text-sm bg-sky-500 z-50 inline-block rounded top-0 right-0 px-1 text-gray-300">
                   {meal.size}
                 </span>
-                <Link href={`/meals/${meal.mealID.href}`}>
-                  <Image
-                    src={meal.mealID.img}
-                    style={{ objectFit: "contain" }}
-                    fill
-                  />
-                </Link>
+                <Link href={`/meals/${meal.mealID.href}`}></Link>
+                <Image
+                  alt={meal.mealID.name}
+                  src={meal.mealID.img}
+                  style={{ objectFit: "contain" }}
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw"
+                />
               </div>
               <div className="flex flex-col mt-4 gap-1">
                 <div className="flex items-center justify-between text-gray-300">

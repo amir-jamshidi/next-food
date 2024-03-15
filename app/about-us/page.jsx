@@ -13,7 +13,7 @@ const page = () => {
       </div>
       <div className="mt-12 bg-gray-800 rounded-2xl px-4 py-6 flex flex-col gap-2 text-gray-300">
         <div className="flex items-center justify-center">
-          <Image src={AboutImg} className="w-2/5" />
+          <Image alt="About Icon" src={AboutImg} className="w-2/5" />
         </div>
         <div className="bg-gray-900 rounded-2xl px-4 py-4 gap-y-2.5 flex flex-col">
           <p>

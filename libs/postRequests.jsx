@@ -84,7 +84,6 @@ export const UpdateInfos = (values) => {
   const promise = axios
     .post("/api/user-info", values)
     .then((res) => {
-      console.log(res);
       if (res.status !== 200) throw new Error("خطای ناشناخته");
     })
     .catch((err) => {
@@ -202,7 +201,7 @@ export const RemoveFromFavorite = (mealID, callback) => {
 };
 
 export const completeBuyCart = async (values, callback) => {
-  const promis = axios
+  const promise = axios
     .post("/api/order", values)
     .then((res) => {
       if (res.status !== 201) throw new Error("خطای ناشناخته");
@@ -211,9 +210,38 @@ export const completeBuyCart = async (values, callback) => {
     .catch((err) => {
       throw new Error("خطای ناشناخته");
     });
-  ToastPromise(promis, {
+  ToastPromise(promise, {
     loading: "انتقال به درگاه بانکی ...",
     success: "پرداخت موفق",
+    error: (e) => e.message,
+  });
+};
+
+export const SeenNotification = (notificationID, callback) => {
+  axios
+    .put(`/api/notification/${notificationID}`)
+    .then((res) => {
+      if (res.status !== 200) throw new Error("خطای ناشناخته");
+      callback(res);
+    })
+    .catch((err) => {
+      throw new Error("خطای ناشناخته");
+    });
+};
+
+export const Logout = (callback) => {
+  const promise = axios
+    .post("/api/logout")
+    .then((res) => {
+      if (res.status !== 200) throw new Error("خطای ناشناخته");
+      callback(res)
+    })
+    .catch((err) => {
+      throw new Error("خطای ناشناخته");
+    });
+  ToastPromise(promise, {
+    loading: "لطفا صبر کنید ...",
+    success: "از حساب کاربری خارج شدید",
     error: (e) => e.message,
   });
 };
