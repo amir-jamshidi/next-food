@@ -23,7 +23,6 @@ const Loading = () => {
 
         </SkeletonTheme>
     )
-
 }
 
 export default Loading
