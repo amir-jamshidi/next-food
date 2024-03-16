@@ -19,7 +19,6 @@ const Loading = () => {
                 <Skeleton style={{ borderRadius: '16px' }} height={445} />
                 <Skeleton style={{ borderRadius: '16px' }} height={445} />
                 <Skeleton style={{ borderRadius: '16px' }} height={445} />
-
             </div>
 
         </SkeletonTheme>
