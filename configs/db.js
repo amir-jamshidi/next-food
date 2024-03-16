@@ -7,7 +7,7 @@ const connectToMongo = async () => {
             console.log('MongoDB Connected');
         }
     } catch (error) {
-        console.log('MongoDB Error');
+        throw new Error('We Have Problem To DB')
     }
 
 }

@@ -234,7 +234,7 @@ export const Logout = (callback) => {
     .post("/api/logout")
     .then((res) => {
       if (res.status !== 200) throw new Error("خطای ناشناخته");
-      callback(res)
+      callback(res);
     })
     .catch((err) => {
       throw new Error("خطای ناشناخته");

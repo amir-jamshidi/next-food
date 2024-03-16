@@ -39,7 +39,7 @@ const CartItemControl = ({ mealID, count, sizeID }) => {
       {count === 1 ? (
         <span
           onClick={startRemoveCart}
-          className="px-1 py-1 hover:bg-gray-100 transition-colors cursor-pointer rounded-full"
+          className="px-1 py-1 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors cursor-pointer rounded-full"
         >
           <DeleteRounded className="text-red-500" />
         </span>

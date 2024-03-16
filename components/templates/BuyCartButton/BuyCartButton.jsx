@@ -66,7 +66,7 @@ const BuyCartButton = ({ price, addresses }) => {
       <button
         disabled={isLoading}
         onClick={startCompleteBuyCart}
-        className="bg-red-500 text-gray-100 py-2 rounded-lg"
+        className="bg-red-500 hover:bg-red-600 transition-colors text-gray-100 py-2 rounded-lg"
       >
         {isLoading ? "در حال اتصال ..." : "  تسویه حساب و پرداخت آنلاین"}
       </button>

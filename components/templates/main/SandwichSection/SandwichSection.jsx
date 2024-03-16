@@ -1,5 +1,4 @@
 import MealItem from "@/components/modules/MealItem/MealItem";
-import MealSlider from "@/components/modules/MealSlider/MealSlider";
 import MoreSection from "@/components/modules/MoreSection/MoreSection";
 import TitleSection from "@/components/modules/TitleSection/TitleSection";
 import { getMeals } from "@/libs/requests";

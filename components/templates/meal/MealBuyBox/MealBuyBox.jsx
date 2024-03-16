@@ -94,7 +94,7 @@ const MealBuyBox = ({ sizes, mealID, sellers }) => {
           className="flex justify-center items-center mt-3"
           onClick={addToCart}
         >
-          <button className="bg-red-500 rounded-xl w-full py-2 text-white">
+          <button className="bg-red-500 rounded-xl w-full py-2 text-white hover:bg-red-600 transition-colors">
             اضافه کن به سبد خرید
           </button>
         </div>

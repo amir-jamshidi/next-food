@@ -179,12 +179,10 @@ export const getAdminDashboard = async () => {
         connectToMongo();
         const users = await userModel.find({}).sort({ _id: -1 }).limit(5).lean();
         const orders = await orderModel.find({}).sort({ _id: -1 }).populate('userID').populate('addressID').populate('statusID').limit(5).lean()
-        console.log(users, orders);
         return {
             users, orders
         }
     } catch (error) {
-        console.log(error);
         return error
     }
 }
@@ -216,7 +214,6 @@ export const getUserOrders = async () => {
         }
         return false
     } catch (error) {
-        console.log(error);
         return error
     }
 }
@@ -275,7 +272,6 @@ export const getUserDashboard = async () => {
 
 
     } catch (error) {
-        console.log(error);
         return error
     }
 }

@@ -9,7 +9,6 @@ export const GET = async (req, { params: { href } }) => {
         const meals = await mealModel.find({ categoryID: _id }).lean();
         return NextResponse.json(meals);
     } catch (error) {
-        console.log(error);
         return NextResponse.json({ message: "error" }, { status: 500 });
     }
 }

@@ -12,7 +12,6 @@ export const PUT = async (_, { params: { notificationID } }) => {
         if (!notification) return NextResponse.json({ message: 'error to seen notification' }, { status: 500 });
         return NextResponse.json({ message: 'seened' }, { status: 200 });
     } catch (error) {
-        console.log(error.message);
         return NextResponse.json({ message: error.message }, { status: 409 });
     }
 }
