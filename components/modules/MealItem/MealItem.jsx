@@ -23,7 +23,7 @@ const MealItem = ({ meal, circle = true }) => {
           {meal.description}
         </p>
       </div>
-      <div className="flex items-center mt-5 ">
+      <div className="flex items-center mt-5 overflow-hidden ">
         {circle && (
           <span className="bg-gray-100 dark:bg-gray-900 h-8 w-8 flex rounded-full -mr-4"></span>
         )}
