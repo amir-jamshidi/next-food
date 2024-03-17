@@ -12,7 +12,7 @@ const CategoriesSection = async () => {
     <div>
       <TitleSection title={"دسته بندی هــا"} />
       <div
-        className="grid grid-cols-6 gap-x-2 my-12 divide-x divide-black/0"
+        className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-2 my-12 divide-x divide-black/0"
         dir="ltr"
       >
         {categories.map((category) => (

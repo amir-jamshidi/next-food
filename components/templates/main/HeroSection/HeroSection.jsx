@@ -7,7 +7,7 @@ import { KeyboardArrowDownRounded } from "@mui/icons-material";
 const HeroSection = () => {
   return (
     <>
-      <div className="grid grid-cols-2">
+      <div className="grid grid-cols-1 md:grid-cols-2">
         <div className="flex items-center justify-center relative">
           <Image
             src={heroImg}
