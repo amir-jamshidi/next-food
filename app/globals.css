@@ -30,6 +30,10 @@
   min-height: calc(100vh - 216px);
 }
 
+.h-screen-size {
+  min-height: calc(100vh - 216px);
+}
+
 .menu-item:hover {
   color: #ef4444;
 }

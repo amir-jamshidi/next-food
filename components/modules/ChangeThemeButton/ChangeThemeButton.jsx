@@ -9,6 +9,7 @@ const ChangeThemeButton = () => {
 
   const changeTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
+    localStorage.setItem("theme", theme === "dark" ? "light" : "dark");
   };
 
   return (
