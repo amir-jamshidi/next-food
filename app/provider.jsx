@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 
 export const Provider = ({ children }) => {
   const [theme, setTheme] = useState("dark");
+  const [isOpenSidebar, setIsOpenSidebar] = useState(true);
 
   useEffect(() => {
     setTheme(localStorage.getItem("theme") || "dark");
@@ -17,7 +18,9 @@ export const Provider = ({ children }) => {
   return (
     <>
       <QueryClientProvider client={new QueryClient()}>
-        <ThemeContext.Provider value={{ theme, setTheme }}>
+        <ThemeContext.Provider
+          value={{ theme, setTheme, isOpenSidebar, setIsOpenSidebar }}
+        >
           {children}
           <Toaster />
         </ThemeContext.Provider>
