@@ -14,11 +14,11 @@ const ChangeThemeButton = () => {
 
   return (
     <div onClick={changeTheme} className="cursor-pointer">
-      <span className="dark:hidden group delay-75 bg-gray-700 group transition-colors hover:bg-gray-100 rounded-full h-10 w-10 flex justify-center items-center">
-        <BedtimeRounded className="delay-75 text-gray-100 group-hover:text-gray-700" />
+      <span className="dark:hidden group delay-75 bg-gray-700 group transition-colors hover:bg-gray-100 rounded-full md:h-10 md:w-10 h-8 w-8 flex justify-center items-center">
+        <BedtimeRounded fontSize="small" className="delay-75 text-gray-100 group-hover:text-gray-700" />
       </span>
-      <span className="dark:flex delay-75 group bg-gray-200 transition-colors hover:bg-gray-700 rounded-full h-10 w-10 hidden justify-center items-center">
-        <LightModeRounded className="delay-75 text-gray-700 group-hover:text-gray-200" />
+      <span className="dark:flex delay-75 group bg-gray-200 transition-colors hover:bg-gray-700 rounded-full md:h-10 md:w-10 h-8 w-8 hidden justify-center items-center">
+        <LightModeRounded fontSize="small" className="delay-75 text-gray-700 group-hover:text-gray-200" />
       </span>
     </div>
   );
