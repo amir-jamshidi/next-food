@@ -27,7 +27,7 @@ const page = async ({ params: { mealHref } }) => {
   return (
     <div>
       <div className="my-8 dark:bg-gray-800 bg-white p-4 rounded-2xl">
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="relative flex justify-center items-center">
             <div className="delay-100 group overflow-hidden w-10 h-10 z-10 transition-all hover:w-36 rounded-full flex-nowrap bg-red-500 absolute right-0 top-0 flex py-2 px-2 gap-x-1.5 items-center">
               <span>
@@ -46,7 +46,6 @@ const page = async ({ params: { mealHref } }) => {
 
             <Image
               alt={meal.name}
-              className="p-4"
               src={meal.img}
               fill
               priority

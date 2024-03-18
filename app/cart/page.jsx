@@ -22,13 +22,13 @@ const page = async () => {
             </h1>
             <span className="flex-1 inline-block h-px bg-black/5 dark:bg-gray-700"></span>
           </div>
-          <div className="bg-white dark:bg-gray-800 mt-8 p-4 rounded-2xl flex gap-x-4">
+          <div className="bg-white dark:bg-gray-800 mt-8 p-4 rounded-2xl flex flex-col lg:flex-row gap-x-4">
             <div className="flex-1">
               <div className="bg-gray-100 dark:bg-gray-700  p-2 rounded-2xl">
                 <ul className="flex flex-col divide-y divide-gray-200 dark:divide-gray-600">
                   {cart.map((c) => (
                     <li key={c._id} className="py-2.5">
-                      <div className="flex">
+                      <div className="flex flex-col items-center md:items-center md:flex-row">
                         <div className="flex-1 flex items-center gap-x-2">
                           <div className="relative h-[100px] flex items-center">
                             <Image
@@ -56,7 +56,7 @@ const page = async () => {
                             sizeID={String(c.sizeID)}
                           />
                         </div>
-                        <div className="flex-1">
+                        <div className="flex-1 mt-4 md:mt-0">
                           <div className="flex h-full flex-col items-end justify-center pl-3">
                             <div className="flex items-center gap-x-0.5">
                               <p className="font-dana-bold text-red-500 text-lg ">
@@ -84,7 +84,7 @@ const page = async () => {
               </div>
             </div>
             <div>
-              <div className="w-96  bg-gray-100 dark:bg-gray-700 p-2 rounded-2xl">
+              <div className="lg:w-96 mt-4 lg:mt-0 bg-gray-100 dark:bg-gray-700 p-2 rounded-2xl">
                 <div className="py-2 flex flex-col gap-y-2">
                   <p className="text-sm text-gray-600 px-1 text-center dark:text-gray-300">
                     صورت حساب خرید

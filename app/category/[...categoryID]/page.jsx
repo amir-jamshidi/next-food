@@ -39,8 +39,8 @@ const Category = async ({ params, searchParams }) => {
           </Link>
         </div>
         {searchParams.sort && (
-          <div className="flex flex-1 justify-start gap-x-1.5">
-            <p className="text-gray-700 dark:text-gray-300">
+          <div className="flex flex-1 justify-end md:justify-start gap-x-1.5">
+            <p className="text-gray-700 dark:text-gray-300 hidden md:inline-block">
               فیلتر اعمال شده :{" "}
             </p>
             <div className="relative">
@@ -64,7 +64,7 @@ const Category = async ({ params, searchParams }) => {
         )}
       </div>
 
-      <div className="grid grid-cols-4 gap-2">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
         {meals.map((meal) => (
           <MealItem key={meal._id} meal={meal} />
         ))}

@@ -16,9 +16,31 @@ const AdditionalSlider = () => {
   );
   return (
     <div className="mt-7">
-      <Swiper loop slidesPerView={4} spaceBetween={10} className="mySwiper rounded-2xl">
+      <Swiper
+        loop
+        slidesPerView={4}
+        spaceBetween={10}
+        breakpoints={{
+          0: {
+            slidesPerView: 2,
+          },
+          576: {
+            slidesPerView: 2,
+          },
+          768: {
+            slidesPerView: 3,
+          },
+          1024: {
+            slidesPerView: 4,
+          },
+        }}
+        className="mySwiper rounded-2xl"
+      >
         {meals.map((meal) => (
-          <SwiperSlide className="bg-white dark:bg-gray-800 rounded-2xl" key={meal._id}>
+          <SwiperSlide
+            className="bg-white dark:bg-gray-800 rounded-2xl"
+            key={meal._id}
+          >
             <MealItem meal={meal} />
           </SwiperSlide>
         ))}
