@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 
 export const Provider = ({ children }) => {
   const [theme, setTheme] = useState("dark");
-  const [isOpenSidebar, setIsOpenSidebar] = useState(true);
+  const [isOpenSidebar, setIsOpenSidebar] = useState(false);
 
   useEffect(() => {
     setTheme(localStorage.getItem("theme") || "dark");

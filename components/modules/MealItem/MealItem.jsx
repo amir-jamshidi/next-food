@@ -6,8 +6,8 @@ import Link from "next/link";
 
 const MealItem = ({ meal, circle = true }) => {
   return (
-    <div key={meal._id} className="bg-white dark:bg-gray-800 rounded-2xl">
-      <div className="relative h-60">
+    <div key={meal._id} className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden">
+      <div className="relative h-44 md:h-52 lg:h-60">
         <Image
           src={meal?.img}
           className="p-4"
@@ -23,7 +23,7 @@ const MealItem = ({ meal, circle = true }) => {
           {meal.description}
         </p>
       </div>
-      <div className="flex items-center mt-5 overflow-hidden ">
+      <div className="flex items-center mt-5 ">
         {circle && (
           <span className="bg-gray-100 dark:bg-gray-900 h-8 w-8 flex rounded-full -mr-4"></span>
         )}

@@ -1,5 +1,6 @@
 import LoginLink from "@/components/templates/header/LoginLink/LoginLink";
 import {
+  ArrowLeftRounded,
   CloseRounded,
   MenuRounded,
   ShoppingCartRounded,
@@ -12,10 +13,10 @@ import { getCartCount, getMenu } from "@/libs/requests";
 import { isLogin } from "@/middlewares/isLogin";
 import ChangeThemeButton from "../ChangeThemeButton/ChangeThemeButton";
 import Sidebar from "../Sidebar/Sidebar";
+import OpenSidebarButton from "../OpenSidebarButton/OpenSidebarButton";
+import SidebarBody from "@/components/templates/sidebar/SidebarBody/SidebarBody";
 
 const Header = async () => {
-  //Check Is Admin
-  const menus = await getMenu();
   const isAdminUser = await isAdmin();
   const isLoginUser = await isLogin();
   let cartCount = 0;
@@ -74,15 +75,15 @@ const Header = async () => {
       <header className="block md:hidden">
         <div className="h-16 bg-gray-800 flex px-2 ">
           <div className="flex-1 flex items-center h-full justify-start gap-x-1">
-            <span className="w-8 h-8 rounded-full bg-gray-700 flex justify-center items-center">
-              <MenuRounded className="text-gray-200" fontSize="small" />
-            </span>
+            <OpenSidebarButton />
             <ChangeThemeButton />
           </div>
           <div className="flex-1 h-full flex items-center justify-center">
             <h1 className="flex gap-x-1 text-xl font-font-morabba-bold">
-              <p className="font-morabba-bold text-gray-200">نکستـــ</p>
-              <p className="font-morabba-bold text-red-500">فـــود</p>
+              <Link href={`/`} className='flex'>
+                <p className="font-morabba-bold text-gray-200">نکستـــ</p>
+                <p className="font-morabba-bold text-red-500">فـــود</p>
+              </Link>
             </h1>
           </div>
           <div className="flex-1 flex justify-end gap-x-1.5 items-center">
@@ -117,7 +118,9 @@ const Header = async () => {
           </div>
         </div>
       </header>
-      <Sidebar />
+      <Sidebar>
+        <SidebarBody />
+      </Sidebar>
     </>
   );
 };

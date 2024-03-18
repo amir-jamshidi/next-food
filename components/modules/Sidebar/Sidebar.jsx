@@ -4,9 +4,9 @@ import { ThemeContext } from "@emotion/react";
 import { CloseRounded } from "@mui/icons-material";
 import { useContext } from "react";
 
-const Sidebar = () => {
+const Sidebar = ({ children }) => {
   const { setIsOpenSidebar, isOpenSidebar } = useContext(ThemeContext);
-  console.log(isOpenSidebar);
+
   return (
     <aside
       className={`fixed top-0 ${
@@ -28,7 +28,10 @@ const Sidebar = () => {
               نکست فود
             </h3>
           </div>
-          <div className="py-4 px-2"></div>
+          <div className="py-4 px-2">
+
+        {children}
+          </div>
         </div>
         <div
           onClick={() => setIsOpenSidebar(false)}
