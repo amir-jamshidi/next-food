@@ -26,10 +26,10 @@ const page = async ({ params: { mealHref } }) => {
 
   return (
     <div>
-      <div className="my-8 dark:bg-gray-800 bg-white p-4 rounded-2xl">
+      <div className="my-8 dark:bg-gray-800 bg-white p-2 md:p-4 rounded-2xl relative">
         <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="relative flex justify-center items-center">
-            <div className="delay-100 group overflow-hidden w-10 h-10 z-10 transition-all hover:w-36 rounded-full flex-nowrap bg-red-500 absolute right-0 top-0 flex py-2 px-2 gap-x-1.5 items-center">
+            <div className="delay-100 group overflow-hidden w-10 h-10 z-10 transition-all hover:w-36 rounded-full flex-nowrap bg-red-500 absolute right-2 top-2 md:top-0 md:right-0 flex py-2 px-2 gap-x-1.5 items-center">
               <span>
                 <MopedRounded fontSize="medium" className="text-white" />
               </span>
@@ -44,16 +44,18 @@ const page = async ({ params: { mealHref } }) => {
               />
             )}
 
-            <Image
-              alt={meal.name}
-              src={meal.img}
-              fill
-              priority
-              style={{ objectFit: "contain" }}
-            />
+            <div className="h-60 mt-10 md:mt-0">
+              <Image
+                alt={meal.name}
+                src={meal.img}
+                fill
+                priority
+                style={{ objectFit: "contain" }}
+              />
+            </div>
           </div>
-          <div className="py-12 px-4 flex flex-col justify-center relative">
-            <div className="w-10 h-10 z-10 transition-colors rounded-full hover:bg-red-600 bg-red-500 absolute left-0 top-0 flex pr-0.5 items-center">
+          <div className="md:py-12 py-6 px-4 flex flex-col justify-center">
+            <div className="w-10 h-10 z-10 transition-colors rounded-full hover:bg-red-600 bg-red-500 absolute left-4 top-4 flex pr-0.5 items-center">
               <Link href={"/"}>
                 <span className="w-10 h-10 flex items-center justify-center">
                   <KeyboardArrowLeftRounded

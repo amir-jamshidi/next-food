@@ -28,7 +28,7 @@ const FavoriteButton = ({ isFavorite: isFavoriteMeal, mealID }) => {
         onClick={isFavorite ? startRemoveFromFavorite : startAddToFavorite}
         className={`${
           isFavorite ? "bg-red-500 " : " bg-gray-100 "
-        } cursor-pointer transition-colors absolute top-11 z-10 right-0 w-10 h-10 rounded-full flex items-center justify-center`}
+        } cursor-pointer transition-colors absolute top-[52px] z-10 right-2 md:top-11 0 md:right-0 w-10 h-10 rounded-full flex items-center justify-center`}
       >
         {isFavorite ? (
           <span>

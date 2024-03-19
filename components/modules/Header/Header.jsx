@@ -79,9 +79,9 @@ const Header = async () => {
             <ChangeThemeButton />
           </div>
           <div className="flex-1 h-full flex items-center justify-center">
-            <h1 className="flex gap-x-1 text-xl font-font-morabba-bold">
+            <h1 className="flex text-xl font-font-morabba-bold">
               <Link href={`/`} className='flex'>
-                <p className="font-morabba-bold text-gray-200">نکستـــ</p>
+                <p className="font-morabba-bold ml-1 text-gray-200">نکستـــ</p>
                 <p className="font-morabba-bold text-red-500">فـــود</p>
               </Link>
             </h1>
@@ -101,7 +101,7 @@ const Header = async () => {
                   </span>
                 </Link>
                 <Link
-                  href="/"
+                  href="/panel/dashboard"
                   className="border text-sm py-1.5 px-2 border-gray-700 text-gray-300 rounded-2xl"
                 >
                   پنل کاربر
