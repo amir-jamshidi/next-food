@@ -17,7 +17,7 @@ const PanelDashboard = async () => {
     <div className="mb-12">
       <TitleUserPanel title={"داشبورد"} />
       <div className="mt-14">
-        <div className="grid grid-cols-4 gap-1.5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-1.5">
           <div className="h-20 border rounded-2xl border-gray-700 flex justify-center items-center gap-x-1 text-gray-200">
             <span>
               <EuroSymbolRounded className="text-green-500" />
@@ -65,7 +65,7 @@ const PanelDashboard = async () => {
         <span className="text-sm text-gray-300">سفارش های اخیر</span>
       </div>
       {orders.length > 0 ? (
-        <div className="grid grid-cols-5 gap-2 mt-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2 mt-8">
           {orders.map((order) => (
             <OrderItemPanel key={order._id} order={order} />
           ))}
@@ -80,7 +80,7 @@ const PanelDashboard = async () => {
         <span className="text-sm text-gray-300">تیکت های اخیر</span>
       </div>
       {tickets.length > 0 ? (
-        <div className="mt-8 grid grid-cols-2 gap-2">
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-2">
           {tickets.map((ticket) => (
             <TicketItemPanel ticket={ticket} key={ticket._id} />
           ))}
