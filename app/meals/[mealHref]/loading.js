@@ -13,17 +13,21 @@ const Loading = () => {
                 <span className='flex-1 h-px bg-gray-800'></span>
             </div>
 
-            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-2 mt-8'>
-                <Skeleton className='h-[400px] md:h-[430px] lg:h-[460px]' style={{ borderRadius: '16px' }} />
-                <Skeleton className='h-[400px] md:h-[430px] lg:h-[460px]' style={{ borderRadius: '16px' }} />
-                <Skeleton className='h-[400px] md:h-[430px] lg:h-[460px] md:block-force hidden-force  ' style={{ borderRadius: '16px' }} />
-                <Skeleton className='h-[400px] md:h-[430px] lg:h-[460px] lg:block-force hidden-force ' style={{ borderRadius: '16px' }} />
+            <div className='grid md:hidden grid-cols-2  gap-x-2 mt-8'>
+                <Skeleton className='h-[400px]' style={{ borderRadius: '16px' }} />
+                <Skeleton className='h-[400px]' style={{ borderRadius: '16px' }} />
             </div>
-
-
-
-
-
+            <div className='hidden md:grid lg:hidden grid-cols-3  gap-x-2 mt-8'>
+                <Skeleton className='h-[430px]' style={{ borderRadius: '16px' }} />
+                <Skeleton className='h-[430px]' style={{ borderRadius: '16px' }} />
+                <Skeleton className='h-[430px]' style={{ borderRadius: '16px' }} />
+            </div>
+            <div className='hidden lg:grid grid-cols-4 gap-x-2 mt-8'>
+                <Skeleton className='h-[460px]' style={{ borderRadius: '16px' }} />
+                <Skeleton className='h-[460px]' style={{ borderRadius: '16px' }} />
+                <Skeleton className='h-[460px]' style={{ borderRadius: '16px' }} />
+                <Skeleton className='h-[460px]' style={{ borderRadius: '16px' }} />
+            </div>
 
         </SkeletonTheme>
     )
