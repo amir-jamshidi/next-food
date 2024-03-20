@@ -10,7 +10,7 @@ const Favorites = async () => {
     <div className="mb-12">
       <TitleUserPanel title={"علاقه مندی های من"} />
       <div className="mt-14">
-        <div className="grid grid-cols-4 gap-1.5">
+        <div className="grid gap-1.5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           <div className="h-20 border rounded-2xl border-gray-700 flex justify-center items-center gap-x-1 text-gray-200">
             <span>
               <LunchDiningRounded className="text-red-500" />
@@ -24,7 +24,7 @@ const Favorites = async () => {
         </div>
       </div>
       {favorites.length > 0 ? (
-        <div className="grid grid-cols-5 gap-3 mt-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mt-8">
           {favorites.map((favorite) => (
             <MealItem
               circle={false}
