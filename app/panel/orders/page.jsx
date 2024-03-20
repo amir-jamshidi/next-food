@@ -20,7 +20,7 @@ const Orders = async () => {
     <div className="mb-12">
       <TitleUserPanel title={"سفارشات من"} />
       <div className="mt-14">
-        <div className="grid grid-cols-4 gap-1.5">
+        <div className="grid gap-1.5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           <div className="h-20 border rounded-2xl border-gray-700 flex justify-center items-center gap-x-1 text-gray-200">
             <span>
               <ViewStreamRounded className="text-sky-500" />
@@ -66,7 +66,7 @@ const Orders = async () => {
         </div>
       </div>
       {orders.length > 0 ? (
-        <div className="grid grid-cols-5 gap-2 mt-8 ">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 mt-8 ">
           {orders.map((order) => (
             <OrderItemPanel key={order._id} order={order} />
           ))}
