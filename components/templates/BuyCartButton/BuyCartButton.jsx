@@ -55,7 +55,7 @@ const BuyCartButton = ({ price, addresses }) => {
               ))}
             </>
           ) : (
-            <div className="bg-gray-800 py-2.5 rounded-lg flex justify-center">
+            <div className="dark:bg-gray-800 bg-white py-2.5 rounded-lg flex justify-center">
               <Link href={`/panel/addresses`}>
                 <span className="text-sm text-sky-500">اضافه کردن آدرس</span>
               </Link>
