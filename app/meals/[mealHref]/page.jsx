@@ -30,25 +30,25 @@ const page = async ({ params: { mealHref } }) => {
 
   return (
     <div>
-      <div className="flex py-1 px-3 bg-gray-800 mt-8 rounded-2xl">
+      <div className="flex py-1 px-3 dark:bg-gray-800 bg-white mt-8 rounded-2xl">
         <div className="flex items-center">
           <Link href={`/`}>
-            <p className="text-gray-300">صفحه اصلی</p>
+            <p className="dark:text-gray-300 text-gray-700">صفحه اصلی</p>
           </Link>
           <span>
-            <ArrowLeftRounded fontSize="large" className="text-gray-400" />
+            <ArrowLeftRounded fontSize="large" className="dark:text-gray-400 text-gray-600" />
           </span>
         </div>
         <div className="flex items-center">
           <Link href={`/category/${meal.categoryID.href}`}>
-            <p className="text-gray-300">{meal.categoryID.title}</p>
+            <p className="dark:text-gray-300 text-gray-700">{meal.categoryID.title}</p>
           </Link>
           <span>
-            <ArrowLeftRounded fontSize="large" className="text-gray-400" />
+            <ArrowLeftRounded fontSize="large" className="dark:text-gray-400 text-gray-600" />
           </span>
         </div>
         <div className="flex items-center">
-          <p className="text-gray-300">{meal.name}</p>
+          <p className="dark:text-gray-300 text-gray-700">{meal.name}</p>
         </div>
       </div>
       <div className="my-8 dark:bg-gray-800 bg-white p-2 md:p-4 rounded-2xl relative">
