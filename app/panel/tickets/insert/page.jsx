@@ -47,7 +47,7 @@ const InsertTicket = () => {
         ))}
       </div>
       <form className="mt-14" onSubmit={handleSubmit(startSendTicket)}>
-        <div className="grid grid-cols-2 gap-x-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-2 gap-y-1">
           <div className="border border-gray-700 px-2 rounded-2xl">
             <select
               autoComplete="off"
@@ -69,7 +69,7 @@ const InsertTicket = () => {
               {...register("orderID")}
               className="w-full bg-gray-800 text-gray-200 outline-none border-none h-10 rounded-2xl"
             >
-              <option value={"-1"}>شناسه سفارش مورد نظر</option>
+              <option value={"-1"}>شناسه سفارش مورد نظر (اختیاری)</option>
               {orders.map((order) => (
                 <option value={order._id} key={order._id} className="font-dana">
                   {order.code}

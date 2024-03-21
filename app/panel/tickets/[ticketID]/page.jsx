@@ -12,7 +12,7 @@ const ShowTicket = async ({ params: { ticketID } }) => {
       <TitleUserPanel title={"جزئیات تیکت من"} />
       <BackButton />
       <div className="mt-14">
-        <div className="border border-gray-700 p-3 mx-3 flex rounded-2xl text-sm">
+        <div className="hidden md:flex border border-gray-700 p-3 mx-3  rounded-2xl text-sm">
           <div className="flex gap-x-0.5 items-center border-l border-l-gray-700 pl-2">
             <span className="">
               <NotListedLocationRounded className="text-gray-300" />
@@ -43,6 +43,38 @@ const ShowTicket = async ({ params: { ticketID } }) => {
             </div>
           )}
         </div>
+
+        <div className="flex divide-y divide-gray-700 flex-col md:hidden border border-gray-700 px-2 py-1.5 rounded-2xl mx-3">
+          <div className="flex gap-x-0.5 items-center py-1">
+            <span className="">
+              <NotListedLocationRounded className="text-gray-300" />
+            </span>
+            <p className="text-gray-300">وضعیت تیکت : </p>
+            <p
+              className={`${
+                ticket.isAnswer === 1 ? "text-green-500" : "text-orange-500"
+              }`}
+            >
+              {ticket.isAnswer === 1 ? "پاسخ پشتیبان" : "انتظار پاسخ"}
+            </p>
+          </div>
+
+          <div className={`flex gap-x-0.5 items-center px-2 py-1`}>
+            <p className="text-gray-300">شناسه تیکت : </p>
+            <p className={`text-gray-300 font-dana pt-0.5`}>{ticket.code}</p>
+          </div>
+
+          {ticket.orderID && (
+            <div className="flex gap-x-0.5 items-center px-2 py-1">
+              <p className="text-gray-300">شناسه سفارش : </p>
+              <p className={`text-gray-300 font-dana pt-0.5`}>
+                {ticket.orderID?.code}
+              </p>
+            </div>
+          )}
+
+        </div>
+
         <div className="mt-8">
           <div className="p-3 relative">
             <span className="w-10 h-10 bg-gray-300 rounded-full flex justify-center items-center text-sm absolute -right-1 -top-1">

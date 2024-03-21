@@ -9,7 +9,7 @@ const SidebarText = ({ title, href }) => {
   const { setIsOpenSidebar } = useContext(ThemeContext);
 
   return (
-    <p className="px-1.5 text-gray-300">
+    <p className="px-1.5 dark:text-gray-300 text-gray-700">
       <Link href={`${href}`} onClick={() => setIsOpenSidebar(false)}>
         <span>
           <ArrowLeftRounded className="text-red-500" />

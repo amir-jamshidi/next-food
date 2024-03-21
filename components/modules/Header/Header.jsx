@@ -73,7 +73,7 @@ const Header = async () => {
         <SubHeader />
       </header>
       <header className="block md:hidden">
-        <div className="h-16 bg-gray-800 flex px-2 ">
+        <div className="h-16 dark:bg-gray-800 bg-gray-200 flex px-2 ">
           <div className="flex-1 flex items-center h-full justify-start gap-x-1">
             <OpenSidebarButton />
             <ChangeThemeButton />
@@ -81,7 +81,7 @@ const Header = async () => {
           <div className="flex-1 h-full flex items-center justify-center">
             <h1 className="flex text-xl font-font-morabba-bold">
               <Link href={`/`} className='flex'>
-                <p className="font-morabba-bold ml-1 text-gray-200">نکستـــ</p>
+                <p className="font-morabba-bold ml-1 text-gray-800 dark:text-gray-200">نکستـــ</p>
                 <p className="font-morabba-bold text-red-500">فـــود</p>
               </Link>
             </h1>
@@ -102,7 +102,7 @@ const Header = async () => {
                 </Link>
                 <Link
                   href="/panel/dashboard"
-                  className="border text-sm py-1.5 px-2 border-gray-700 text-gray-300 rounded-2xl"
+                  className="border  text-sm py-1.5 px-2 border-gray-300 bg-gray-200 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-300 text-gray-700 rounded-2xl"
                 >
                   پنل کاربر
                 </Link>
@@ -110,7 +110,7 @@ const Header = async () => {
             ) : (
               <Link
                 href="/"
-                className="border text-sm py-1.5 px-2 border-gray-700 text-gray-300 rounded-2xl"
+                className="border text-sm py-1.5 px-2 bg-gray-200 dark:bg-gray-800 dark:border-gray-700 border-gray-300 dark:text-gray-300 text-gray-700 rounded-2xl"
               >
                 ورود یا ثبت نام
               </Link>

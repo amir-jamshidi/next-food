@@ -42,7 +42,7 @@ const EditAddressForm = ({ address = {} }) => {
             className="w-full h-full border-none outline-none bg-gray-800 min-h-40 max-h-44 text-gray-300"
           />
         </div>
-        <div className="grid grid-cols-3 mt-2 gap-x-1">
+        <div className="grid grid-cols-1 lg:grid-cols-3 mt-2 gap-1">
           <div className="p-2 border border-gray-700 rounded-2xl">
             <input
               autoComplete="off"

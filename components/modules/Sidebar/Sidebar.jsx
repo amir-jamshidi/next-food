@@ -16,15 +16,15 @@ const Sidebar = ({ children }) => {
       } z-50 w-full block md:hidden transition-all `}
     >
       <div className="flex">
-        <div className="w-[300px] bg-gray-800 h-screen relative">
+        <div className="w-[300px] dark:bg-gray-800 bg-gray-200 h-screen relative">
           <span
             onClick={() => setIsOpenSidebar(false)}
             className="absolute left-1 top-5 cursor-pointer"
           >
             <CloseRounded className="text-red-500" />
           </span>
-          <div className="flex justify-center items-center h-16 border-b border-b-gray-700/50">
-            <h3 className="text-xl font-morabba-bold text-gray-300 ">
+          <div className="flex justify-center items-center h-16 border-b border-b-gray-300 dark:border-b-gray-700/50">
+            <h3 className="text-xl font-morabba-bold dark:text-gray-300 text-gray-800">
               نکست فود
             </h3>
           </div>

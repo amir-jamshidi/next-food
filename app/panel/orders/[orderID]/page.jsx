@@ -2,6 +2,7 @@ import BackButton from "@/components/modules/panel/BackButton/BackButton";
 import TitleUserPanel from "@/components/modules/panel/TitleUserPanel/TitleUserPanel";
 import ConvertToPersian from "@/helpers/convertToPersian";
 import { getOrderDetails } from "@/libs/requests";
+import { QuestionMarkRounded } from "@mui/icons-material";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -14,7 +15,7 @@ const ShowOrder = async ({ params: { orderID } }) => {
       <TitleUserPanel title={"جزئیات سفارش من"} />
       <BackButton />
       <div className="mt-14">
-        <div className="grid grid-cols-5">
+        <div className="grid gap-y-1 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {order.mealDetails.map((meal, i) => (
             <div
               key={meal._id}
@@ -67,79 +68,38 @@ const ShowOrder = async ({ params: { orderID } }) => {
               </div>
             </div>
           ))}
-          <div
-            className={`${
-              order.stateID.state === "warning"
-                ? "bg-orange-500"
-                : order.stateID.state === "success"
-                ? "bg-green-500"
-                : "bg-red-500"
-            } rounded-2xl p-2 text-gray-50 flex flex-col gap-1`}
-          >
-            <div
-              className={`${
-                order.stateID.state === "warning"
-                  ? "bg-orange-600"
-                  : order.stateID.state === "success"
-                  ? "bg-green-600"
-                  : "bg-red-600"
-              } flex rounded-lg p-1 justify-center`}
-            >
-              <p>وضعیت سفارش : </p>
-              <p>{order.stateID.name}</p>
+        
+          <div className="border border-gray-700 rounded-2xl py-3">
+            <div className="flex justify-center items-center flex-col gap-y-1">
+              <span>
+                <QuestionMarkRounded
+                  fontSize="large"
+                  className="text-blue-600 w-12 h-12"
+                />
+              </span>
+              <span>
+                <p className="text-gray-200 font-morabba-bold text-lg">
+                  {order.stateID.name}
+                </p>
+              </span>
             </div>
-
-            <div
-              className={`${
-                order.stateID.state === "warning"
-                  ? "bg-orange-600"
-                  : order.stateID.state === "success"
-                  ? "bg-green-600"
-                  : "bg-red-600"
-              } flex rounded-lg p-1 justify-center`}
-            >
-              <p>کد پیگیری : </p>
-              <p className="font-dana">{order.code}</p>
-            </div>
-            <div
-              className={`${
-                order.stateID.state === "warning"
-                  ? "bg-orange-600"
-                  : order.stateID.state === "success"
-                  ? "bg-green-600"
-                  : "bg-red-600"
-              } flex rounded-lg p-1 justify-center`}
-            >
-              <p>مبلغ سفارش : </p>
-              <p className="font-dana">
-                {Number(order.price).toLocaleString()}
-              </p>
-            </div>
-            <div
-              className={`${
-                order.stateID.state === "warning"
-                  ? "bg-orange-600"
-                  : order.stateID.state === "success"
-                  ? "bg-green-600"
-                  : "bg-red-600"
-              } flex rounded-lg p-1 justify-center`}
-            >
-              <p>در تاریخ : </p>
-              <p className="font-dana">{ConvertToPersian(order.createdAt)}</p>
-            </div>
-            <div
-              className={`${
-                order.stateID.state === "warning"
-                  ? "bg-orange-600"
-                  : order.stateID.state === "success"
-                  ? "bg-green-600"
-                  : "bg-red-600"
-              } flex rounded-lg p-1 justify-center`}
-            >
-              <p>ارسال شده به</p>
-              <Link href={"/panel/addresses"}>
-                <p className="">{order.addressID.name}</p>
-              </Link>
+            <div className="flex flex-col items-center justify-center mt-4 bg-gray-900 mx-2 gap-y-2.5 rounded-2xl py-3">
+              <div className='flex gap-x-1 text-sm text-gray-300 '>
+                <p>کد پیگیری</p>
+                <p className='font-dana-bold pt-0.5'>{order.code}</p>
+              </div>
+              <div className='flex gap-x-1 text-sm text-gray-300 '>
+                <p>مبلغ</p>
+                <p className='font-dana-bold pt-0.5'>{Number(order.price).toLocaleString()}</p>
+              </div>
+              <div className='flex gap-x-1 text-sm text-gray-300 '>
+                <p>تاریخ</p>
+                <p className='font-dana-bold pt-0.5'>{ConvertToPersian(order.createdAt)}</p>
+              </div>
+              <div className='flex gap-x-1 text-sm text-gray-300 '>
+                <p>ارسال شده به</p>
+                <p className='text-violet-500'>{order.addressID.name}</p>
+              </div>
             </div>
           </div>
         </div>

@@ -34,7 +34,7 @@ const UserInfoForm = ({ newUserInfo: userInfo }) => {
         ))}
       </div>
       <form onSubmit={handleSubmit(startUpdateInfos)}>
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
           <div className="bg-gray-800 rounded-2xl overflow-hidden flex items-center border border-gray-700">
             <span className="mr-4">
               <PersonRounded className="text-gray-300" />

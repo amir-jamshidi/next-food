@@ -2,7 +2,11 @@ import { getMeal } from "@/libs/requests";
 import React from "react";
 import Image from "next/image";
 import MealBuyBox from "@/components/templates/meal/MealBuyBox/MealBuyBox";
-import { KeyboardArrowLeftRounded, MopedRounded } from "@mui/icons-material";
+import {
+  ArrowLeftRounded,
+  KeyboardArrowLeftRounded,
+  MopedRounded,
+} from "@mui/icons-material";
 import Link from "next/link";
 import AdditionalSlider from "@/components/templates/AdditionalSlider/AdditionalSlider";
 import FavoriteButton from "@/components/templates/FavoriteButton/FavoriteButton";
@@ -26,6 +30,27 @@ const page = async ({ params: { mealHref } }) => {
 
   return (
     <div>
+      <div className="flex py-1 px-3 bg-gray-800 mt-8 rounded-2xl">
+        <div className="flex items-center">
+          <Link href={`/`}>
+            <p className="text-gray-300">صفحه اصلی</p>
+          </Link>
+          <span>
+            <ArrowLeftRounded fontSize="large" className="text-gray-400" />
+          </span>
+        </div>
+        <div className="flex items-center">
+          <Link href={`/category/${meal.categoryID.href}`}>
+            <p className="text-gray-300">{meal.categoryID.title}</p>
+          </Link>
+          <span>
+            <ArrowLeftRounded fontSize="large" className="text-gray-400" />
+          </span>
+        </div>
+        <div className="flex items-center">
+          <p className="text-gray-300">{meal.name}</p>
+        </div>
+      </div>
       <div className="my-8 dark:bg-gray-800 bg-white p-2 md:p-4 rounded-2xl relative">
         <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="relative flex justify-center items-center">

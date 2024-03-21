@@ -9,9 +9,9 @@ const OpenSidebarButton = () => {
   return (
     <span
       onClick={()=>setIsOpenSidebar(true)}
-      className="w-8 h-8 rounded-full bg-gray-700 flex justify-center items-center cursor-pointer"
+      className="w-8 h-8 rounded-full dark:bg-gray-700 bg-gray-300 flex justify-center items-center cursor-pointer"
     >
-      <MenuRounded className="text-gray-200" fontSize="small" />
+      <MenuRounded className="dark:text-gray-200 text-gray-700" fontSize="small" />
     </span>
   );
 };
