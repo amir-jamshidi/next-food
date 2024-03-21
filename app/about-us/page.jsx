@@ -11,11 +11,11 @@ const page = () => {
         </h1>
         <span className="flex-1 inline-block h-px bg-black/5 dark:bg-gray-700"></span>
       </div>
-      <div className="mt-12 bg-gray-800 rounded-2xl px-4 py-6 flex flex-col gap-2 text-gray-300">
+      <div className="mt-12 dark:bg-gray-800 bg-white rounded-2xl px-4 py-6 flex flex-col gap-2 dark:text-gray-300 text-gray-700">
         <div className="flex items-center justify-center">
           <Image alt="About Icon" src={AboutImg} className="w-2/5" />
         </div>
-        <div className="bg-gray-900 rounded-2xl px-4 py-4 gap-y-2.5 flex flex-col">
+        <div className="dark:bg-gray-900 bg-gray-100 rounded-2xl px-4 py-4 gap-y-2.5 flex flex-col">
           <p>
             نکستــ فــود یک پلتفرم جذاب برای سفارش غذا هست که سعی میکنیم در سریع
             ترین زمان ممکن بهترین کیفیت را به شما برسانیم

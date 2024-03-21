@@ -5,7 +5,7 @@ const Panellayout = ({ children }) => {
     return (
         <div className='flex flex-col gap-y-4'>
             <TabMenusPanel />
-            <div className='bg-gray-800 p-4 rounded-2xl'>
+            <div className='dark:bg-gray-800 bg-white p-4 rounded-2xl'>
                 {children}
             </div>
         </div>

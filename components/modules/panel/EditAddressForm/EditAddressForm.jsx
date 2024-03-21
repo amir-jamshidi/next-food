@@ -33,43 +33,43 @@ const EditAddressForm = ({ address = {} }) => {
         ))}
       </div>
       <form className="mt-14" onSubmit={handleSubmit(startAddAddress)}>
-        <div className="w-full border border-gray-700 p-2 rounded-2xl">
+        <div className="w-full border border-gray-200 bg-gray-100 dark:bg-gray-800 dark:border-gray-700 p-2 rounded-2xl">
           <textarea
             autoComplete="off"
             defaultValue={address?.fullAddress}
             {...register("fullAddress")}
             placeholder="آدرس دقیق شما به همراه کوچه و پلاک و واحد"
-            className="w-full h-full border-none outline-none bg-gray-800 min-h-40 max-h-44 text-gray-300"
+            className="w-full h-full border-none outline-none bg-gray-100 text-gray-700 dark:bg-gray-800 min-h-40 max-h-44 dark:text-gray-300"
           />
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 mt-2 gap-1">
-          <div className="p-2 border border-gray-700 rounded-2xl">
+          <div className="p-2 border border-gray-200 bg-gray-100 dark:bg-gray-800 dark:border-gray-700 rounded-2xl">
             <input
               autoComplete="off"
               defaultValue={address?.name}
               {...register("name")}
               type="text"
-              className="w-full border-none outline-none bg-gray-800 text-gray-300"
+              className="w-full border-none outline-none bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300"
               placeholder="نام دلخواه آدرس شما"
             />
           </div>
-          <div className="p-2 border border-gray-700 rounded-2xl">
+          <div className="p-2 border border-gray-200 bg-gray-100 dark:bg-gray-800 dark:border-gray-700 rounded-2xl">
             <input
               autoComplete="off"
               defaultValue={address?.reciver}
               {...register("reciver")}
               type="text"
-              className="w-full border-none outline-none bg-gray-800 text-gray-300"
+              className="w-full border-none outline-none bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300"
               placeholder="نام گیرنده سفارش"
             />
           </div>
-          <div className="p-2 border border-gray-700 rounded-2xl">
+          <div className="p-2 border border-gray-200 bg-gray-100 dark:bg-gray-800 dark:border-gray-700 rounded-2xl">
             <input
               autoComplete="off"
               defaultValue={address?.phone}
               {...register("phone")}
               type="text"
-              className="w-full border-none outline-none bg-gray-800 text-gray-300"
+              className="w-full border-none outline-none bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300"
               placeholder="شماره تلفن گیرنده"
             />
           </div>

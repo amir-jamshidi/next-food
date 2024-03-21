@@ -5,10 +5,10 @@ const TicketItemPanel = ({ ticket }) => {
   return (
     <div
       key={ticket._id}
-      className="relative border border-gray-700 rounded-2xl line-clamp-1 p-3 flex flex-col"
+      className="relative dark:bg-gray-800 bg-gray-100 border dark:border-gray-700 border-gray-200 rounded-2xl line-clamp-1 p-3 flex flex-col"
     >
-      <p className="text-gray-300 line-clamp-1  text-justify">{ticket.body}</p>
-      <span className=" h-px border border-dashed inline border-gray-700 mt-3"></span>
+      <p className="dark:text-gray-300 line-clamp-1 text-gray-700 text-justify">{ticket.body}</p>
+      <span className=" h-px border border-dashed inline dark:border-gray-700 border-gray-300 mt-3"></span>
       <div className="flex justify-between mt-3">
         <div className="flex items-center gap-x-1">
           <span
@@ -16,8 +16,8 @@ const TicketItemPanel = ({ ticket }) => {
               ticket.isAnswer === 1 ? "bg-green-500" : "bg-orange-500"
             }`}
           ></span>
-          <span className="text-sm text-gray-300">ارسال شده در</span>
-          <span className="font-dana text-gray-300 text-sm pt-0.5">
+          <span className="text-sm dark:text-gray-300 text-gray-600">ارسال شده در</span>
+          <span className="font-dana dark:text-gray-300 text-gray-600 text-sm pt-0.5">
             {ConvertToPersian(ticket.createdAt)}
           </span>
         </div>

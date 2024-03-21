@@ -35,43 +35,43 @@ const UserInfoForm = ({ newUserInfo: userInfo }) => {
       </div>
       <form onSubmit={handleSubmit(startUpdateInfos)}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
-          <div className="bg-gray-800 rounded-2xl overflow-hidden flex items-center border border-gray-700">
+          <div className="dark:bg-gray-800 bg-gray-100 rounded-2xl overflow-hidden flex items-center border border-gray-200 dark:border-gray-700">
             <span className="mr-4">
-              <PersonRounded className="text-gray-300" />
+              <PersonRounded className="dark:text-gray-300 text-gray-700" />
             </span>
             <input
               autoComplete="off"
               defaultValue={userInfo.fullname}
               {...register("fullname")}
-              className="bg-gray-800 text-gray-300 py-2.5 px-2 border-none outline-none w-full"
+              className="dark:bg-gray-800 bg-gray-100  text-gray-700 dark:text-gray-300 py-2.5 px-2 border-none outline-none w-full"
               placeholder="نام کامل شما"
             />
           </div>
-          <div className="bg-gray-800 rounded-2xl overflow-hidden flex items-center border border-gray-700">
+          <div className="dark:bg-gray-800 bg-gray-100  rounded-2xl overflow-hidden flex items-center border border-gray-200 dark:border-gray-700">
             <span className="mr-4">
-              <AlternateEmailRounded className="text-gray-300" />
+              <AlternateEmailRounded className="dark:text-gray-300 text-gray-700" />
             </span>
             <input
               autoComplete="off"
               defaultValue={userInfo.email}
               {...register("email")}
-              className="bg-gray-800 text-gray-300 py-2.5 px-2 border-none outline-none w-full"
+              className="dark:bg-gray-800 bg-gray-100 text-gray-700 dark:text-gray-300 py-2.5 px-2 border-none outline-none w-full"
               placeholder="ایمیل شما"
             />
           </div>
-          <div className="bg-gray-800 rounded-2xl overflow-hidden flex items-center border border-gray-700">
+          <div className="dark:bg-gray-800 cursor-not-allowed bg-gray-100 rounded-2xl overflow-hidden flex items-center border border-gray-200 dark:border-gray-700">
             <span className="mr-4">
-              <PhoneRounded className="text-gray-300" />
+              <PhoneRounded className="dark:text-gray-300 text-gray-700" />
             </span>
             <input
               readOnly
               defaultValue={userInfo.phone}
-              className="font-dana bg-gray-800 text-gray-300 py-2.5 px-2 border-none outline-none w-full"
+              className="font-dana cursor-not-allowed dark:bg-gray-800 bg-gray-100 text-gray-700 dark:text-gray-300 py-2.5 px-2 border-none outline-none w-full"
               placeholder="شماره تلفن شما"
             />
           </div>
-          <div className="px-4 flex items-center border rounded-2xl border-gray-700 justify-between">
-            <p className="text-gray-300">نقش شما در سایت : </p>
+          <div className="px-4 flex cursor-not-allowed items-center dark:bg-gray-800 bg-gray-100 h-[44px] border rounded-2xl border-gray-200 dark:border-gray-700 justify-between">
+            <p className="dark:text-gray-300 text-gray-700">نقش شما در سایت : </p>
             <span className="text-green-500 rounded py-1">
               {userInfo.role === "ADMIN" ? "مدیریت سایت" : "کاربر سایت"}
             </span>
@@ -83,7 +83,7 @@ const UserInfoForm = ({ newUserInfo: userInfo }) => {
           </button>
         </div>
       </form>
-      <div className="flex text-gray-300 items-center gap-x-1 mt-8 pr-2 text-sm rounded-2xl py-2">
+      <div className="flex text-gray-700 dark:text-gray-300 items-center gap-x-1 mt-8 pr-2 text-sm rounded-2xl py-2">
         <p>از</p>
         <p className="font-dana">{userInfo.createdAt}</p>
         <p>کنار مایی !</p>

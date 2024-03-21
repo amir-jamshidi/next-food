@@ -20,7 +20,7 @@ const MyInfos = async () => {
       <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-x-5">
         <UserInfoForm newUserInfo={newUserInfo} />
         <div className="">
-          <p className="text-justify text-gray-400 px-2">
+          <p className="text-justify dark:text-gray-400 text-gray-600 px-2">
             لطفا توجه داشته باشید که ایمیل و شماره تلفن شما بنا به دلایلی قابل
             تغییر نمی باشد چرا که ایمیل شما و شماره تلفن شما به عنوان شناسه شما
             در سایت شناخته میشود و در صورتی که نیازی به اطلاعات سفارش یا تیکت

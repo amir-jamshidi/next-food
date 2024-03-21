@@ -6,18 +6,13 @@ import ConvertToPersian from "@/helpers/convertToPersian";
 
 const NotificationItem = ({ notification }) => {
   return (
-    <div className="p-2 flex flex-col transition-colors bg-gray-800 rounded-xl">
+    <div className="p-2 flex flex-col transition-colors dark:bg-gray-800 bg-gray-100 rounded-xl">
       <div className="flex items-start gap-x-1.5 ">
-        {/* <span
-          className={`w-2 h-2 rounded inline-block shrink-0 mt-1.5 ${
-            notification.type === "success" ? "bg-green-500" : "bg-red-500"
-          }`}
-        ></span> */}
-        <p className="text-justify text-gray-300">{notification.message}</p>
+        <p className="text-justify dark:text-gray-300 text-gray-700">{notification.message}</p>
       </div>
       <div className="flex justify-between gap-x-1 mt-1.5 items-center">
         <div>
-          <span className="font-dana text-gray-400 text-sm">
+          <span className="font-dana dark:text-gray-400 text-gray-600 text-sm">
             {ConvertToPersian(notification.createdAt)}
           </span>
         </div>
