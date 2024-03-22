@@ -3,10 +3,16 @@ import TitleUserPanel from "@/components/modules/panel/TitleUserPanel/TitleUserP
 import ConvertToPersian from "@/helpers/convertToPersian";
 import { getTicketDetails } from "@/libs/requests";
 import { NotListedLocationRounded } from "@mui/icons-material";
+import { notFound } from "next/navigation";
 import React from "react";
-
+export const metadata = {
+  title: `پنل کاربری | مشاهده تیکت  `,
+};
 const ShowTicket = async ({ params: { ticketID } }) => {
   const ticket = await getTicketDetails(ticketID);
+
+  if (!ticket) return notFound();
+
   return (
     <div className="relative">
       <TitleUserPanel title={"جزئیات تیکت من"} />
@@ -28,16 +34,24 @@ const ShowTicket = async ({ params: { ticketID } }) => {
           </div>
           <div
             className={`${
-              ticket.orderID ? "border-l border-l-gray-200 dark:border-l-gray-700" : ""
+              ticket.orderID
+                ? "border-l border-l-gray-200 dark:border-l-gray-700"
+                : ""
             } flex gap-x-0.5 items-center  px-2`}
           >
             <p className="dark:text-gray-300 text-gray-700">شناسه تیکت : </p>
-            <p className={`dark:text-gray-300 text-gray-700 font-dana pt-0.5`}>{ticket.code}</p>
+            <p className={`dark:text-gray-300 text-gray-700 font-dana pt-0.5`}>
+              {ticket.code}
+            </p>
           </div>
           {ticket.orderID && (
             <div className="flex gap-x-0.5 items-center px-2">
-              <p className="dark:text-gray-300 text-gray-700">شناسه سفارش در حال پیگیری : </p>
-              <p className={`dark:text-gray-300 text-gray-700 font-dana pt-0.5`}>
+              <p className="dark:text-gray-300 text-gray-700">
+                شناسه سفارش در حال پیگیری :{" "}
+              </p>
+              <p
+                className={`dark:text-gray-300 text-gray-700 font-dana pt-0.5`}
+              >
                 {ticket.orderID?.code}
               </p>
             </div>
@@ -61,18 +75,21 @@ const ShowTicket = async ({ params: { ticketID } }) => {
 
           <div className={`flex gap-x-0.5 items-center px-2 py-1`}>
             <p className="dark:text-gray-300 text-gray-700">شناسه تیکت : </p>
-            <p className={`dark:text-gray-300 text-gray-700 font-dana pt-0.5`}>{ticket.code}</p>
+            <p className={`dark:text-gray-300 text-gray-700 font-dana pt-0.5`}>
+              {ticket.code}
+            </p>
           </div>
 
           {ticket.orderID && (
             <div className="flex gap-x-0.5 items-center px-2 py-1">
               <p className="dark:text-gray-300 text-gray-700">شناسه سفارش : </p>
-              <p className={`dark:text-gray-300 text-gray-700 font-dana pt-0.5`}>
+              <p
+                className={`dark:text-gray-300 text-gray-700 font-dana pt-0.5`}
+              >
                 {ticket.orderID?.code}
               </p>
             </div>
           )}
-
         </div>
 
         <div className="mt-8">
@@ -81,7 +98,9 @@ const ShowTicket = async ({ params: { ticketID } }) => {
               شما
             </span>
             <div className="border p-2 rounded-2xl rounded-tr border-gray-200 bg-gray-100 dark:bg-gray-800 dark:border-gray-700">
-              <p className="dark:text-gray-200 text-gray-800 pr-5">{ticket.body}</p>
+              <p className="dark:text-gray-200 text-gray-800 pr-5">
+                {ticket.body}
+              </p>
             </div>
             <div className="text-sm dark:text-gray-400 text-gray-600 flex gap-x-0.5 pr-7 mt-1">
               <p>ارسال شده در :</p>
@@ -94,7 +113,9 @@ const ShowTicket = async ({ params: { ticketID } }) => {
                 پاسخ
               </span>
               <div className="border p-2 rounded-2xl rounded-tl border-gray-200 bg-gray-100 dark:bg-gray-800 dark:border-gray-700">
-                <p className="dark:text-gray-200 text-gray-800 pl-5">{ticket.answerContent}</p>
+                <p className="dark:text-gray-200 text-gray-800 pl-5">
+                  {ticket.answerContent}
+                </p>
               </div>
               <div className="text-sm text-gray-600 dark:text-gray-400 flex justify-end gap-x-0.5 pl-7 mt-1">
                 <p>پاسخ داده شده در :</p>

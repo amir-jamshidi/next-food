@@ -2,6 +2,7 @@
 import Image from "next/image";
 import notFoundImg from "@/public/images/not-found.svg";
 import Link from "next/link";
+
 const NotFound = () => {
   return (
     <div className="flex justify-center items-center h-screen-size">

@@ -9,6 +9,10 @@ import {
   ViewStreamRounded,
 } from "@mui/icons-material";
 
+export const metadata = {
+  title: `پنل کاربری | داشبورد`,
+};
+
 const PanelDashboard = async () => {
   const { orderCount, ticketCount, addressCount, totalPrice, tickets, orders } =
     await getUserDashboard();

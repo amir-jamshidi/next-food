@@ -1,6 +1,11 @@
 import Image from "next/image";
 import React from "react";
 import AboutImg from "@/public/images/about.svg";
+
+export const metadata = {
+  title: "نکست فود | درباره ما",
+};
+
 const page = () => {
   return (
     <div>

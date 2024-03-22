@@ -5,6 +5,10 @@ import { isLogin } from "@/middlewares/isLogin";
 import Image from "next/image";
 import Link from "next/link";
 
+export const metadata = {
+  title: 'نکست فود | سبد خرید'
+}
+
 const page = async () => {
   const isLoginUser = await isLogin();
   const cart = await getCart();

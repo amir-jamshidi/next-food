@@ -11,10 +11,21 @@ import Link from "next/link";
 import AdditionalSlider from "@/components/templates/AdditionalSlider/AdditionalSlider";
 import FavoriteButton from "@/components/templates/FavoriteButton/FavoriteButton";
 import { notFound } from "next/navigation";
+import mealModel from "@/models/meal";
+
+export async function generateMetadata({ params }) {
+  const meal = await mealModel
+    .findOne({ href: `/${params.mealHref}` })
+    .select("name");
+  return {
+    title: `نکست فود | ${meal?.name}`,
+  };
+}
+
 const page = async ({ params: { mealHref } }) => {
   const { meal, isFavorite, loginUser } = await getMeal(mealHref);
 
-  if(!meal) notFound();
+  if (!meal) notFound();
 
   const sizes = meal.sizes.map((size) => {
     return {
@@ -39,15 +50,23 @@ const page = async ({ params: { mealHref } }) => {
             <p className="dark:text-gray-300 text-gray-700">صفحه اصلی</p>
           </Link>
           <span>
-            <ArrowLeftRounded fontSize="large" className="dark:text-gray-400 text-gray-600" />
+            <ArrowLeftRounded
+              fontSize="large"
+              className="dark:text-gray-400 text-gray-600"
+            />
           </span>
         </div>
         <div className="flex items-center">
           <Link href={`/category/${meal.categoryID.href}`}>
-            <p className="dark:text-gray-300 text-gray-700">{meal.categoryID.title}</p>
+            <p className="dark:text-gray-300 text-gray-700">
+              {meal.categoryID.title}
+            </p>
           </Link>
           <span>
-            <ArrowLeftRounded fontSize="large" className="dark:text-gray-400 text-gray-600" />
+            <ArrowLeftRounded
+              fontSize="large"
+              className="dark:text-gray-400 text-gray-600"
+            />
           </span>
         </div>
         <div className="flex items-center">

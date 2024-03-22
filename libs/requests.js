@@ -13,6 +13,7 @@ import favoriteModel from "@/models/favorite";
 import { isAdmin } from "@/middlewares/isAdmin";
 import notificationModel from '@/models/notification';
 import stateModel from "@/models/state";
+import mongoose from 'mongoose'
 
 // ----------------- USERS ACTION
 export const getMenu = async () => {
@@ -30,24 +31,27 @@ export const getMeals = async (category, sort) => {
     try {
         connectToMongo();
         let meals;
-        const { _id: categoryID } = await categoryModel.findOne({ href: `/${category}` })
+        const cate = await categoryModel.findOne({ href: `/${category}` })
+
+        if (!cate) return null;
+
         if (sort) {
             switch (sort) {
                 case "popular": {
-                    meals = await mealModel.find({ categoryID }).populate('categoryID').sort({ sellCount: -1 }).lean()
+                    meals = await mealModel.find({ categoryID: cate._id }).populate('categoryID').sort({ sellCount: -1 }).lean()
                     break
                 }
                 case "expensive": {
-                    meals = await mealModel.find({ categoryID }).populate('categoryID').sort({ basePrice: -1 }).lean()
+                    meals = await mealModel.find({ categoryID: cate._id }).populate('categoryID').sort({ basePrice: -1 }).lean()
                     break
                 }
                 case "inexpensive": {
-                    meals = await mealModel.find({ categoryID }).populate('categoryID').sort({ basePrice: 1 }).lean()
+                    meals = await mealModel.find({ categoryID: cate._id }).populate('categoryID').sort({ basePrice: 1 }).lean()
                     break
                 }
             }
         } else {
-            meals = await mealModel.find({ categoryID }).populate('categoryID').lean()
+            meals = await mealModel.find({ categoryID: cate._id }).populate('categoryID').lean()
         }
         // meals.forEach(meal => {
         //     meal._id = String(meal._id);
@@ -309,6 +313,7 @@ export const getUserNotifications = async () => {
 }
 export const getOrderDetails = async (orderID) => {
     try {
+        if (!mongoose.Types.ObjectId.isValid(orderID)) return false;
         connectToMongo();
         const isLoginUser = await isLogin();
         if (!isLoginUser) return false
@@ -321,6 +326,7 @@ export const getOrderDetails = async (orderID) => {
 }
 export const getTicketDetails = async (ticketID) => {
     try {
+        if (!mongoose.Types.ObjectId.isValid(ticketID)) return false;
         connectToMongo();
         const isLoginUser = await isLogin();
         if (!isLoginUser) return false;
@@ -333,6 +339,7 @@ export const getTicketDetails = async (ticketID) => {
 }
 export const getAddressDetails = async (addressID) => {
     try {
+        if (!mongoose.Types.ObjectId.isValid(addressID)) return false;
         connectToMongo();
         const isLoginUser = await isLogin();
         if (!isLoginUser) return false

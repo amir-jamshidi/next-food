@@ -3,6 +3,10 @@ import UserInfoForm from "@/components/templates/panel/UserInfoForm/UserInfoForm
 import ConvertToPersian from "@/helpers/convertToPersian";
 import { getUserInfo } from "@/libs/requests";
 
+export const metadata = {
+  title: `پنل کاربری | اطلاعات من `,
+};
+
 const MyInfos = async () => {
   const userInfo = await getUserInfo();
   const newUserInfo = {

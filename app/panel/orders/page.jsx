@@ -8,6 +8,10 @@ import {
   ViewStreamRounded,
 } from "@mui/icons-material";
 
+export const metadata = {
+  title: `پنل کاربری | سفارشات من `,
+};
+
 const Orders = async () => {
   const {
     orders = [],

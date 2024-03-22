@@ -3,9 +3,20 @@ import { getMeals } from "@/libs/requests";
 import { CancelRounded, SortRounded } from "@mui/icons-material";
 import Link from "next/link";
 import React from "react";
-
+import categoryModel from "@/models/category";
+import { notFound } from "next/navigation";
+export async function generateMetadata({ params }) {
+  const category = await categoryModel
+    .findOne({ href: `/${params.categoryID}` })
+    .select("title");
+  return {
+    title: `نکست فود | منوی ${category?.title || ''}`,
+  };
+}
 const Category = async ({ params, searchParams }) => {
   const meals = await getMeals(params.categoryID, searchParams?.sort);
+
+  if (!meals) notFound();
 
   return (
     <div>

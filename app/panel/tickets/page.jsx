@@ -12,6 +12,11 @@ import {
 import BackButton from "@/components/modules/panel/BackButton/BackButton";
 import Link from "next/link";
 
+
+export const metadata = {
+  title: `پنل کاربری | تیکت های من  `,
+};
+
 const Tickets = async () => {
   const { tickets, ticketPending, ticketAnswer } = await getUserTickets();
   return (

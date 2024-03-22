@@ -9,6 +9,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { ticketSchema } from "@/helpers/schemas";
 import { SendTicket } from "@/libs/postRequests";
 
+
 const InsertTicket = () => {
   const router = useRouter();
 
@@ -52,7 +53,7 @@ const InsertTicket = () => {
             <select
               autoComplete="off"
               {...register("sectionID")}
-              className="w-full bg-gray-100 text-gray-700 dark:text-gray-200 dark:bg-gray-800 text-gray-200 outline-none border-none h-10 rounded-2xl"
+              className="w-full bg-gray-100 text-gray-700 dark:text-gray-200 dark:bg-gray-800  outline-none border-none h-10 rounded-2xl"
             >
               <option value={"-1"}>بخش مورد نظر</option>
               {sections.map((section) => (

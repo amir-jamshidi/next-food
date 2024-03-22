@@ -4,6 +4,10 @@ import { getUserAddresses } from "@/libs/requests";
 import { AddRounded, LocationOnRounded } from "@mui/icons-material";
 import Link from "next/link";
 
+export const metadata = {
+  title: `پنل کاربری | آدرس ها`,
+};
+
 const Addresses = async () => {
   const addresses = await getUserAddresses();
 
@@ -40,15 +44,12 @@ const Addresses = async () => {
           </div>
         ) : (
           <div className="flex rounded-2xl py-2 justify-center linier-bg mt-14">
-            <p className="text-sm text-gray-600 dark:text-gray-400">اخیرا آدرسی ثبت نشده</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              اخیرا آدرسی ثبت نشده
+            </p>
           </div>
         )}
       </div>
-
-
-
-
-      
     </div>
   );
 };

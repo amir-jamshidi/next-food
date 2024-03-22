@@ -3,7 +3,9 @@ import TitleUserPanel from "@/components/modules/panel/TitleUserPanel/TitleUserP
 import { getUserFavorite } from "@/libs/requests";
 import { LunchDiningRounded } from "@mui/icons-material";
 import React from "react";
-
+export const metadata = {
+  title: `پنل کاربری | علاقه مندی ها `,
+};
 const Favorites = async () => {
   const favorites = await getUserFavorite();
   return (
