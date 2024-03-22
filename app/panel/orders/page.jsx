@@ -73,7 +73,7 @@ const Orders = async () => {
         </div>
       ) : (
         <div className="flex rounded-2xl py-2 justify-center linier-bg mt-14">
-          <p className="text-sm text-gray-400">اخیرا سفارشی ثبت نشده</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400">اخیرا سفارشی ثبت نشده</p>
         </div>
       )}
     </div>

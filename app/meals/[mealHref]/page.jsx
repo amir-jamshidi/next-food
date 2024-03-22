@@ -10,8 +10,11 @@ import {
 import Link from "next/link";
 import AdditionalSlider from "@/components/templates/AdditionalSlider/AdditionalSlider";
 import FavoriteButton from "@/components/templates/FavoriteButton/FavoriteButton";
+import { notFound } from "next/navigation";
 const page = async ({ params: { mealHref } }) => {
   const { meal, isFavorite, loginUser } = await getMeal(mealHref);
+
+  if(!meal) notFound();
 
   const sizes = meal.sizes.map((size) => {
     return {

@@ -48,11 +48,11 @@ const InsertTicket = () => {
       </div>
       <form className="mt-14" onSubmit={handleSubmit(startSendTicket)}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-2 gap-y-1">
-          <div className="border border-gray-700 px-2 rounded-2xl">
+          <div className="border border-gray-200 bg-gray-100 dark:bg-gray-800 dark:border-gray-700 px-2 rounded-2xl">
             <select
               autoComplete="off"
               {...register("sectionID")}
-              className="w-full bg-gray-800 text-gray-200 outline-none border-none h-10 rounded-2xl"
+              className="w-full bg-gray-100 text-gray-700 dark:text-gray-200 dark:bg-gray-800 text-gray-200 outline-none border-none h-10 rounded-2xl"
             >
               <option value={"-1"}>بخش مورد نظر</option>
               {sections.map((section) => (
@@ -63,11 +63,11 @@ const InsertTicket = () => {
             </select>
           </div>
 
-          <div className="border border-gray-700 px-2 rounded-2xl">
+          <div className="border border-gray-200 bg-gray-100 dark:bg-gray-800 dark:border-gray-700 px-2 rounded-2xl">
             <select
               autoComplete="off"
               {...register("orderID")}
-              className="w-full bg-gray-800 text-gray-200 outline-none border-none h-10 rounded-2xl"
+              className="w-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200  outline-none border-none h-10 rounded-2xl"
             >
               <option value={"-1"}>شناسه سفارش مورد نظر (اختیاری)</option>
               {orders.map((order) => (
@@ -78,12 +78,12 @@ const InsertTicket = () => {
             </select>
           </div>
         </div>
-        <div className="w-full border border-gray-700 p-2 rounded-2xl mt-2">
+        <div className="w-full border border-gray-200 bg-gray-100 dark:bg-gray-800 dark:border-gray-700 p-2 rounded-2xl mt-2">
           <textarea
             autoComplete="off"
             {...register("body")}
             placeholder="متن تیکت"
-            className="w-full h-full border-none outline-none bg-gray-800 min-h-40 max-h-44 text-gray-300"
+            className="w-full h-full border-none outline-none bg-gray-100 dark:bg-gray-800 min-h-40 max-h-44 dark:text-gray-300 text-gray-700"
           />
         </div>
         <input

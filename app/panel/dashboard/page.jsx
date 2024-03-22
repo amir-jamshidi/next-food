@@ -72,7 +72,7 @@ const PanelDashboard = async () => {
         </div>
       ) : (
         <div className="flex rounded-2xl py-2 justify-center mt-6 linier-bg">
-          <p className="text-sm text-gray-400 dark:text-gray-600">اخیرا سفارشی ثبت نشده</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400">اخیرا سفارشی ثبت نشده</p>
         </div>
       )}
 
@@ -87,7 +87,7 @@ const PanelDashboard = async () => {
         </div>
       ) : (
         <div className="flex rounded-2xl py-2 justify-center mt-6 linier-bg">
-          <p className="text-sm text-gray-400">اخیرا تیکتی ثبت نشده</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400">اخیرا تیکتی ثبت نشده</p>
         </div>
       )}
     </div>

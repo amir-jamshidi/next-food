@@ -35,7 +35,7 @@ const Favorites = async () => {
         </div>
       ) : (
         <div className="flex rounded-2xl py-2 justify-center linier-bg mt-14">
-          <p className="text-sm text-gray-400">چیزی در علاقه مندی وجود ندارد</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400">چیزی در علاقه مندی وجود ندارد</p>
         </div>
       )}
     </div>
