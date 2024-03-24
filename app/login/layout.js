@@ -12,7 +12,6 @@ const layout = async ({ children }) => {
     if (isLoginUser) {
         redirect('/')
     }
-
     return (
         <>
             {children}
