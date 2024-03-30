@@ -10,6 +10,7 @@ export const metadata = {
 };
 
 const page = async () => {
+  
   const isLoginUser = await isLogin();
   const cart = await getCart();
   const addresses = await getAddresses();
