@@ -10,7 +10,7 @@ export async function generateMetadata({ params }) {
     .findOne({ href: `/${params.categoryID}` })
     .select("title");
   return {
-    title: `نکست فود | منوی ${category?.title || ''}`,
+    title: `نکست فود | منوی ${category?.title || ""}`,
   };
 }
 const Category = async ({ params, searchParams }) => {
@@ -27,7 +27,6 @@ const Category = async ({ params, searchParams }) => {
         </h1>
         <span className="flex-1 inline-block h-px bg-black/5 dark:bg-gray-700"></span>
       </div>
-
       <div className="flex justify-between dark:bg-gray-800 bg-white rounded-xl py-3 mb-4 mt-12 px-4">
         <div className="flex-1 gap-x-3 flex">
           <span>
@@ -74,7 +73,6 @@ const Category = async ({ params, searchParams }) => {
           </div>
         )}
       </div>
-
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
         {meals.map((meal) => (
           <MealItem key={meal._id} meal={meal} />
