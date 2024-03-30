@@ -6,8 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
-  title: 'نکست فود | سبد خرید'
-}
+  title: "نکست فود | سبد خرید",
+};
 
 const page = async () => {
   const isLoginUser = await isLogin();
@@ -15,6 +15,7 @@ const page = async () => {
   const addresses = await getAddresses();
   const totalPrice = cart.reduce((cur, acc) => cur + acc.totalPrice, 0);
   const sendPrice = 15000;
+
   return (
     <>
       {cart?.length > 0 && isLoginUser ? (
