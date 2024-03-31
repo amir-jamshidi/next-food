@@ -82,4 +82,5 @@ const Category = async ({ params, searchParams }) => {
   );
 };
 
+
 export default Category;
