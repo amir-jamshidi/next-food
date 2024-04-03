@@ -7,6 +7,7 @@ import SandwichSection from "@/components/templates/main/SandwichSection/Sandwic
 import { SocialMedia } from "@/components/templates/main/SocialMedia/SocialMedia";
 
 export default function Home() {
+  
   return (
     <div className="py-5">
 
@@ -17,7 +18,7 @@ export default function Home() {
       <DessertSection />
       <BeverageSection />
       <SocialMedia />
-      
+
     </div>
   );
 }
