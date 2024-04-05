@@ -6,12 +6,9 @@ import PizzaSection from "@/components/templates/main/PizzaSection/PizzaSection"
 import SandwichSection from "@/components/templates/main/SandwichSection/SandwichSection";
 import { SocialMedia } from "@/components/templates/main/SocialMedia/SocialMedia";
 
-
 export default function Home() {
-  
   return (
     <div className="py-5">
-
       <HeroSection />
       <PizzaSection />
       <SandwichSection />
@@ -19,7 +16,6 @@ export default function Home() {
       <DessertSection />
       <BeverageSection />
       <SocialMedia />
-
     </div>
   );
 }
