@@ -117,15 +117,15 @@ const TabMenusPanel = async () => {
 
       <div className="flex flex-col lg:hidden rounded-2xl dark:bg-gray-800 bg-white mt-8 py-2 px-3 z-40">
         <div className="flex justify-between px-1.5 mt-1">
-          <div className="group relative flex gap-0.5  items-center">
+          <div className="group relative flex gap-0.5 items-center">
             {notification.length > 0 && (
               <span className="w-2 h-2 inline-block rounded bg-red-500"></span>
             )}
-            <span className="cursor-pointer">
-              <NotificationsActiveRounded className="dark:text-gray-200 text-gray-700" />
+            <span className="cursor-pointer flex items-center justify-center">
+              <NotificationsActiveRounded fontSize="small" className="dark:text-gray-200 text-gray-700" />
             </span>
 
-            <span className="dark:text-gray-200 text-gray-800 cursor-pointer">اعلان ها</span>
+            <span className="dark:text-gray-200 h-6 flex items-center text-gray-800 cursor-pointer text-sm">اعلان ها</span>
             <div className="absolute invisible opacity-0 group-hover:visible group-hover:opacity-100 top-7 pt-3 right-0 delay-75">
               <div className=" flex flex-col bg-white shadow dark:bg-gray-700 w-72 p-3 rounded-xl gap-y-1 text-sm">
                 {notification.length > 0 ? (
