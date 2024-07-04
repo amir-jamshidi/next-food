@@ -1,5 +1,5 @@
 "use client";
-import { ThemeContext } from "@emotion/react";
+import  ThemeContext from "@/contexts/ThemeContext";
 import { useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
 import { QueryClient, QueryClientProvider } from "react-query";
@@ -14,6 +14,10 @@ export const Provider = ({ children }) => {
   useEffect(() => {
     document.documentElement.className = theme;
   }, [theme]);
+  useEffect(() => {
+    if (isOpenSidebar) document.body.style.overflow = "hidden";
+    if (!isOpenSidebar) document.body.style.overflow = "auto";
+  }, [isOpenSidebar]);
 
   return (
     <>
