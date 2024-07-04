@@ -2,7 +2,6 @@ import { getMenu } from "@/libs/requests";
 import SidebarText from "../SidebarText";
 import ChangeThemeButton from "@/components/modules/ChangeThemeButton/ChangeThemeButton";
 import { isLogin } from "@/middlewares/isLogin";
-import Link from "next/link";
 import NavigationLoginButton from "@/components/modules/NavigationLoginButton/NavigationLoginButton";
 
 const SidebarBody = async () => {
