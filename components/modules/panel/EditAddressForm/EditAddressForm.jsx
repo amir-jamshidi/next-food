@@ -77,7 +77,7 @@ const EditAddressForm = ({ address = {} }) => {
         <div className="w-full border border-gray-200 bg-gray-100 dark:bg-gray-800 dark:border-gray-700 p-2 rounded-2xl">
           <textarea
             autoComplete="off"
-            defaultValue={address?.fullAddress}
+            defaultValue={address?.fullAddress} 
             {...register("fullAddress")}
             placeholder="آدرس دقیق شما به همراه کوچه و پلاک و واحد"
             className="w-full h-full border-none outline-none bg-gray-100 text-gray-700 dark:bg-gray-800 min-h-28 max-h-32 dark:text-gray-300"
