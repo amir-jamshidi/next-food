@@ -75,7 +75,7 @@ const EditAddressForm = ({ address = {} }) => {
       </div>
       <form className="mt-4 text-sm" onSubmit={handleSubmit(startAddAddress)}>
         <div className="w-full border border-gray-200 bg-gray-100 dark:bg-gray-800 dark:border-gray-700 p-2 rounded-2xl">
-          <textarea
+          <textarea 
             autoComplete="off"
             defaultValue={address?.fullAddress} 
             {...register("fullAddress")}
