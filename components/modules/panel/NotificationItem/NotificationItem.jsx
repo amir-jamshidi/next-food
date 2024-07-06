@@ -6,7 +6,7 @@ import ConvertToPersian from "@/helpers/convertToPersian";
 
 const NotificationItem = ({ notification }) => {
   return (
-    <div className="p-2 flex flex-col transition-colors dark:bg-gray-800 bg-gray-100 rounded-xl">
+    <div className="py-2.5 px-2 flex flex-col transition-colors dark:bg-gray-900 bg-gray-200 rounded-xl">
       <div className="flex items-start gap-x-1.5 ">
         <p className="text-justify dark:text-gray-300 text-gray-700">{notification.message}</p>
       </div>

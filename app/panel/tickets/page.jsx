@@ -20,7 +20,7 @@ export const metadata = {
 const Tickets = async () => {
   const { tickets, ticketPending, ticketAnswer } = await getUserTickets();
   return (
-    <div className="relative mb-12">
+    <div className="relative mb-4">
       <TitleUserPanel title={"تیکت های من"} />
       <div className="absolute top-6 left-0">
         <Link href={`/panel/tickets/insert`}>

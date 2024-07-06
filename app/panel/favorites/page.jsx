@@ -9,7 +9,7 @@ export const metadata = {
 const Favorites = async () => {
   const favorites = await getUserFavorite();
   return (
-    <div className="mb-12">
+    <div className="mb-4">
       <TitleUserPanel title={"علاقه مندی های من"} />
       <div className="mt-14">
         <div className="grid gap-1.5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

@@ -21,7 +21,7 @@ const Orders = async () => {
   } = await getUserOrders();
 
   return (
-    <div className="mb-12">
+    <div className="mb-4">
       <TitleUserPanel title={"سفارشات من"} />
       <div className="mt-14">
         <div className="grid gap-1.5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

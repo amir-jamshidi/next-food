@@ -1,7 +1,6 @@
 "use client";
 
 import { SeenNotification } from "@/libs/postRequests";
-import axios from "axios";
 import { useRouter } from "next/navigation";
 
 const NotificationButton = ({ notificationID }) => {
@@ -17,7 +16,7 @@ const NotificationButton = ({ notificationID }) => {
       onClick={startSeenNotification}
       className="text-green-600 cursor-pointer"
     >
-      دیدم
+      باشه
     </span>
   );
 };

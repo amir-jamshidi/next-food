@@ -18,10 +18,10 @@ const PanelDashboard = async () => {
     await getUserDashboard();
 
   return (
-    <div className="mb-12">
+    <div className="mb-4">
       <TitleUserPanel title={"داشبورد"} />
       <div className="mt-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-1.5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-1.5 text-sm md:text-base">
           <div className="h-20 dark:bg-gray-800 bg-gray-100 border rounded-2xl dark:border-gray-700 border-gray-200 flex justify-center items-center gap-x-1 dark:text-gray-200 text-gray700">
             <span>
               <EuroSymbolRounded className="text-green-500" />
@@ -54,7 +54,7 @@ const PanelDashboard = async () => {
           </div>
           <div className="h-20 dark:bg-gray-800 bg-gray-100 border rounded-2xl dark:border-gray-700 border-gray-200 flex justify-center items-center gap-x-1 dark:text-gray-200 text-gray700">
             <span>
-              <LocationOnRounded className="text-gray-100" />
+              <LocationOnRounded className="dark:text-gray-100 text-gray-700" />
             </span>
             <span>مجموع آدرس های شما</span>
             <span className="font-dana-bold">

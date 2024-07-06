@@ -12,7 +12,7 @@ const Addresses = async () => {
   const addresses = await getUserAddresses();
 
   return (
-    <div className="relative mb-12">
+    <div className="relative mb-4">
       <TitleUserPanel title={"آدرس های من"} />
       <div className="absolute top-6 left-0">
         <Link href={`/panel/addresses/insert`}>
