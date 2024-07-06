@@ -81,7 +81,7 @@ const EditAddressForm = ({ address = {} }) => {
             {...register("fullAddress")}
             placeholder="آدرس دقیق شما به همراه کوچه و پلاک و واحد"
             className="w-full h-full border-none outline-none bg-gray-100 text-gray-700 dark:bg-gray-800 min-h-28 max-h-32 dark:text-gray-300"
-          />
+          /> 
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 mt-2 gap-1">
           <div className="p-2 border border-gray-200 bg-gray-100 dark:bg-gray-800 dark:border-gray-700 rounded-2xl">
