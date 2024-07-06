@@ -23,7 +23,7 @@ const ShowTicket = async ({ params: { ticketID } }) => {
             <span className="">
               <NotListedLocationRounded className="dark:text-gray-300 text-gray-700" />
             </span>
-            <p className="dark:text-gray-300 text-gray-700">وضعیت تیکت : </p>
+            <p className="dark:text-gray-300 text-gray-700 text-sm">وضعیت تیکت : </p>
             <p
               className={`${
                 ticket.isAnswer === 1 ? "text-green-500" : "text-orange-500"
@@ -63,17 +63,17 @@ const ShowTicket = async ({ params: { ticketID } }) => {
             <span className="">
               <NotListedLocationRounded className="dark:text-gray-300 text-gray-700" />
             </span>
-            <p className="dark:text-gray-300 text-gray-700">وضعیت تیکت : </p>
+            <p className="dark:text-gray-300 text-gray-700 text-sm">وضعیت تیکت : </p>
             <p
               className={`${
                 ticket.isAnswer === 1 ? "text-green-500" : "text-orange-500"
-              }`}
+              } text-sm`}
             >
               {ticket.isAnswer === 1 ? "پاسخ پشتیبان" : "انتظار پاسخ"}
             </p>
           </div>
 
-          <div className={`flex gap-x-0.5 items-center px-2 py-1`}>
+          <div className={`flex gap-x-0.5 items-center px-2 py-1 text-sm`}>
             <p className="dark:text-gray-300 text-gray-700">شناسه تیکت : </p>
             <p className={`dark:text-gray-300 text-gray-700 font-dana pt-0.5`}>
               {ticket.code}
@@ -81,7 +81,7 @@ const ShowTicket = async ({ params: { ticketID } }) => {
           </div>
 
           {ticket.orderID && (
-            <div className="flex gap-x-0.5 items-center px-2 py-1">
+            <div className="flex gap-x-0.5 items-center px-2 py-1 text-sm">
               <p className="dark:text-gray-300 text-gray-700">شناسه سفارش : </p>
               <p
                 className={`dark:text-gray-300 text-gray-700 font-dana pt-0.5`}
@@ -98,26 +98,26 @@ const ShowTicket = async ({ params: { ticketID } }) => {
               شما
             </span>
             <div className="border p-2 rounded-2xl rounded-tr border-gray-200 bg-gray-100 dark:bg-gray-800 dark:border-gray-700">
-              <p className="dark:text-gray-200 text-gray-800 pr-5">
+              <p className="dark:text-gray-200 text-gray-800 pr-5 text-sm">
                 {ticket.body}
               </p>
             </div>
-            <div className="text-sm dark:text-gray-400 text-gray-600 flex gap-x-0.5 pr-7 mt-1">
+            <div className="text-xs dark:text-gray-400 text-gray-600 flex gap-x-0.5 pr-7 mt-1">
               <p>ارسال شده در :</p>
               <p className="font-dana">{ConvertToPersian(ticket.createdAt)}</p>
             </div>
           </div>
           {ticket.isAnswer === 1 && (
             <div className="p-3 relative">
-              <span className="w-10 h-10 bg-gray-300 rounded-full flex justify-center items-center text-sm absolute -left-1 -top-1">
+              <span className="w-10 h-10 border border-green-500/50 bg-gray-300 rounded-full flex justify-center items-center text-sm absolute -left-1 -top-1">
                 پاسخ
               </span>
               <div className="border p-2 rounded-2xl rounded-tl border-gray-200 bg-gray-100 dark:bg-gray-800 dark:border-gray-700">
-                <p className="dark:text-gray-200 text-gray-800 pl-5">
+                <p className="dark:text-gray-200 text-gray-800 pl-5 text-sm">
                   {ticket.answerContent}
                 </p>
               </div>
-              <div className="text-sm text-gray-600 dark:text-gray-400 flex justify-end gap-x-0.5 pl-7 mt-1">
+              <div className="text-xs text-gray-600 dark:text-gray-400 flex justify-end gap-x-0.5 pl-7 mt-1">
                 <p>پاسخ داده شده در :</p>
                 <p className="font-dana">
                   {ConvertToPersian(ticket.updatedAt)}

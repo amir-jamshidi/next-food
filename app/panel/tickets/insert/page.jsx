@@ -9,7 +9,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { ticketSchema } from "@/helpers/schemas";
 import { SendTicket } from "@/libs/postRequests";
 
-
 const InsertTicket = () => {
   const router = useRouter();
 
@@ -34,7 +33,7 @@ const InsertTicket = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="">
       <TitleUserPanel title={"ارسال تیکت جدید"} />
       <BackButton />
       <div className="flex absolute top-9 right-0 flex-wrap ml-10 gap-1">
