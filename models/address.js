@@ -9,11 +9,11 @@ export const addressSchema = new mongoose.Schema({
     },
     lat: {
         type: Number,
-        required: true
+        required: false
     },
     lng: {
         type: Number,
-        required: true
+        required: false
     },
     reciver: {
         type: String,

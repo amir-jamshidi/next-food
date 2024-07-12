@@ -23,9 +23,9 @@ export async function generateMetadata({ params }) {
 }
 
 const page = async ({ params: { mealHref } }) => {
-  const { meal, isFavorite, loginUser } = await getMeal(mealHref);
-
-  if (!meal) notFound();
+  const details = await getMeal(mealHref);
+  if (!details) return notFound();
+  const { meal, isFavorite, loginUser } = details;
 
   const sizes = meal.sizes.map((size) => {
     return {
@@ -101,7 +101,7 @@ const page = async ({ params: { mealHref } }) => {
               />
             </div>
           </div>
-          <div className="md:py-12 py-6 px-4 flex flex-col justify-center">
+          <div className="md:py-12 py-6 px-2 md:px-4 flex flex-col justify-center">
             <div className="w-10 h-10 z-10 transition-colors rounded-full hover:bg-red-600 bg-red-500 absolute left-4 top-4 flex pr-0.5 items-center">
               <Link href={"/"}>
                 <span className="w-10 h-10 flex items-center justify-center">

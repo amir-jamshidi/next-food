@@ -1,7 +1,7 @@
 import ToastPromise from "@/helpers/ToastPromise";
 import axios from "axios";
 
-export const insertToCart = (cart, callback) => {
+export const insertToCart = (cart, callback, error) => {
   const promis = axios
     .post("/api/cart", cart)
     .then((res) => {
@@ -12,6 +12,7 @@ export const insertToCart = (cart, callback) => {
       }
     })
     .catch((err) => {
+      error();
       if (err.response.status === 401) {
         throw new Error("لطفا اول ثبت نام کنید");
       } else {
@@ -80,11 +81,12 @@ export const AddAddress = (values, address, callback) => {
   });
 };
 
-export const UpdateInfos = (values) => {
+export const UpdateInfos = (values, callback) => {
   const promise = axios
     .post("/api/user-info", values)
     .then((res) => {
       if (res.status !== 200) throw new Error("خطای ناشناخته");
+      callback();
     })
     .catch((err) => {
       throw new Error("خطای ناشناخته");

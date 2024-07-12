@@ -8,9 +8,12 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ticketSchema } from "@/helpers/schemas";
 import { SendTicket } from "@/libs/postRequests";
+import { useState } from "react";
 
 const InsertTicket = () => {
   const router = useRouter();
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const { data: { sections = [], orders = [] } = {} } = useQuery(
     ["ticket/details"],
@@ -26,6 +29,7 @@ const InsertTicket = () => {
   });
 
   const startSendTicket = (values) => {
+    setIsSubmitting(true);
     SendTicket(values, (_) => {
       router.push("/panel/tickets");
       router.refresh();
@@ -33,7 +37,7 @@ const InsertTicket = () => {
   };
 
   return (
-    <div className="">
+    <div className="relative">
       <TitleUserPanel title={"ارسال تیکت جدید"} />
       <BackButton />
       <div className="flex absolute top-9 right-0 flex-wrap ml-10 gap-1">
@@ -52,7 +56,7 @@ const InsertTicket = () => {
             <select
               autoComplete="off"
               {...register("sectionID")}
-              className="w-full bg-gray-100 text-gray-700 dark:text-gray-200 dark:bg-gray-800  outline-none border-none h-10 rounded-2xl"
+              className="w-full h-[45px] text-sm bg-gray-100 text-gray-700 dark:text-gray-200 dark:bg-gray-800  outline-none border-none rounded-2xl"
             >
               <option value={"-1"}>بخش مورد نظر</option>
               {sections.map((section) => (
@@ -67,7 +71,7 @@ const InsertTicket = () => {
             <select
               autoComplete="off"
               {...register("orderID")}
-              className="w-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200  outline-none border-none h-10 rounded-2xl"
+              className="w-full h-[45px] text-sm bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 outline-none border-none rounded-2xl"
             >
               <option value={"-1"}>شناسه سفارش مورد نظر (اختیاری)</option>
               {orders.map((order) => (
@@ -83,13 +87,14 @@ const InsertTicket = () => {
             autoComplete="off"
             {...register("body")}
             placeholder="متن تیکت"
-            className="w-full h-full border-none outline-none bg-gray-100 dark:bg-gray-800 min-h-40 max-h-44 dark:text-gray-300 text-gray-700"
+            className="w-full h-full border-none text-sm outline-none bg-gray-100 dark:bg-gray-800 min-h-40 max-h-44 dark:text-gray-300 text-gray-700"
           />
         </div>
         <input
+          disabled={isSubmitting}
           type="submit"
-          value="ارسال تیکت"
-          className="cursor-pointer  bg-green-500 rounded-2xl px-6 py-1.5 text-gray-200 mt-2"
+          value={`${isSubmitting ? "لطفا صبر کنید ..." : "ارسال تیکت"}`}
+          className="cursor-pointer h-[45px] text-sm w-full bg-green-500 rounded-2xl px-6 py-1.5 text-gray-200 mt-2"
         />
       </form>
     </div>

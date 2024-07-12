@@ -2,22 +2,27 @@
 
 import { SeenNotification } from "@/libs/postRequests";
 import { useRouter } from "next/navigation";
+import { useTransition } from "react";
 
 const NotificationButton = ({ notificationID }) => {
   const router = useRouter();
+  const [isLoading, startTransition] = useTransition();
   const startSeenNotification = () => {
-    SeenNotification(notificationID, (_) => {
-      router.refresh();
-    });
+    startTransition(() =>
+      SeenNotification(notificationID, (_) => {
+        router.refresh();
+      })
+    );
   };
 
   return (
-    <span
+    <button
+      disabled={isLoading}
       onClick={startSeenNotification}
-      className="text-green-600 cursor-pointer"
+      className="text-green-600 cursor-pointer my-auto text-xs md:text-sm"
     >
-      باشه
-    </span>
+      {isLoading ? <div className="loader-notif ml-1"></div> : "باشه"}
+    </button>
   );
 };
 

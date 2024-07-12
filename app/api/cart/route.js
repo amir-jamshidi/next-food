@@ -5,18 +5,16 @@ export const POST = async (req) => {
     try {
 
         const isLoginUser = await isLogin();
-
         if (!isLoginUser) return NextResponse.json({ message: 'UnAuth' }, { status: 401 });
-
         const { mealID, sizeID, size, price, action } = await req.json();
-
         const hasMeal = await cartModel.findOne({ mealID, userID: isLoginUser._id, sizeID }).lean();
 
         if (hasMeal) {
             if (action === 'PLUS') {
                 await cartModel.findOneAndUpdate({ mealID, userID: isLoginUser._id, sizeID }, { $inc: { count: +1, totalPrice: hasMeal.price } }).lean()
             } else if (action === 'MINUS') {
-                await cartModel.findOneAndUpdate({ mealID, userID: isLoginUser._id, sizeID }, { $inc: { count: -1, totalPrice: -(hasMeal.price) } }).lean()
+                if (hasMeal.count >= 2)
+                    await cartModel.findOneAndUpdate({ mealID, userID: isLoginUser._id, sizeID }, { $inc: { count: -1, totalPrice: -(hasMeal.price) } }).lean()
             } else {
                 await cartModel.findOneAndDelete({ mealID, userID: isLoginUser._id, sizeID }).lean();
             }

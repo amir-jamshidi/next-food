@@ -31,7 +31,7 @@ export const POST = async (req) => {
         if (order) {
             await cartModel.deleteMany({ userID: isLoginUser._id }).lean();
             const notification = {
-                userID: isLoginUser._id, message: `سفارش شما ثبت شد ${order.code}`, type: "success", isSeen: 0
+                userID: isLoginUser._id, message: `سفارش شما بزودی ارسال میشود`, type: "success", isSeen: 0
             }
             await notificationModel.create(notification)
             return NextResponse.json({ message: 'success' }, { status: 201 })

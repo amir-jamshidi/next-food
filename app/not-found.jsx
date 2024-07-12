@@ -16,10 +16,10 @@ const NotFound = () => {
           src={notFoundImg}
           className="w-3/5"
         />
-        <h1 className="text-4xl text-red-500">صفحه ای که دنبالشی پیدا نشد</h1>
+        <h1 className="sm:text-lg md:text-2xl lg:text-3xl text-red-500">صفحه ای که دنبالشی پیدا نشد</h1>
         <Link
           href="/"
-          className="text-green-500 hover:text-green-600 transition-colors mt-4"
+          className="text-green-500 text-sm sm:text-base hover:text-green-600 transition-colors mt-4"
         >
           بازگشت به صفحه اصلی
         </Link>

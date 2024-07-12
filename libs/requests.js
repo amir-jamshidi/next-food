@@ -78,6 +78,7 @@ export const getMeal = async (href) => {
     try {
         connectToMongo();
         const meal = await mealModel.findOne({ href: `/${href}` }).populate('categoryID').populate({ path: 'sellerID', model: sellerModel }).lean();
+        if (!meal) return false
         const isLoginUser = await isLogin();
         let isFavorite = false
         let loginUser = false;

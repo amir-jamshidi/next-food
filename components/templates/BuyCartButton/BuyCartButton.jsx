@@ -1,7 +1,6 @@
 "use client";
 
 import { completeBuyCart } from "@/libs/postRequests";
-import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -63,13 +62,28 @@ const BuyCartButton = ({ price, addresses }) => {
           )}
         </div>
       </div>
-      <button
-        disabled={isLoading}
-        onClick={startCompleteBuyCart}
-        className="bg-red-500 hover:bg-red-600 transition-colors text-gray-100 py-2 rounded-lg"
-      >
-        {isLoading ? "در حال اتصال ..." : "  تسویه حساب و پرداخت آنلاین"}
-      </button>
+      {Number(price) < 100_000 ? (
+        <button
+          disabled={true}
+          className="bg-gray-400 hover:bg-gray-400 transition-colors text-gray-100 py-2 rounded-lg"
+        >
+         مبلغ کل کمتر از حد مجاز
+        </button>
+      ) : (
+        <button
+          disabled={isLoading}
+          onClick={startCompleteBuyCart}
+          className="bg-red-500 hover:bg-red-600 transition-colors text-gray-100 py-2 rounded-lg"
+        >
+          {isLoading ? "در حال اتصال ..." : "  تسویه حساب و پرداخت آنلاین"}
+        </button>
+      )}
+
+      <div className="flex justify-center">
+        <span className="text-xs text-center text-gray-400 dark:bg-gray-800 bg-white px-2 py-0.5 rounded-md">
+          حداقل مبلغ سفارش باید صدهزار تومان باشد
+        </span>
+      </div>
     </>
   );
 };

@@ -10,12 +10,12 @@ const MealBuyBox = ({ sizes, mealID, sellers }) => {
   const [sellerID, setSellerID] = useState(sellers[0]._id);
   const [price, setPrice] = useState(sizes[0].price);
   const [sizeName, setSizeName] = useState(sizes[0].size);
-  
+  const [isPending, setIsPending] = useState(false);
+
   const addToCart = () => {
-    
     if (!sellerID) return toast.error("لطفا رستوران رو مشخص کن");
     if (!sizeID) return toast.error("لطفا سایز سفارش رو مشخص کن");
-    
+
     const cart = {
       mealID,
       sellerID,
@@ -24,15 +24,23 @@ const MealBuyBox = ({ sizes, mealID, sellers }) => {
       size: sizeName,
       action: "PLUS",
     };
-    insertToCart(cart, (res) => {
-      router.refresh();
-      setSizeID("");
-      setSellerID("");
-      setPrice("");
-      setSizeName("");
-    });
+    setIsPending(true);
+    insertToCart(
+      cart,
+      (res) => {
+        setIsPending(false);
+        router.refresh();
+        setSizeID("");
+        setSellerID("");
+        setPrice("");
+        setSizeName("");
+      },
+      () => {
+        setIsPending(false);
+      }
+    );
   };
-  
+
   return (
     <>
       <div className="bg-gray-100 dark:bg-gray-700 flex flex-col mt-5 rounded-2xl px-4 py-5 gap-y-1 ">
@@ -52,7 +60,9 @@ const MealBuyBox = ({ sizes, mealID, sellers }) => {
                 sellerID === seller._id ? "w-2.5" : "w-0"
               } absolute transition-all bg-green-500 inline-block right-0 h-full rounded-r-md`}
             ></span>
-            <p className="text-gray-700 dark:text-gray-200">نام : {seller.name}</p>
+            <p className="text-gray-700 dark:text-gray-200">
+              نام : {seller.name}
+            </p>
             <span className="flex-1 h-px border border-dashed border-gray-200 dark:border-gray-700 mx-3"></span>
             <div className="flex gap-x-1">
               <p className="text-red-500">ارسال فوری</p>
@@ -79,7 +89,9 @@ const MealBuyBox = ({ sizes, mealID, sellers }) => {
                 sizeID === size._id ? "w-2.5" : "w-0"
               } absolute transition-all bg-green-500 inline-block right-0 h-full rounded-r-md`}
             ></span>
-            <p className="text-gray-700 dark:text-gray-200">سایز : {size.size}</p>
+            <p className="text-gray-700 dark:text-gray-200">
+              سایز : {size.size}
+            </p>
             <span className="flex-1 h-px border border-gray-200 dark:border-gray-700 border-dashed mx-3"></span>
             <div className="flex gap-x-1">
               <p className="font-dana-bold text-red-500">
@@ -94,8 +106,11 @@ const MealBuyBox = ({ sizes, mealID, sellers }) => {
           className="flex justify-center items-center mt-3"
           onClick={addToCart}
         >
-          <button className="bg-red-500 rounded-xl w-full py-2 text-white hover:bg-red-600 transition-colors">
-            اضافه کن به سبد خرید
+          <button
+            disabled={isPending}
+            className="bg-red-500 rounded-xl w-full py-2 text-white hover:bg-red-600 transition-colors"
+          >
+            {isPending ? "لطفا صبر کنید ..." : "اضافه کن به سبد خرید"}
           </button>
         </div>
       </div>

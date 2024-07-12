@@ -12,11 +12,13 @@ const Sidebar = ({ children }) => {
       className={`fixed top-0 ${
         isOpenSidebar
           ? " right-0 visible opacity-100 "
-          : " -right-[100%] invisible opacity-0 "
-      } z-50 w-full block md:hidden transition-all `}
+          : " invisible opacity-0 "
+      } z-50 w-full block md:hidden`}
     >
       <div className="flex">
-        <div className="w-[300px] dark:bg-gray-800 bg-gray-200 h-screen relative">
+        <div
+          className={`${isOpenSidebar ? 'right-0' : '-right-[300px]'} w-[300px] transition-all absolute dark:bg-gray-800 bg-gray-200 h-screen top-0 bottom-0 z-10`}
+        >
           <span
             onClick={() => setIsOpenSidebar(false)}
             className="absolute left-3 top-[22px] cursor-pointer rounded-full w-6 h-6 flex justify-center items-center"

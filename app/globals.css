@@ -169,3 +169,13 @@
 .leaflet-popup-content-wrapper {
   border-left: 5px solid var(--color-brand--2);
 }
+/* HTML: <div class="loader"></div> */
+.loader-notif {
+  width: 16px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px solid lightblue;
+  border-right-color: orange;
+  animation: l2 1s infinite linear;
+}
+@keyframes l2 {to{transform: rotate(1turn)}}

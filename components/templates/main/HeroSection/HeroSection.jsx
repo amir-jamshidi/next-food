@@ -19,7 +19,7 @@ const HeroSection = () => {
             />
           </div>
         </div>
-        <div className="md:my-28 my-10 text-center flex flex-col gap-y-2">
+        <div className="md:my-28 my-10 text-center flex flex-col gap-y-2 px-1">
           <h1 className="text-4xl text-gray-800 dark:text-gray-100 mb-8">
             نکستـــ{" "}
             <span className="text-red-500 font-morabba-bold">فـــود</span>

@@ -10,21 +10,12 @@ export const metadata = {
 const ShowAddress = async ({ params: { addressID } }) => {
   const address = await getAddressDetails(addressID);
   if (!address) notFound();
-  const { _id, reciver, phone, name, fullAddress } = address;
-
-  const addressData = {
-    id: String(_id),
-    reciver,
-    phone,
-    name,
-    fullAddress,
-  };
 
   return (
     <div className="relative">
       <TitleUserPanel title={"اضافه کردن آدرس"} />
       <BackButton />
-      <EditAddressForm address={addressData} />
+      <EditAddressForm address={JSON.parse(JSON.stringify(address))} />
     </div>
   );
 };
