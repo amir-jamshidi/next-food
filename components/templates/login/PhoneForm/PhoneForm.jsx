@@ -5,7 +5,7 @@ import { LocalPhoneRounded } from "@mui/icons-material";
 const PhoneForm = ({ preUserAction, errors }) => {
   return (
     <form action={preUserAction} className="flex flex-col gap-1">
-      <div className="rounded-2xl flex bg-gray-100 dark:bg-gray-700 items-center w-full gap-x-1.5 p-1.5">
+      <div className="rounded-2xl flex bg-gray-100 dark:bg-gray-700 items-center w-full gap-x-1.5 px-1.5 h-11">
         <span className="bg-gray-200 dark:bg-gray-500  rounded-xl p-1">
           <LocalPhoneRounded className="text-gray-700 dark:text-gray-300 " />
         </span>
@@ -13,14 +13,14 @@ const PhoneForm = ({ preUserAction, errors }) => {
           autoComplete="off"
           name="phone"
           type="text"
-          className=" outline-none w-full text-gray-700 bg-gray-100 dark:bg-gray-700 dark:text-gray-200"
+          className="text-sm md:text-base outline-none w-full text-gray-700 bg-gray-100 dark:bg-gray-700 dark:text-gray-200"
           placeholder="شماره همراه"
           required
         />
       </div>
       {errors?.length > 0 && (
         <div>
-          <span className="text-sm bg-red-500 px-2 py-0.5 rounded text-white">
+          <span className="text-xs md:text-sm bg-red-500 px-2 py-0.5 rounded text-white">
             {errors[0]?.message}
           </span>
         </div>

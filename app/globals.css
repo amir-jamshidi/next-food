@@ -179,3 +179,25 @@
   animation: l2 1s infinite linear;
 }
 @keyframes l2 {to{transform: rotate(1turn)}}
+
+.pattern-tow , .pattern , .pattern-one{
+  background-image: url('../public/images/pat3.png');
+  background-repeat: repeat;
+  background-position: center;
+  background-size: contain;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+  opacity: 0.3;
+}
+.pattern-tow{
+  background-image: url('../public/images/pat2.png');
+  
+}
+.pattern-one{
+  background-image: url('../public/images/pat1.png');
+ 
+}

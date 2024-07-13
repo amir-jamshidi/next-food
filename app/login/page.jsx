@@ -8,9 +8,6 @@ import { useRouter } from "next/navigation";
 import CodeForm from "@/components/templates/login/CodeForm/CodeForm";
 import PhoneForm from "@/components/templates/login/PhoneForm/PhoneForm";
 
-
-
-
 const Login = () => {
   const router = useRouter();
   const [preUserState, preUserAction] = useFormState(preUserHandler, {
@@ -45,7 +42,7 @@ const Login = () => {
             ورود | ثبت نام
           </h3>
         </div>
-        <div className="w-full py-4 px-3 mt-2 ">
+        <div className="w-full py-5 px-3 mt-2 ">
           {preUserState.isSuccess ? (
             <CodeForm
               loginUserAction={loginUserAction}
@@ -58,11 +55,6 @@ const Login = () => {
               errors={preUserState.errors}
             />
           )}
-          <div className="mt-2 flex ">
-            {/* <p className="text-sm text-blue-500 ">
-              نیاز به راهنمایی بیشتر داری ؟
-            </p> */}
-          </div>
         </div>
       </div>
       <div className="mt-5">

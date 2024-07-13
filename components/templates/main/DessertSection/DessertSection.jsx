@@ -5,7 +5,7 @@ import { getMeals } from "@/libs/requests";
 import React from "react";
 
 const DessertSection = async () => {
-  const desserts = await getMeals("dessert");
+  const {meals:desserts} = await getMeals("dessert");
   return (
     <div>
       <TitleSection title={"دسـر"} />

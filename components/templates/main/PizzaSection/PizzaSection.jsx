@@ -5,7 +5,8 @@ import MealItem from "@/components/modules/MealItem/MealItem";
 import MoreSection from "@/components/modules/MoreSection/MoreSection";
 
 const PizzaSection = async () => {
-  const pizzas = await getMeals("pizza");
+  const { meals: pizzas } = await getMeals("pizza");
+
   return (
     <div>
       <TitleSection title="پیتزا" />

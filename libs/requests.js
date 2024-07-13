@@ -30,35 +30,32 @@ export const getMenu = async () => {
 export const getMeals = async (category, sort) => {
     try {
         connectToMongo();
-        let meals;
-        const cate = await categoryModel.findOne({ href: `/${category}` })
+        let meals = [];
+        const categoryDetails = await categoryModel.findOne({ href: `/${category}` })
 
-        if (!cate) return null;
+        if (!categoryDetails) return null;
 
         if (sort) {
             switch (sort) {
                 case "popular": {
-                    meals = await mealModel.find({ categoryID: cate._id }).populate('categoryID').sort({ sellCount: -1 }).lean()
+                    meals = await mealModel.find({ categoryID: categoryDetails._id }).populate('categoryID').sort({ sellCount: -1 }).lean()
                     break
                 }
                 case "expensive": {
-                    meals = await mealModel.find({ categoryID: cate._id }).populate('categoryID').sort({ basePrice: -1 }).lean()
+                    meals = await mealModel.find({ categoryID: categoryDetails._id }).populate('categoryID').sort({ basePrice: -1 }).lean()
                     break
                 }
                 case "inexpensive": {
-                    meals = await mealModel.find({ categoryID: cate._id }).populate('categoryID').sort({ basePrice: 1 }).lean()
+                    meals = await mealModel.find({ categoryID: categoryDetails._id }).populate('categoryID').sort({ basePrice: 1 }).lean()
                     break
                 }
             }
         } else {
-            meals = await mealModel.find({ categoryID: cate._id }).populate('categoryID').lean()
+            meals = await mealModel.find({ categoryID: categoryDetails._id }).populate('categoryID').lean()
         }
-        // meals.forEach(meal => {
-        //     meal._id = String(meal._id);
-        // })
-        if (meals) {
-            return meals;
-        }
+
+
+        return { meals, categoryDetails };
     } catch (error) {
         return error
     }

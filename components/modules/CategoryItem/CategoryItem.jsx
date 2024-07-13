@@ -6,7 +6,7 @@ const CategoryItem = ({ category }) => {
   return (
     <Link href={`category/${category.href}`}>
       <div
-        className="cursor-pointer py-5 rounded-2xl transition-all bg-gray-800 px-2.5"
+        className="cursor-pointer py-5 rounded-2xl transition-all bg-white dark:bg-gray-800 px-2.5"
         key={category._id}
       >
         <div className="relative rounded-full h-36">
