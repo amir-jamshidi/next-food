@@ -146,6 +146,15 @@ export const getBestSellers = async () => {
         return error
     }
 }
+export const getMealsBySearch = async (query = '') => {
+    try {
+        var regex = new RegExp(query.replace(/([.\*+?^${}()|[\]\\])/g, '\\$1'), 'g');
+        const meals = await mealModel.find({ name: regex });
+        return meals
+    } catch (error) {
+        return error
+    }
+}
 // ----------------- END USERS ACTION
 
 

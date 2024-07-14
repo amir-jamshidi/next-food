@@ -1,8 +1,9 @@
 "use client";
 
 import ThemeContext from "@/contexts/ThemeContext";
-import { CloseRounded } from "@mui/icons-material";
+import { CloseRounded, SearchRounded } from "@mui/icons-material";
 import { useContext } from "react";
+import SearchSidebar from "./SearchSidebar";
 
 const Sidebar = ({ children }) => {
   const { setIsOpenSidebar, isOpenSidebar } = useContext(ThemeContext);
@@ -17,7 +18,9 @@ const Sidebar = ({ children }) => {
     >
       <div className="flex">
         <div
-          className={`${isOpenSidebar ? 'right-0' : '-right-[300px]'} w-[300px] transition-all absolute dark:bg-gray-800 bg-gray-200 h-screen top-0 bottom-0 z-10`}
+          className={`${
+            isOpenSidebar ? "right-0" : "-right-[300px]"
+          } w-[300px] transition-all absolute dark:bg-gray-800 bg-gray-200 h-screen top-0 bottom-0 z-10`}
         >
           <span
             onClick={() => setIsOpenSidebar(false)}
@@ -30,6 +33,7 @@ const Sidebar = ({ children }) => {
               نکست فود
             </h3>
           </div>
+          <SearchSidebar />
           <div className="py-4 px-2">{children}</div>
         </div>
         <div
