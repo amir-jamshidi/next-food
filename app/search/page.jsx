@@ -1,6 +1,6 @@
 import PageTitle from "@/components/modules/PageTitle/PageTitle";
-import SearchComponent from "@/components/templates/Search/SearchComponent";
-import SearchMealsSection from "@/components/templates/Search/SearchMealsSection";
+import SearchComponent from "@/components/templates/search/SearchComponent";
+import SearchMealsSection from "@/components/templates/search/SearchMealsSection";
 import { getMealsBySearch } from "@/libs/requests";
 
 const Search = async ({ searchParams }) => {
