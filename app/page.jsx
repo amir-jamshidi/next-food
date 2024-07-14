@@ -1,3 +1,4 @@
+import BestSellersSection from "@/components/templates/main/BestSellersSection/BestSellersSection";
 import BeverageSection from "@/components/templates/main/BeverageSection/BeverageSection";
 import CategoriesSection from "@/components/templates/main/CategoriesSection/CategoriesSection";
 import DessertSection from "@/components/templates/main/DessertSection/DessertSection";
@@ -16,6 +17,7 @@ export default function Home() {
       <DessertSection />
       <BeverageSection />
       <SocialMedia />
+      <BestSellersSection />
     </div>
   );
 }

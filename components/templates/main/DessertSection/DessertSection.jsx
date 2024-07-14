@@ -14,7 +14,7 @@ const DessertSection = async () => {
           <MealItem key={desserts._id} meal={desserts} />
         ))}
       </div>
-      <MoreSection href={"dessert"} />
+      <MoreSection href={"/category/dessert"} />
     </div>
   );
 };

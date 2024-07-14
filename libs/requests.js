@@ -128,6 +128,24 @@ export const getAddresses = async () => {
         return err
     }
 }
+export const getAllCategories = async () => {
+    try {
+        connectToMongo();
+        const categories = await categoryModel.find({}).lean();
+        return categories
+    } catch (error) {
+        return error
+    }
+}
+export const getBestSellers = async () => {
+    try {
+        await connectToMongo()
+        const sellers = await sellerModel.find({}).limit(4).lean();
+        return sellers
+    } catch (error) {
+        return error
+    }
+}
 // ----------------- END USERS ACTION
 
 

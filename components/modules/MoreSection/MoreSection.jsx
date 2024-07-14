@@ -15,7 +15,7 @@ const MoreSection = ({ href }) => {
         <span className="h-8 mt-4 w-1 bg-red-300 rounded-md"></span>
         <span className="h-16 w-1 bg-red-400 rounded-md"></span>
       </div>
-      <Link href={`/category/${href}`} className="hover:scale-110 transition-all delay-75">
+      <Link href={`${href}`} className="hover:scale-110 transition-all delay-75">
         <div className="w-14 h-14 bg-red-500 rounded-full flex justify-center items-center">
           <div className="w-11 h-11 bg-red-400 rounded-full flex justify-center items-center">
             <span className="">
