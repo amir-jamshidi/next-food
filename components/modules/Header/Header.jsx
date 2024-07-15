@@ -3,6 +3,7 @@ import {
   ArrowLeftRounded,
   CloseRounded,
   MenuRounded,
+  SearchRounded,
   ShoppingCartRounded,
 } from "@mui/icons-material";
 import React from "react";
@@ -15,6 +16,7 @@ import ChangeThemeButton from "../ChangeThemeButton/ChangeThemeButton";
 import Sidebar from "../Sidebar/Sidebar";
 import OpenSidebarButton from "../OpenSidebarButton/OpenSidebarButton";
 import SidebarBody from "@/components/templates/sidebar/SidebarBody/SidebarBody";
+import HeaderSearchSection from "./HeaderSearchSection";
 
 const Header = async () => {
   const isAdminUser = await isAdmin();
@@ -30,7 +32,7 @@ const Header = async () => {
         <div className="bg-gray-200 dark:bg-gray-800 transition-colors ">
           <div className="h-20 container">
             <div className="flex w-full h-full">
-              <div className="flex-1 flex items-center justify-start">
+              <div className="flex-1 flex items-center justify-start gap-x-2">
                 <Link href={"/cart"}>
                   <span className="relative bg-red-500 rounded-full h-10 w-10 flex justify-center items-center">
                     <ShoppingCartRounded className="text-white" />
@@ -39,6 +41,9 @@ const Header = async () => {
                     </span>
                   </span>
                 </Link>
+                <div>
+                  <HeaderSearchSection />
+                </div>
               </div>
               <div className="flex-1 flex justify-center items-center">
                 <h1 className="text-2xl">
@@ -80,8 +85,10 @@ const Header = async () => {
           </div>
           <div className="flex-1 h-full flex items-center justify-center">
             <h1 className="flex text-xl font-font-morabba-bold">
-              <Link href={`/`} className='flex'>
-                <p className="font-morabba-bold ml-1 text-gray-800 dark:text-gray-200">نکستـــ</p>
+              <Link href={`/`} className="flex">
+                <p className="font-morabba-bold ml-1 text-gray-800 dark:text-gray-200">
+                  نکستـــ
+                </p>
                 <p className="font-morabba-bold text-red-500">فـــود</p>
               </Link>
             </h1>
