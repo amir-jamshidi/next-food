@@ -1,9 +1,11 @@
 "use client";
-import  ThemeContext from "@/contexts/ThemeContext";
+import ThemeContext from "@/contexts/ThemeContext";
 import { useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
 import { QueryClient, QueryClientProvider } from "react-query";
 
+
+const queryClient = new QueryClient();
 export const Provider = ({ children }) => {
   const [theme, setTheme] = useState("dark");
   const [isOpenSidebar, setIsOpenSidebar] = useState(false);
@@ -21,7 +23,7 @@ export const Provider = ({ children }) => {
 
   return (
     <>
-      <QueryClientProvider client={new QueryClient()}>
+      <QueryClientProvider client={queryClient}>
         <ThemeContext.Provider
           value={{ theme, setTheme, isOpenSidebar, setIsOpenSidebar }}
         >

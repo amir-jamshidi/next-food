@@ -10,10 +10,12 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 
 const AdditionalSlider = () => {
-  const { data: { data: meals = [] } = {} } = useQuery(
-    ["category/additional"],
-    () => axios.get("/api/category/additional")
-  );
+
+  const { data: { data: meals = [] } = {} } = useQuery({
+    queryKey: ["additional"],
+    queryFn: () => axios.get("/api/category/additional"),
+  });
+
   return (
     <div className="mt-7">
       <Swiper

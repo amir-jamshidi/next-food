@@ -2,6 +2,7 @@ import BestSellersSection from "@/components/templates/main/BestSellersSection/B
 import BeverageSection from "@/components/templates/main/BeverageSection/BeverageSection";
 import CategoriesSection from "@/components/templates/main/CategoriesSection/CategoriesSection";
 import DessertSection from "@/components/templates/main/DessertSection/DessertSection";
+import GallerySection from "@/components/templates/main/GallerySection/GallerySection";
 import HeroSection from "@/components/templates/main/HeroSection/HeroSection";
 import PizzaSection from "@/components/templates/main/PizzaSection/PizzaSection";
 import SandwichSection from "@/components/templates/main/SandwichSection/SandwichSection";
@@ -18,6 +19,7 @@ export default function Home() {
       <BeverageSection />
       <SocialMedia />
       <BestSellersSection />
+      <GallerySection />
     </div>
   );
 }

@@ -14,7 +14,7 @@ const BestSellersSection = async () => {
         {sellers.map((seller) => (
           <div className="bg-white dark:bg-gray-800 rounded-2xl grid grid-cols-[3fr,5fr] p-2">
             <div className="relative rounded-xl overflow-hidden">
-              <Image fill className="object-cover" src={seller.photo} />
+              <Image alt="Seller Photo" fill className="object-cover" src={seller.photo} />
             </div>
             <div className="px-2 py-1 flex flex-col gap-y-3">
               <div className="flex flex-col gap-y-2.5">

@@ -7,6 +7,7 @@ import codeGnerator from "@/utils/codeGnerator";
 import verifyTimeGnerator from "@/utils/vrifyTimeGnerator";
 import jwt from 'jsonwebtoken'
 import { cookies } from "next/headers";
+import request from "request";
 
 
 
@@ -33,6 +34,23 @@ export const preUserHandler = async (_prevState, formData) => {
 
     // Create PreUser
     const code = codeGnerator();
+
+    request.post(
+        {
+            url: "http://ippanel.com/api/select",
+            body: {
+                op: "pattern",
+                user: "u09928168447",
+                pass: "Faraz@1402546340042007",
+                fromNum: "3000505",
+                toNum: formData.get('phone'),
+                patternCode: "k2kt41x59fj09b3",
+                inputData: [{ "verification-code": code }],
+            },
+            json: true,
+        }
+    );
+
     const expire = verifyTimeGnerator(5);
     await preUserModel.create({ phone: formData.get('phone'), code, expire });
     if (!preUserModel) {
