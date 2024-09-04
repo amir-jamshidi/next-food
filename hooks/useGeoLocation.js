@@ -23,6 +23,5 @@ export const useGeolocation = (defaultPosition = null) => {
             setError(true)
         }
     }
-
     return { isLoading, error, position, getPosition }
 }
