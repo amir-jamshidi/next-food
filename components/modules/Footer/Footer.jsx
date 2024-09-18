@@ -1,6 +1,7 @@
 import { FavoriteRounded } from "@mui/icons-material";
 import React from "react";
 
+
 const Footer = () => {
   return (
     <footer className="flex h-16 bg-gray-200 dark:bg-gray-800 mt-8">
